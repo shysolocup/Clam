@@ -2,7 +2,7 @@
     "token": "a",
     "version": "1.4",
     "versionText": "Public Beta",
-	"offline": false,
+    "offline": false,
     "theEpic": [],
 
 	"commandList": {
