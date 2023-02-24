@@ -1,3 +1,59 @@
 {
-  "token": "insert token here"
+    "token": "a",
+    "version": "1.4",
+    "versionText": "Public Beta",
+	"offline": false,
+    "theEpic": [],
+
+	"commandList": {
+		"General": [
+			"`!join <id>  •  Lets a user join a clan (as long as it's public)",
+			"!leave <id>  •  Lets a user leave a clan",
+			"!invite/inv <user> <id>  •  Sends a user an invite to a clan",
+			"!get <id>  •  Sends a page with details of the clan",
+			"!list  •  Sends a page with all of the clans in the server",
+			"!img/image <id>  •  Sends a clan's thumbnail",
+			"!img2/image2 <id>  •  Sends a clan's banner`"
+		],
+		"Management": [
+			"`!create/register  •  Creates a clan",
+			"!set/edit <id> <atr> <inp>  •  Changes a part of a clan",
+			"!shout <id> <message>  •  Changes the clan shout",
+			"!disband <id>  •  Deletes the given clan",
+			"!gold <id> <id>  •  Lets a clan owner transfer their gold to another",
+			"`\n(SERVER OWNERS ONLY)\n`!export • Lets the owner of the server export all clans into a .JSON file",
+			"!import <file>  •  Lets the owner of the server import a .JSON file of clans\n`"
+		],
+		"Moderation": [
+			"`!ban <user> <id>  •  Bans a user from a clan",
+			"!unban <user> <id>  •  Unbans a user from a clan",
+			"!kick <user> <id>  •  Kicks a user from a clan",
+			"!op <user> <id>  •  Gives a user operator permissions\n\n(WARNING: Op has permissions to use the mod commands including !set which could be dangerous.)\n",
+			"!deop <user> <id>  •  Removes a user's operator permissions`"
+		],
+		"Economy": [
+			"`!balance/bal <(OPTIONAL) user>  •  Gets a user's balance",
+			"!work  •  Lets you work for pearls",
+			"!fund/deposit <id> <amount>  •  Lets you put pearls into a clan",
+			"!withdraw <id> <amount>  •  Lets clan owners take out pearls",
+			"!give <user> <amount>  •  Lets you give others your pearls",
+			"!rob/steal <user>  •  Lets you take pearls from other people's balances",
+			"!slots <bet>  •  A game of slots that multiplies your bet if you win`"
+		],
+		"Epic": [
+			"`!getglobal <id>  •  Same as !get but clans from other servers",
+			"!forcedelete <id>  •  Lets you delete a clan by force",
+			"!forceset <id> <atr> <inp>  •  Lets you edit a clan by force",
+			"!forceshout <id> <message>  •  Changes a clan's shout by force",
+			"!forcejoin <id>  •  Lets you join a clan by force",
+			"!dump  •  Dumps the infostuffs table in a .JSON file in your DMs",
+			"!export  •  Lets you export all clans in a server into a .JSON file",
+			"!import <file>  •  Lets you import a .JSON file of clans into a server\n`"
+		]
+	},
+
+	"defaults": {
+		"icon": "https://cdn.discordapp.com/attachments/1037240528338685962/1058755295003807794/logo.png",
+		"banner": "https://cdn.discordapp.com/attachments/1037240528338685962/1058754479291387924/banner.png"
+	}
 }
