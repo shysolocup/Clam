@@ -1,6 +1,6 @@
 {
     "token": "token here",
-    "version": "1.4",
+    "version": "2.0",
     "versionText": "Public Beta",
-    "offline": false,
+    "offline": false
 }
