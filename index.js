@@ -5,4 +5,16 @@ const psc = new PSClient({ client: bot, prefix: "!" });
 
 const config = require('./config/config.json');
 
+
+bot.on("ready", () => {
+	console.log(`Logged in as ${bot.user.tag}`);
+	bot.user.setPresence({
+		activities: [{
+			name: `over <count would go here but I haven't added it yet> clans`,
+			type: ActivityType.Watching
+		}]
+	});
+});
+
+
 bot.login(config.token);
