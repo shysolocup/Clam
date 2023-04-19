@@ -1,0 +1,23 @@
+{
+    "name": "Clam",
+    "version": "1.4.0",
+    "author": "nutmeg",
+    "description": "A Discord bot letting you create and manage groups of people in a server",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/nuttmegg/Clam.git"
+    },
+    "bugs": {
+        "url": "https://github.com/nuttmegg/Clam/issues"
+    },
+    "license": {
+        "type": "MIT",
+        "url": "https://github.com/nuttmegg/Clam/blob/main/LICENSE"
+    },
+    "dependencies": {
+        "discord.js": "latest",
+        "discordpps": "latest",
+        "stews": "latest"
+    },
+    "main": "./index.js"
+}
