@@ -5,7 +5,6 @@ const psc = new PSClient({ client: bot, prefix: "!" });
 
 const config = require('./config/config.json');
 
-
 bot.on("ready", () => {
 	console.log(`Logged in as ${bot.user.tag}`);
 	bot.user.setPresence({
