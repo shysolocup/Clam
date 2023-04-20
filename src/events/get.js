@@ -31,10 +31,19 @@ async function stuff(ctx) {
 		]});
 	}
 
-	let clan = infostuffs.get(ctx.message.id);
+	let [ user, clan ] = infostuffs.get(ctx.message.id);
     let id = clan.id;
 	
 	/* handling */
+	if (user.id != ctx.member.id) {
+		return ctx.reply({ embeds: [
+			new psc.Embed({
+				description: `${declineEmoji} That's not for you. :angry:`,
+				color: colors.decline,
+				ephemeral: true
+			})
+		]});
+	}
 	if (!id) {
 		return ctx.reply({ embeds: [
 			new psc.Embed({
