@@ -1,25 +1,22 @@
 const { Soup } = require('stews');
 
 class Clanner {
-	constructor() {
-		var clans = Soup.from(require('../data/clans.json'));
-
-		this.content = clans;
-
-		return new Proxy(this, ClannerProxyHandler());
+	get all() {
+		return Soup.from(require('../data/clans.json'));
 	}
-	
 
 	fetch(id, guildID=null) {
+		var clans = Soup.from(require('../data/clans.json'));
+
 		var stuff;
 		if (guildID) {
-			let guild = Soup.from(this.get(guildID));
+			let guild = Soup.from(clans.get(guildID));
 			guild.forEach( (clanID, clanData) => {
 				if (clanID == id) stuff = clanData;
 			});
 		}
 		else {
-			this.forEach( (gID, gD) => {
+			clans.forEach( (gID, gD) => {
 				Soup.from(gD).forEach( (clanID, clanData) => {
 					if (clanID == id) stuff = clanData;
 				});
@@ -31,12 +28,14 @@ class Clanner {
 	
 	
 	has(id, guildID=null) {
+		var clans = Soup.from(require('../data/clans.json'));
+
 		var stuff;
 		if (guildID) {
-			stuff = Soup.from(this[guildID]);
+			stuff = Soup.from(clans[guildID]);
 		}
 		else {
-			stuff = this.values.map( (v) => {
+			stuff = clans.values.map( (v) => {
                 return Object.keys(v);
             }).flat();
 		}
@@ -46,18 +45,10 @@ class Clanner {
 	
 
 	count(guildID=null) {
-		return (guildID) ? Soup.from(this[guildID]).length : this.values.length;
+		var clans = Soup.from(require('../data/clans.json'));
+		return (guildID) ? Soup.from(clans[guildID]).length : clans.values.length;
 	}
 	
-}
-
-function ClannerProxyHandler() {
-	return {
-		get(target, prop) {
-			if (Object.getOwnPropertyNames(Clanner.prototype).includes(prop)) return target[prop];
-			return target.content[prop]
-		}
-	}
 }
 
 module.exports = { Clanner };
