@@ -8,10 +8,10 @@ class Clanner {
 
 		return new Proxy(this, ClannerProxyHandler());
 	}
+	
 
-	fetch(id, guildID) {
+	fetch(id, guildID=null) {
 		var stuff;
-		
 		if (guildID) {
 			let guild = Soup.from(this.get(guildID));
 			guild.forEach( (clanID, clanData) => {
@@ -28,10 +28,27 @@ class Clanner {
 		
 		return Soup.from(stuff);
 	}
-
-	count() {
-		return this.values.length;
+	
+	
+	has(id, guildID=null) {
+		var stuff;
+		if (guildID) {
+			stuff = Soup.from(this[guildID]);
+		}
+		else {
+			stuff = this.values.map( (v) => {
+                return Object.keys(v);
+            }).flat();
+		}
+		
+		return stuff.includes(id);
 	}
+	
+
+	count(guilID=null) {
+		return (guildID) ? Soup.from(this[guildID]).length : this.values.length;
+	}
+	
 }
 
 function ClannerProxyHandler() {
