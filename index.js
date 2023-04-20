@@ -36,5 +36,9 @@ bot.login(config.token);
 module.exports = { psc, bot };
 
 
-/* builds all the commands */
+/* builds the commands */
 require('./src/commands/build'); 
+
+
+/* builds the events */
+require('./src/events/build'); 
