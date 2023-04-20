@@ -45,7 +45,7 @@ class Clanner {
 	}
 	
 
-	count(guilID=null) {
+	count(guildID=null) {
 		return (guildID) ? Soup.from(this[guildID]).length : this.values.length;
 	}
 	
