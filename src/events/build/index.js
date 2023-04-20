@@ -7,3 +7,5 @@ const eventFiles = fs.readdirSync(eventPath).filter(file => (file.endsWith('.js'
 eventFiles.forEach( (file) => {
 	require(`../${file}`);
 });
+
+console.log("Events Built");
