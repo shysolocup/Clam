@@ -8,9 +8,6 @@ class Hand {
 
         hands.dump('./src/data/economy.json', null, 4);
 
-        this.balance = 0;
-        this.user = ctx.author;
-
         return this;
     }
 }
