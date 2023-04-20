@@ -1,1 +1,27 @@
 
+{
+    "783530393567625216": {
+        "dhet": {
+            "id": "dhet",
+            "name": "Nutmeg's Clan",
+            "description": "Welcome to your brand new clan!\nUse !set to change parts of the clan to your liking.",
+            "shout": {
+                "content": "You can use !shout to change the shout.",
+                "author": "1050917862233100508"
+            },
+            "icon": "https://cdn.discordapp.com/attachments/1037240528338685962/1058755295003807794/logo.png",
+            "banner": "https://cdn.discordapp.com/attachments/1037240528338685962/1058754479291387924/banner.png",
+            "color": "#FF523A",
+            "guild": "783530393567625216",
+            "owner": "500714808912642048",
+            "members": [
+                "500714808912642048"
+            ],
+            "ops": [],
+            "banned": [],
+            "status": 1,
+            "funds": 0,
+            "gold": false
+        }
+    }
+}
