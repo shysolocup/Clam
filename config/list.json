@@ -5,7 +5,7 @@
 			"!invite <user> <id>  •  Sends a user an invite to a clan",
 			"!get <id>  •  Sends a page with details of the clan",
 			"!list  •  Sends a page with all of the clans in the server",
-			"!icon <id>  •  Sends a clan's thumbnail",
+			"!icon <id>  •  Sends a clan's icon",
 			"!banner <id>  •  Sends a clan's banner`"
 		],
   
