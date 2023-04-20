@@ -1,4 +1,4 @@
-const { Clanner } = require('.');
+const { Clanner } = require('./Clanner.js');
 const { Soup } = require('stews');
 
 class Econner {
