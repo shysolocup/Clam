@@ -13,14 +13,14 @@ class ClanTemplate {
             name: `${nick}'s Clan`,
             description: "Welcome to your brand new clan!\nUse !set to change parts of the clan to your liking.",
 
-            shout: new Soup({ 
+            shout: new Soup({
                 content: "You can use !shout to change the shout.",
                 author: "1050917862233100508"
             }),
             
             icon: icon,
             banner: banner,
-            color: "RANK",
+            color: "#FF523A", /* "RANK" */
             guild: ctx.guild.id,
             owner: ctx.author.id,
             members: [ ctx.author.id ],
