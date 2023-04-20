@@ -4,9 +4,9 @@ const { icon, banner } = require('../../config/defaults.json');
 
 class ClanTemplate {
     constructor(ctx, id) {
-		    var nick = (ctx.member.nickname) ? ctx.member.nickname.split("") : ctx.author.username.split("");
-		    nick[0] = nick[0].toUpperCase();
-		    nick = nick.join("");
+	var nick = (ctx.member.nickname) ? ctx.member.nickname.split("") : ctx.author.username.split("");
+	nick[0] = nick[0].toUpperCase();
+	nick = nick.join("");
 		
         return new Soup({
             id: id.join(""),
@@ -27,7 +27,7 @@ class ClanTemplate {
             ops: [ ],
             banned: [ ],
             status: 1,
-			      funds: 0,
+	    funds: 0,
             gold: false
         });
     }
