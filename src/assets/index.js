@@ -7,11 +7,11 @@ colors.decline = "#ED4245";
 
 var infostuffs = new Soup(Object);
 
-function pearlify(amount) {
-	return Intl.NumberFormat().format(Math.round(funds*100)/100);
+function pearlify(balance) {
+	return Intl.NumberFormat().format(Math.round(balance*100)/100);
 }
 
-function colorify(amount) {
+function colorify(balance) {
 	balance = parseInt(`${balance}`.split(",").join(""));
 	var col = (balance >= 999999999999999) ? [0xFF523A, 11] :
 		(balance >= 10000000000000) ? [0xFFFFFF, 10] :
