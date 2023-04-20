@@ -7,3 +7,5 @@ const commandFiles = fs.readdirSync(commandPath).filter(file => (file.endsWith('
 commandFiles.forEach( (file) => {
 	require(`../${file}`);
 });
+
+console.log("Commands Built");
