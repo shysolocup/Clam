@@ -11,20 +11,20 @@ async function data(ctx, cmd) {
 	
 	/* handling */
 	if (!id) {
-		return ctx.reply({ embeds: [
+		return psc.reply({ embeds: [
 			new psc.Embed({
 				description: `${declineEmoji} Please put a clan ID.`,
 				color: colors.decline
 			})
-		]});
+		], deleteAfter: "3s" });
 	}
 	if (!clans.has(id, ctx.guild.id)) {
-		return ctx.reply({ embeds: [
+		return psc.reply({ embeds: [
 			new psc.Embed({
 				description: `${declineEmoji} There is no clan with that ID.`,
 				color: colors.decline
 			})
-		]});
+		], deleteAfter: "3s" });
 	}
 
 
