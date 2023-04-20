@@ -1,8 +1,11 @@
 var { psc } = require('../../index.js');
+const { Soup } = require('stews');
 let colors = psc.colors;
 
 colors.accept = "#57F287";
 colors.decline = "#ED4245";
+
+var infostuffs = new Soup(Object);
 
 function pearlify(amount) {
 	return Intl.NumberFormat().format(Math.round(funds*100)/100);
@@ -34,7 +37,10 @@ function colorify(amount) {
 	return col;
 }
 
+
 let stuff = {
+	infostuffs: infostuffs,
+	
 	pearl: "🔘",
 	pearlify: pearlify,
 	
@@ -45,5 +51,6 @@ let stuff = {
 	declineEmoji: "<:decline:1052011672774131762>",
 	goldEmoji: "<:goldenclam:1052759240885940264>",
 };
+
 
 module.exports = { ...stuff  };
