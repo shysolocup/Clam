@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { pearl, pearlify, colors, colorify, goldEmoji, acceptEmoji, declineEmoji, infostuffs } = require('../assets');
+var { pearl, pearlify, colors, colorify, goldEmoji, declineEmoji, infostuffs } = require('../assets');
 var { Clanner } = require('../classes');
 
 const { Soup } = require('stews');
@@ -20,6 +20,17 @@ psc.buttonAction(data);
 /* stuff */
 async function stuff(ctx) {
 	let clans = new Clanner();
+
+	if (!infostuffs.has(ctx.message.id)) {
+		return ctx.reply({ embeds: [
+			new psc.Embed({
+				description: `${declineEmoji} Command timed out.`,
+				color: colors.decline,
+                ephemeral: true
+			})
+		]});
+	}
+
 	let clan = infostuffs.get(ctx.message.id);
     let id = clan.id;
 	
