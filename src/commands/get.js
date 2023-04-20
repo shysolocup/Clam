@@ -1,6 +1,8 @@
 var { psc, bot } = require('../../index.js');
-var { pearl, pearlify, colors, colorify, goldEmoji, acceptEmoji, declineEmoji } = require('../assets');
+var { pearl, pearlify, colors, colorify, goldEmoji, acceptEmoji, declineEmoji, infostuffs } = require('../assets');
 var { Clanner } = require('../classes');
+
+const { Soup } = require('stews');
 
 async function data(ctx, cmd) {
 	let clans = new Clanner();
@@ -41,8 +43,8 @@ async function data(ctx, cmd) {
 	
 	/* buttons */
 	let homeButton = new psc.Button({ id: "clanHome", emoji: "🏡", style: "primary" });
-	let statsButton = new psc.Button({ id: "clanStats", emoji: "📊", style: "primary" });
-	let economyButton = new psc.Button({ id: "clanEconomy", emoji: "💰", style: "primary" });
+	let statsButton = new psc.Button({ id: "clanStats", emoji: "📊", style: "secondary" });
+	let economyButton = new psc.Button({ id: "clanEconomy", emoji: "💰", style: "secondary" });
 	
 	let row = new psc.ActionRow([ homeButton, statsButton, economyButton ]);
 	
@@ -89,10 +91,8 @@ async function data(ctx, cmd) {
 	
 	let a = await ctx.reply( {embeds: [embed], components: [row]} );
 	
-	/*
-		infostuffs[a.id] = [ctx.guild.id, ctx.author.id, clan.id]
-		setTimeout(() => delete infostuffs[a.id], 21600000);
-	*/
+	infostuffs.push(a.id, clan);
+	setTimeout(() => infostuffs.delete(a.id), 21600000);
 }
 
 psc.command("get", data);
