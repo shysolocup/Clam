@@ -91,7 +91,8 @@ async function data(ctx, cmd) {
 	
 	let a = await ctx.reply( {embeds: [embed], components: [row]} );
 	
-	infostuffs.push(a.id, clan);
+
+	infostuffs.push(a.id, [cmd, clan]);
 	setTimeout(() => infostuffs.delete(a.id), 21600000);
 }
 
