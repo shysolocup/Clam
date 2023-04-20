@@ -8,6 +8,7 @@ let stuff = {
 	pearl: "🔘",
 	acceptEmoji: "<:confirm:1052011206891798618>",
 	declineEmoji: "<:decline:1052011672774131762>",
+	goldEmoji: "<:goldenclam:1052759240885940264>",
 	colors: colors
 };
 
