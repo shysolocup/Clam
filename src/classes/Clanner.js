@@ -11,7 +11,7 @@ class Clanner {
 	}
 
 	fetch(id, guildID=null) {
-		var clans = Soup.from(require('../data/clans.json'));
+		let clans = Soup.from(require('../data/clans.json'));
 
 		var stuff;
 		if (guildID) {
@@ -53,7 +53,7 @@ class Clanner {
 
 		if (!members.has(userID) && !bans.has(userID)) members.push(userID);
 
-		this.set(id, "members", members.pour());
+		this.set(id, "members", members.pour() );
 	}
 
 
@@ -121,19 +121,7 @@ class Clanner {
 
 	
 	has(id, guildID=null) {
-		var clans = Soup.from(require('../data/clans.json'));
-
-		var stuff;
-		if (guildID) {
-			stuff = Soup.from(clans[guildID]);
-		}
-		else {
-			stuff = clans.values.map( (v) => {
-                return Object.keys(v);
-            }).flat();
-		}
-		
-		return stuff.includes(id);
+		return this.fetch(id, guildID).length > 0;
 	}
 	
 
