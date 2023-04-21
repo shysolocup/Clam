@@ -20,7 +20,7 @@ async function data(ctx, cmd) {
 	let clans = new Clanner();
 	let [user, id] = cmd.args;
 
-    user = await psc.fetchGuildUser(user);
+    user = psc.fetchUser(user);
 
 
     /* handling */
@@ -51,14 +51,14 @@ async function data(ctx, cmd) {
 
     let clan = clans.fetch(id);
 
-    /*if (clan.members.includes(user.id)) {
+    if (clan.members.includes(user.id)) {
         return psc.reply({ embeds: [
 			new psc.Embed({
 				description: `${declineEmoji} User is already in the clan.`,
 				color: colors.decline
 			})
 		], deleteAfter: "3s" });
-    }*/
+    }
 
 
     /* buttons n stuff */
