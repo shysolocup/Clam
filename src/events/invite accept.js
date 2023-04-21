@@ -9,8 +9,6 @@ async function data(ctx) {
     const buttonID = ctx.customId;
 
     if (buttonID == "inviteAccept") {
-        var clans = new Clanner();
-
         /* handling */
         if (!infostuffs.has(ctx.message.id)) {
             return ctx.reply({ embeds: [
@@ -23,6 +21,7 @@ async function data(ctx) {
         }
 
         let [reciever, clan] = infostuffs.get(ctx.message.id);
+        var clans = new Clanner();
 
         if (!clans.has(clan.id)) {
             return ctx.reply({ embeds: [
