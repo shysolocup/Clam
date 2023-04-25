@@ -47,8 +47,8 @@
 			{ "name": "forcekick", "args": ["user", "clanID"], "aliases": ["fkick"], "desc": "Kicks a user by force" },
 			{ "name": "addfunds", "args": ["amount", "clanID"], "aliases": ["fadd"], "desc": "Adds funds to a clan" },
 			{ "name": "remfunds", "args": ["amount", "clanID"], "aliases": ["fremove"], "desc": "Removes funds from a clan" },
-			{ "name": "setfunds", "args": ["amount", "clanID"], "aliases": [], "desc": "Sets funds in a clan" },
-			{ "name": "clearfunds", "args": ["amount", "clanID"], "aliases": [], "desc": "Clears funds for a clan" }
+			{ "name": "setfunds", "args": ["amount", "clanID"], "aliases": ["fset"], "desc": "Sets funds in a clan" },
+			{ "name": "clearfunds", "args": ["amount", "clanID"], "aliases": ["fclear"], "desc": "Clears funds for a clan" }
 		],
   
 		"Developer": [
