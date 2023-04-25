@@ -20,13 +20,14 @@ class ClanTemplate {
             
             icon: icon,
             banner: banner,
-            color: "#FF523A", /* "RANK" */
+            color: "rank",
             guild: ctx.guild.id,
             owner: ctx.author.id,
             members: [ ctx.author.id ],
             ops: [ ],
             bans: [ ],
             status: 1,
+            unlisted: false,
 	    funds: 0,
             gold: false
         });
