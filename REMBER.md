@@ -1,5 +1,9 @@
-**DON'T FORGET THIS STUFF**<br>
+**DON'T FORGET THIS STUFF!!!**<br>
 the code management hell and the goofy shit 🙏
+<br>
+<br>
+
+**ALSO DON'T DELETE THIS FILE IDIOT!!!!!!!!**
 <br>
 <br>
 
