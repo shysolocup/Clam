@@ -10,7 +10,8 @@ check up on the [command list](https://github.com/nuttmegg/Clam/blob/main/config
 - add admin help page
 - add forceban forceunban and forcekick
 - add the funds commands in the commands list
-- create the new sections for the help command
+- add the new sections for the help command
+- add the help help button that lets you get a command's info by name with the select menu stuff
 <br>
 
 these are new shit that needs to be brought over while updating bc they're actually working
