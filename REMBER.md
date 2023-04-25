@@ -1,6 +1,16 @@
 **DON'T FORGET THIS STUFF**<br>
 the code management hell 🙏<br>
 
+check up on the [command list](https://github.com/nuttmegg/Clam/blob/main/config/list.json) and those listed below to make changes
+- add a name argument to create
+- change set to be !set (attr) (clanID) (value)
+- add an unlisted tag for clans
+- make it so every force(thing) command has an f(thing) alias
+- update dep and with to be !dep (amount) (clanID)
+- add admin help page
+- add forceban forceunban and forcekick
+<br>
+
 these are new shit that needs to be brought over while updating bc they're actually working
 - [src/classes/Hand.js](https://github.com/nuttmegg/Clam/blob/main/src/classes/Hand.js)
 - [src/commands/balance.js](https://github.com/nuttmegg/Clam/blob/main/src/commands/balance.js)
