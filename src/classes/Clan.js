@@ -1,13 +1,13 @@
 const { Soup } = require('stews');
-const { ClanTemplate } = require('../data/template.js');
+const { ClanTemplate } = require('./ClanTemplate.js');
 const { ID } = require('../stuff.js');
 
 class Clan {
-    constructor(ctx, name=null) {
+    constructor(ctx, name=null, icon=null, banner=null) {
         var clans = Soup.from(require('../data/clans.json'));
         var id = new ID();
 
-        var contents = new ClanTemplate(ctx, id, name);
+        var contents = new ClanTemplate(ctx, id, name, icon, banner);
 
         if (!clans.has(ctx.guild.id)) clans.push(ctx.guild.id, new Soup(Object));
         var parent = Soup.from(clans.get(ctx.guild.id));
