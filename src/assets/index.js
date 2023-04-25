@@ -13,25 +13,25 @@ function pearlify(balance) {
 
 function colorify(balance) {
 	balance = parseInt(`${balance}`.split(",").join(""));
-	var col = (balance >= 999999999999999) ? [0xFF523A, 11] :
-		(balance >= 10000000000000) ? [0xFFFFFF, 10] :
-		(balance >= 1000000000000) ? [0xf1c40f, 9] :
-		(balance >= 100000000000) ? [0x95a5a6, 8] :
-		(balance >= 10000000000) ? [0xCD7F32, 7] :
-		(balance >= 1000000000) ? [0x9b59b6, 6] :
-		(balance >= 500000000) ? [0x2F99E3, 5] :
-		(balance >= 10000000) ? [0x2ecc71, 4] :
-		(balance >= 5000000) ? [0x206694, 3] :
-		(balance == 800813) ? [0xB00B1E, 800813] :
-		(balance >= 100000) ? [0x1f8b4c, 2] :
-		(balance >= 1000) ? [0x11806a, 1] :
-		(balance <= -999999999999999) ? [0xFFEC67, 999999999999999] :
-		(balance < 0) ? [0x546e7a, 5] :
-		(balance < 1000) ? [0x99aab5, 0] :
-		[0x000000, -1];
+	var col = (balance >= 999999999999999) ? ["#FF523A", 11] :
+		(balance >= 10000000000000) ? ["#FFFFFF", 10] :
+		(balance >= 1000000000000) ? ["#f1c40f", 9] :
+		(balance >= 100000000000) ? ["#95a5a6", 8] :
+		(balance >= 10000000000) ? ["#CD7F32", 7] :
+		(balance >= 1000000000) ? ["#9b59b6", 6] :
+		(balance >= 500000000) ? ["#2F99E3", 5] :
+		(balance >= 10000000) ? ["#2ecc71", 4] :
+		(balance >= 5000000) ? ["#206694", 3] :
+		(balance == 800813) ? ["#B00B1E", 800813] :
+		(balance >= 100000) ? ["#1f8b4c", 2] :
+		(balance >= 1000) ? ["#11806a", 1] :
+		(balance <= -999999999999999) ? ["#FFEC67", 999999999999999] :
+		(balance < 0) ? ["#546e7a", 5] :
+		(balance < 1000) ? ["#99aab5", 0] :
+		["#000000", -1];
 		
 		/*
-		(userBal >= 999999999999) ? [0xFF523A, 10] : [0x852C34, 11]
+		(userBal >= 999999999999) ? ["#FF523A", 10] : ["#852C34", 11]
   		*/
   		
 	return col;
