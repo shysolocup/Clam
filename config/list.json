@@ -34,7 +34,7 @@
 			{ "name": "slots", "args": ["bet"], "aliases": [], "desc": "A slot machine that can multiply your bet by up to 10x" }
 		],
 		
-		"Administration": [
+		"Administrator": [
 			{ "name": "export", "args": [], "aliases": [], "desc": "Sends a JSON file with all clans in a server" },
 			{ "name": "import", "args": ["file"], "aliases": [], "desc": "Replaces all clans in a server with those from a JSON file" },
 			{ "name": "forcedisband", "args": ["clanID"], "aliases": ["forcedb", "fdb", "fdisband"], "desc": "Disbands a clan by force" },
@@ -50,7 +50,7 @@
 			{ "name": "clearfunds", "args": ["amount", "clanID"], "aliases": [], "desc": "Clears funds for a clan" }
 		],
   
-		"Development": [
+		"Developer": [
 			{ "name": "getglobal", "args": ["clanID"], "aliases": [], "desc": "Gets a clan no matter what server it's in" },
 			{ "name": "dump", "args": [], "aliases": [], "desc": "Dumps the infostuffs into a JSON file" }
 		]
