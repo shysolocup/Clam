@@ -126,7 +126,7 @@ async function stuff(ctx) {
 			author: {name: `• ${status} •`},
 			
 			
-			color: clan.color,
+			color: (clan.color == "rank") ? colorify(clan.funds)[0] : clan.color,
 			thumbnail: icon,
 			image: banner
 	});
