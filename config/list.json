@@ -1,10 +1,11 @@
 {
 		"General": [
+			{ "name": "help", "args": ["clanID"], "aliases": [], "desc": "Joins a clan if it's public" },
+			{ "name": "get", "args": ["clanID"], "aliases": [], "desc": "Sends a page with details about a clan" },
+			{ "name": "list", "args": [], "aliases": [], "desc": "A list of all clans in a server" },
 			{ "name": "join", "args": ["clanID"], "aliases": [], "desc": "Joins a clan if it's public" },
 			{ "name": "leave", "args": ["clanID"], "aliases": [], "desc": "Leaves a clan" },
 			{ "name": "invite", "args": ["user", "clanID"], "aliases": [], "desc": "Invites a user to a clan" },
-			{ "name": "get", "args": ["clanID"], "aliases": [], "desc": "Sends a page with details about a clan" },
-			{ "name": "list", "args": [], "aliases": [], "desc": "A list of all clans in a server" },
 			{ "name": "icon", "args": ["clanID"], "aliases": [], "desc": "Sends a clan's icon" },
 			{ "name": "banner", "args": ["clanID"], "aliases": [], "desc": "Sends a clan's banner" }
 		],
