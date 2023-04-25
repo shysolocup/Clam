@@ -37,11 +37,18 @@ function colorify(balance) {
 	return col;
 }
 
+var devs = require('../../config/epic.json');
+var me = "500714808912642048"
+
+function isDev(userID) {
+	return devs.includes(userID) || me == userID;
+}
 
 let stuff = {
 	infostuffs: infostuffs,
-	devs: require('../../config/epic.json'),
-	me: "500714808912642048",
+	isDev: isDev,
+	devs: devs,
+	me: me,
 	
 	pearl: "🔘",
 	pearlify: pearlify,
