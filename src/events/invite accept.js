@@ -33,7 +33,7 @@ async function data(ctx) {
             ]});
         }
 
-        if (reciever != ctx.member.id) {
+        if (reciever.id != ctx.member.id) {
             return ctx.reply({ embeds: [
                 new psc.Embed({
                     description: `${declineEmoji} That's not for you. :angry:`,
