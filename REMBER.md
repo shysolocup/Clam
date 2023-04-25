@@ -12,6 +12,8 @@ check up on the [command list](https://github.com/nuttmegg/Clam/blob/main/config
 - add the funds commands in the commands list
 - add the new sections for the help command
 - add the help button that lets you get a command's info by name with the select menu stuff
+- add the unlisted status
+- attempt to add more economy commands
 <br>
 
 these are new shit that needs to be brought over while updating bc they're actually working
