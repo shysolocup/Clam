@@ -3,11 +3,11 @@ const { ClanTemplate } = require('../data/template.js');
 const { ID } = require('../stuff.js');
 
 class Clan {
-    constructor(ctx) {
+    constructor(ctx, name=null) {
         var clans = Soup.from(require('../data/clans.json'));
         var id = new ID();
 
-        var contents = new ClanTemplate(ctx, id);
+        var contents = new ClanTemplate(ctx, id, name);
 
         if (!clans.has(ctx.guild.id)) clans.push(ctx.guild.id, new Soup(Object));
         var parent = Soup.from(clans.get(ctx.guild.id));
@@ -30,7 +30,8 @@ function ClanProxyHandler() {
             return target[prop];
         },
 		set(target, prop, value) {
-			return target[prop] = value;
+			target[prop] = value;
+			return true;
 		}
     }
 }
