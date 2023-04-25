@@ -1,6 +1,9 @@
 var { psc, bot } = require('../../index.js');
 var { colors, acceptEmoji, declineEmoji } = require('../assets');
 
+const { Soup } = require('stews');
+
+
 async function data(ctx, cmd) {
 	if (cmd.onCooldown) {
 		return psc.reply({embeds: [
@@ -15,13 +18,19 @@ async function data(ctx, cmd) {
 	}
 	
 	const { Clan } = require('../classes');
+	let attachments = Soup.from(ctx.attachments);
 
-	let name = cmd.args[0];
-	let clan = new Clan(ctx, name);
+	
+	/* clan info stuff */
+	let name = cmd.args.join(" ");
+	let icon = attachments[0];
+	let banner = attachments[1];
+	
+	let clan = new Clan(ctx, name, icon, banner);
 	
 	const embed = new psc.Embed({
 		title: "Clan Creation :sparkles:",
-		description: `${acceptEmoji} Created your new clan!`,
+		description: `${acceptEmoji} Created ${ (name) ? " `" + name + "`" : "your new clan"}!`,
 		footer: `( id: ${clan.id} )`,
 		color: colors.accept
 	});
