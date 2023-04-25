@@ -34,29 +34,24 @@
 			{ "name": "slots", "args": ["bet"], "aliases": [], "desc": "A slot machine that can multiply your bet by up to 10x" }
 		],
 		
-		"Admin": [
+		"Administration": [
 			{ "name": "export", "args": [], "aliases": [], "desc": "Sends a JSON file with all clans in a server" },
 			{ "name": "import", "args": ["file"], "aliases": [], "desc": "Replaces all clans in a server with those from a JSON file" },
-			{ "name": "forcedb", "args": ["clanID"], "aliases": ["fdb"], "desc": "Disbands a clan by force" },
+			{ "name": "forcedisband", "args": ["clanID"], "aliases": ["forcedb", "fdb", "fdisband"], "desc": "Disbands a clan by force" },
 			{ "name": "forceset", "args": ["attr", "clanID", "value"], "aliases": ["fset"], "desc": "Sets a thing in a clan by force" },
 			{ "name": "forceshout", "args": ["clanID", "content"], "aliases": ["fshout"], "desc": "Sets a clan shout by force" },
 			{ "name": "forcejoin", "args": ["clanID"], "aliases": ["fjoin"], "desc": "Joins a clan even if it's private" },
 			{ "name": "forceban", "args": ["user", "clanID"], "aliases": ["fban"], "desc": "Bans a user by force" },
 			{ "name": "forceunban", "args": ["user", "clanID"], "aliases": ["funban"], "desc": "Unbans a user by force" },
 			{ "name": "forcekick", "args": ["user", "clanID"], "aliases": ["fkick"], "desc": "Kicks a user by force" },
-			{ "name": "", "args": [], "aliases": [], "desc": "" },
+			{ "name": "addfunds", "args": ["amount", "id"], "aliases": ["fadd"], "desc": "Adds funds to a clan" }
+			{ "name": "remfunds", "args": ["amount", "id"], "aliases": ["fremove"], "desc": "Adds removes from a clan" }
+			{ "name": "setfunds", "args": ["amount", "id"], "aliases": [], "desc": "Sets funds in a clan" }
+			{ "name": "clearfunds", "args": ["amount", "id"], "aliases": [], "desc": "Adds funds to a clan" }
 		],
   
-		"Secret oOoOOoO": [
+		"Development": [
 			{ "name": "getglobal", "args": ["id"], "aliases": [], "desc": "Gets a clan no matter what server it's in" },
-			{ "name": "dump", "args": [], "aliases": [], "desc": "Dumps the infostuffs " },
-			"`!getglobal <id>  •  Same as !get but clans from other servers",
-			"!forcedelete <id>  •  Lets you delete a clan by force",
-			"!forceset <id> <atr> <inp>  •  Lets you edit a clan by force",
-			"!forceshout <id> <message>  •  Changes a clan's shout by force",
-			"!forcejoin <id>  •  Lets you join a clan by force",
-			"!dump  •  Dumps the infostuffs table in a .JSON file in your DMs",
-			"!export  •  Lets you export all clans in a server into a .JSON file",
-			"!import <file>  •  Lets you import a .JSON file of clans into a server\n`"
+			{ "name": "dump", "args": [], "aliases": [], "desc": "Dumps the infostuffs into a JSON file" }
 		]
 }
