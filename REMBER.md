@@ -9,6 +9,8 @@ check up on the [command list](https://github.com/nuttmegg/Clam/blob/main/config
 - update dep and with to be !dep (amount) (clanID)
 - add admin help page
 - add forceban forceunban and forcekick
+- add the funds commands in the commands list
+- create the new sections for the help command
 <br>
 
 these are new shit that needs to be brought over while updating bc they're actually working
