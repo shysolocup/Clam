@@ -1,10 +1,10 @@
 const { Soup } = require('stews');
 
 class Hand {
-    constructor(ctx) {
+    constructor(userID) {
         var hands = Soup.from(require('../data/economy.json'));
 
-        if (!hands.has(ctx.author.id)) hands.push(ctx.author.id, 0);
+        if (!hands.has(userID)) hands.push(userID, 0);
 
         hands.dump('./src/data/economy.json', null, 4);
 
