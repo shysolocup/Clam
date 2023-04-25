@@ -4,6 +4,7 @@ var { Clanner } = require('../classes/index.js');
 
 const { Soup } = require('stews');
 
+
 async function data(ctx) {
     const buttonID = ctx.customId;
 
