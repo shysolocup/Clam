@@ -8,7 +8,7 @@ the code management hell and the goofy shit 🙏
 <br>
 
 check up on the [command list](https://github.com/nuttmegg/Clam/blob/main/config/list.json) and those listed below to make changes
-- [x] add new shit to the command list
+- [x] ~~add new shit to the command list~~
 - [ ] add a name argument to create
 - [ ] change set to be !set (attr) (clanID) (value)
 - [ ] add an unlisted tag for clans
