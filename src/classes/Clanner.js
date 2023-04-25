@@ -131,7 +131,7 @@ class Clanner {
 		stuff = stuff.map( (v) => {
 			return Object.keys(v);
 		}).flat();
-		
+
 		return stuff.length;
 	}
 	
