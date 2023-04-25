@@ -1,43 +1,55 @@
 {
 		"General": [
-			"`!join <id>  •  Lets a user join a clan (as long as it's public)",
-			"!leave <id>  •  Lets a user leave a clan",
-			"!invite <user> <id>  •  Sends a user an invite to a clan",
-			"!get <id>  •  Sends a page with details of the clan",
-			"!list  •  Sends a page with all of the clans in the server",
-			"!icon <id>  •  Sends a clan's icon",
-			"!banner <id>  •  Sends a clan's banner`"
+			{ "name": "join", "args": ["clanID"], "aliases": [], "desc": "Joins a clan if it's public" },
+			{ "name": "leave", "args": ["clanID"], "aliases": [], "desc": "Leaves a clan" },
+			{ "name": "invite", "args": ["user", "clanID"], "aliases": [], "desc": "Invites a user to a clan" },
+			{ "name": "get", "args": ["clanID"], "aliases": [], "desc": "Sends a page with details about a clan" },
+			{ "name": "list", "args": [], "aliases": [], "desc": "A list of all clans in a server" },
+			{ "name": "icon", "args": ["clanID"], "aliases": [], "desc": "Sends a clan's icon" },
+			{ "name": "banner", "args": ["clanID"], "aliases": [], "desc": "Sends a clan's banner" }
 		],
   
 		"Management": [
-			"`!create  •  Creates a clan",
-			"!set/edit <id> <atr> <inp>  •  Changes a part of a clan",
-			"!shout <id> <message>  •  Changes the clan shout",
-			"!disband <id>  •  Deletes the given clan",
-			"!gold <id> <id>  •  Lets a clan owner transfer their gold to another",
-			"`\n(SERVER OWNERS ONLY)\n`!export • Lets the owner of the server export all clans into a .JSON file",
-			"!import <file>  •  Lets the owner of the server import a .JSON file of clans\n`"
+			{ "name": "create", "args": [], "aliases": [], "desc": "Creates a new clan" },
+			{ "name": "set", "args": ["attr", "clanID", "value"], "aliases": ["edit"], "desc": "Sets an attribute in a clan" },
+			{ "name": "shout", "args": ["clanID"], "aliases": [], "desc": "Changes the clan shout" },
+			{ "name": "disband", "args": ["clanID"], "aliases": [], "desc": "Deletes a clan" }
 		],
   
 		"Moderation": [
-			"`!ban <user> <id>  •  Bans a user from a clan",
-			"!unban <user> <id>  •  Unbans a user from a clan",
-			"!kick <user> <id>  •  Kicks a user from a clan",
-			"!op <user> <id>  •  Gives a user operator permissions\n\n(WARNING: Op has permissions to use the mod commands including !set which could be dangerous.)\n",
-			"!deop <user> <id>  •  Removes a user's operator permissions`"
+			{ "name": "ban", "args": ["user", "clanID"], "aliases": [], "desc": "Bans a user from a clan" },
+			{ "name": "unban", "args": ["user", "clanID"], "aliases": [], "desc": "Unbans a user from a clan" },
+			{ "name": "kick", "args": ["user", "clanID"], "aliases": [], "desc": "Kicks a user from a clan" },
+			{ "name": "op", "args": ["user", "clanID"], "aliases": [], "desc": "Gives a user operator permissions" },
+			{ "name": "deop", "args": ["user", "clanID"], "aliases": [], "desc": "Removes a users operator permissions" }
 		],
   
 		"Economy": [
-			"`!balance/bal <(OPTIONAL) user>  •  Gets a user's balance",
-			"!work  •  Lets you work for pearls",
-			"!deposit/dep <id> <amount>  •  Lets you put pearls into a clan",
-			"!withdraw/with <id> <amount>  •  Lets clan owners take out pearls",
-			"!give <user> <amount>  •  Lets you give others your pearls",
-			"!steal <user>  •  Lets you take pearls from other people's balances",
-			"!slots <bet>  •  A game of slots that multiplies your bet if you win`"
+			{ "name": "balance", "args": ["(Optional user)"], "aliases": ["bal"], "desc": "Sends someone's pearl balance" },
+			{ "name": "work", "args": [], "aliases": [], "desc": "Lets you gain pearls" },
+			{ "name": "deposit", "args": ["amount", "clanID"], "aliases": ["dep"], "desc": "Deposits pearls into a clan" },
+			{ "name": "withdraw", "args": ["amount", "clanID"], "aliases": [], "desc": "Removes pearls from a clan YOU OWN" },
+			{ "name": "give", "args": ["user", "amount"], "aliases": [], "desc": "Gives a user pearls" },
+			{ "name": "steal", "args": ["user"], "aliases": [], "desc": "Steals pearls from a user" },
+			{ "name": "slots", "args": ["bet"], "aliases": [], "desc": "A slot machine that can multiply your bet by up to 10x" }
+		],
+		
+		"Admin": [
+			{ "name": "export", "args": [], "aliases": [], "desc": "Sends a JSON file with all clans in a server" },
+			{ "name": "import", "args": ["file"], "aliases": [], "desc": "Replaces all clans in a server with those from a JSON file" },
+			{ "name": "forcedb", "args": ["clanID"], "aliases": ["fdb"], "desc": "Disbands a clan by force" },
+			{ "name": "forceset", "args": ["attr", "clanID", "value"], "aliases": ["fset"], "desc": "Sets a thing in a clan by force" },
+			{ "name": "forceshout", "args": ["clanID", "content"], "aliases": ["fshout"], "desc": "Sets a clan shout by force" },
+			{ "name": "forcejoin", "args": ["clanID"], "aliases": ["fjoin"], "desc": "Joins a clan even if it's private" },
+			{ "name": "forceban", "args": ["user", "clanID"], "aliases": ["fban"], "desc": "Bans a user by force" },
+			{ "name": "forceunban", "args": ["user", "clanID"], "aliases": ["funban"], "desc": "Unbans a user by force" },
+			{ "name": "forcekick", "args": ["user", "clanID"], "aliases": ["fkick"], "desc": "Kicks a user by force" },
+			{ "name": "", "args": [], "aliases": [], "desc": "" },
 		],
   
-		"Epic": [
+		"Secret oOoOOoO": [
+			{ "name": "getglobal", "args": ["id"], "aliases": [], "desc": "Gets a clan no matter what server it's in" },
+			{ "name": "dump", "args": [], "aliases": [], "desc": "Dumps the infostuffs " },
 			"`!getglobal <id>  •  Same as !get but clans from other servers",
 			"!forcedelete <id>  •  Lets you delete a clan by force",
 			"!forceset <id> <atr> <inp>  •  Lets you edit a clan by force",
