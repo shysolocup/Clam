@@ -44,14 +44,14 @@
 			{ "name": "forceban", "args": ["user", "clanID"], "aliases": ["fban"], "desc": "Bans a user by force" },
 			{ "name": "forceunban", "args": ["user", "clanID"], "aliases": ["funban"], "desc": "Unbans a user by force" },
 			{ "name": "forcekick", "args": ["user", "clanID"], "aliases": ["fkick"], "desc": "Kicks a user by force" },
-			{ "name": "addfunds", "args": ["amount", "id"], "aliases": ["fadd"], "desc": "Adds funds to a clan" }
-			{ "name": "remfunds", "args": ["amount", "id"], "aliases": ["fremove"], "desc": "Adds removes from a clan" }
-			{ "name": "setfunds", "args": ["amount", "id"], "aliases": [], "desc": "Sets funds in a clan" }
-			{ "name": "clearfunds", "args": ["amount", "id"], "aliases": [], "desc": "Adds funds to a clan" }
+			{ "name": "addfunds", "args": ["amount", "clanID"], "aliases": ["fadd"], "desc": "Adds funds to a clan" },
+			{ "name": "remfunds", "args": ["amount", "clanID"], "aliases": ["fremove"], "desc": "Removes funds from a clan" },
+			{ "name": "setfunds", "args": ["amount", "clanID"], "aliases": [], "desc": "Sets funds in a clan" },
+			{ "name": "clearfunds", "args": ["amount", "clanID"], "aliases": [], "desc": "Clears funds for a clan" }
 		],
   
 		"Development": [
-			{ "name": "getglobal", "args": ["id"], "aliases": [], "desc": "Gets a clan no matter what server it's in" },
+			{ "name": "getglobal", "args": ["clanID"], "aliases": [], "desc": "Gets a clan no matter what server it's in" },
 			{ "name": "dump", "args": [], "aliases": [], "desc": "Dumps the infostuffs into a JSON file" }
 		]
 }
