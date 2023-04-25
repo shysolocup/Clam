@@ -16,7 +16,8 @@ async function data(ctx, cmd) {
 	
 	const { Clan } = require('../classes');
 
-	let clan = new Clan(ctx);
+	let name = cmd.args[0];
+	let clan = new Clan(ctx, name);
 	
 	const embed = new psc.Embed({
 		title: "Clan Creation :sparkles:",
