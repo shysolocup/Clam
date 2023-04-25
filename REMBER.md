@@ -1,5 +1,7 @@
 **DON'T FORGET THIS STUFF**<br>
-the code management hell 🙏<br>
+the code management hell and the goofy shit 🙏
+<br>
+<br>
 
 check up on the [command list](https://github.com/nuttmegg/Clam/blob/main/config/list.json) and those listed below to make changes
 - add a name argument to create
@@ -14,6 +16,13 @@ check up on the [command list](https://github.com/nuttmegg/Clam/blob/main/config
 - add the help button that lets you get a command's info by name with the select menu stuff
 - add the unlisted status
 - attempt to add more economy commands
+- add a change log thing that lets me announce updates and shit
+<br>
+
+possible new economy commands
+- that one card game from club penguin lol
+- clicking contest
+- ultimate slot machine that can 500x your bet if you win
 <br>
 
 these are new shit that needs to be brought over while updating bc they're actually working
