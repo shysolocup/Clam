@@ -127,7 +127,12 @@ class Clanner {
 
 	count(guildID=null) {
 		var clans = Soup.from(require('../data/clans.json'));
-		return (guildID) ? Soup.from(clans[guildID]).length : clans.values.length;
+		let stuff = (guildID) ? Soup.from(clans[guildID]) : clans.values;
+		stuff = stuff.map( (v) => {
+			return Object.keys(v);
+		}).flat();
+		
+		return stuff.length;
 	}
 	
 }
