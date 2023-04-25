@@ -40,6 +40,8 @@ function colorify(balance) {
 
 let stuff = {
 	infostuffs: infostuffs,
+	devs: require('../../config/epic.json'),
+	me: "500714808912642048",
 	
 	pearl: "🔘",
 	pearlify: pearlify,
