@@ -24,6 +24,7 @@ check up on the [command list](https://github.com/nuttmegg/Clam/blob/main/config
 - [ ] attempt to add more economy commands put ideas in the part below this
 - [ ] add a change log thing that lets me announce updates and shit
 - [ ] add unlisted admin command so that admins can see unlisted clans
+- [ ] actually add steal for economy lol
 - [ ] update economy system to give less from working
 <br>
 
