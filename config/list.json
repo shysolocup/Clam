@@ -38,7 +38,7 @@
 		"Administrator": [
 			{ "name": "export", "args": [], "aliases": [], "desc": "Sends a JSON file with all clans in a server" },
 			{ "name": "import", "args": ["file"], "aliases": [], "desc": "Replaces all clans in a server with those from a JSON file" },
-			{ "name": "unlisted", "args": [], "aliases": [], "desc": "Gets a list of all unlisted clans" }
+			{ "name": "unlisted", "args": [], "aliases": [], "desc": "Gets a list of all unlisted clans" },
 			{ "name": "forcedisband", "args": ["clanID"], "aliases": ["forcedb", "fdb", "fdisband"], "desc": "Disbands a clan by force" },
 			{ "name": "forceset", "args": ["attr", "clanID", "value"], "aliases": ["fset"], "desc": "Sets a thing in a clan by force" },
 			{ "name": "forceshout", "args": ["clanID", "content"], "aliases": ["fshout"], "desc": "Sets a clan shout by force" },
