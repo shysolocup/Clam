@@ -1,4 +1,4 @@
-/* :: Discord+PS :: Version 0.6.0 | 03/16/23 :: */
+/* :: Discord+PS :: Version 0.6.0 | 04/25/23 :: */
 
 /* :: Created by nutmeg using :: *//*
 	- Stews: https://github.com/nuttmegg/stews
@@ -448,7 +448,7 @@ class PSClient {
 	
 	selectionAction(func) {
 		this.client.on("interactionCreate", (ctx) => {
-			if (ctx.isSelectMenu()) {
+			if (ctx.isStringSelectMenu()) {
 				return func(ctx);
 			}
 		});
@@ -456,7 +456,7 @@ class PSClient {
 
 	selectMenuAction(func) {
 		this.client.on("interactionCreate", (ctx) => {
-			if (ctx.isSelectMenu()) {
+			if (ctx.isStringSelectMenu()) {
 				return func(ctx);
 			}
 		});
@@ -464,7 +464,7 @@ class PSClient {
 	
 	rowAction(func) {
 		this.client.on("interactionCreate", (ctx) => {
-			if (ctx.isButton() || ctx.isSelectMenu()) {
+			if (ctx.isButton() || ctx.isStringSelectMenu()) {
 				return func(ctx);
 			}
 		});
@@ -613,13 +613,13 @@ class PSClient {
 	
 
 	/* fetches */
-	fetchUser(id) { if (!id) return null; let mention = id; if (mention.startsWith('<@') && mention.endsWith('>')) {mention = mention.slice(2, -1); if (mention.startsWith('!')) {mention = mention.slice(1); }} mention = mention.split("").join(""); let user = this.client.users.cache.get(mention); return (!user) ? null : user; }
+	fetchUser(id) { if (!id) return null; let mention = id; if (mention.startsWith('<@') && mention.endsWith('>')) {mention = mention.slice(2, -1); if (mention.startsWith('!')) {mention = mention.slice(1); }} mention = mention.split("").join(""); let user = this.client.users.fetch(mention); return (!user) ? null : user; }
 	fetchMember(id) { return this.fetchUser(id); }
 	
 	fetchGuildUser(id, guild=null) { if (!id) return null; var [psc, client, ctx] = Holder; let mention = id; if (mention.startsWith('<@') && mention.endsWith('>')) {mention = mention.slice(2, -1); if (mention.startsWith('!')) {mention = mention.slice(1); }} mention = mention.split("").join(""); let user = (guild) ? guild.members.fetch(mention) : ctx.guild.members.fetch(mention); return (!user) ? null : user; }
 	fetchGuildMember(id, guild=null) { return this.fetchGuildUser(id, guild); }
 	
-	fetchChannel(id) { if (!id) return null; let rawChannel = id; if (rawChannel.startsWith('<#') && rawChannel.endsWith('>')) {rawChannel = rawChannel.slice(2, -1); } rawChannel = rawChannel.split("").join(""); let channel = this.client.channels.cache.get(rawChannel); return (!channel) ? null : channel; }
+	fetchChannel(id) { if (!id) return null; let rawChannel = id; if (rawChannel.startsWith('<#') && rawChannel.endsWith('>')) {rawChannel = rawChannel.slice(2, -1); } rawChannel = rawChannel.split("").join(""); let channel = this.client.channels.fetch(rawChannel); return (!channel) ? null : channel; }
 
 	fetchGuildChannel(id, guild=null) { if (!id) return null; var [psc, client, ctx] = Holder; let rawChannel = id; if (rawChannel.startsWith('<#') && rawChannel.endsWith('>')) {rawChannel = rawChannel.slice(2, -1); } rawChannel = rawChannel.split("").join(""); let channel = (guild) ? guild.channels.fetch(rawChannel) : ctx.guild.channels.fetch(rawChannel); return (!channel) ? null : channel; }
 
