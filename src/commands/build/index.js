@@ -4,8 +4,16 @@ const path = require('node:path');
 const commandPath = path.join(__dirname, '../../commands');
 const commandFiles = fs.readdirSync(commandPath).filter(file => (file.endsWith('.js') && file != "index.js"));
 
+var commandCount = 0;
+
 commandFiles.forEach( (file) => {
+	commandCount++;
 	require(`../${file}`);
 });
 
-console.log("Commands Built");
+
+console.log("\nCommands Built");
+
+
+var { psc } = require('../../../index.js');
+console.log(`${psc.commandList.length}/${commandCount} commands done\n`);
