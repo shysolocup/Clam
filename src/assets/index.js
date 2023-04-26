@@ -44,6 +44,10 @@ function isDev(userID) {
 	return devs.includes(userID) || me == userID;
 }
 
+function emojify(category) {
+	return { "general": "👥", "management": "🛠️", "moderation": "🛡️", "economy": "💰", "administrator": "🔓"}[category.toLowerCase()];
+}
+
 let stuff = {
 	infostuffs: infostuffs,
 	isDev: isDev,
@@ -59,6 +63,8 @@ let stuff = {
 	acceptEmoji: "<:confirm:1052011206891798618>",
 	declineEmoji: "<:decline:1052011672774131762>",
 	goldEmoji: "<:goldenclam:1052759240885940264>",
+
+	emojify: emojify
 };
 
 
