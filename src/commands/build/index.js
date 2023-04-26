@@ -7,8 +7,8 @@ const commandFiles = fs.readdirSync(commandPath).filter(file => (file.endsWith('
 var commandCount = 0;
 
 commandFiles.forEach( (file) => {
-	commandCount++;
 	require(`../${file}`);
+	commandCount++;
 });
 
 
