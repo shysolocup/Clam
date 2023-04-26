@@ -51,7 +51,7 @@ async function data(ctx, cmd) {
 
     let clan = clans.fetch(id);
     
-    if (clan.status == 2 || clan.status == 3) {
+    if ((clan.status == 2 || clan.status == 3) && !clan.members.includes(ctx.author.id)) {
     	return psc.reply({ embeds: [
 			new psc.Embed({
 				description: `${declineEmoji} This clan is invite only.`,
