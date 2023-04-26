@@ -10,8 +10,11 @@ const { Soup } = require('stews');
 async function data(ctx, cmd) {
 	var category = "General";
 	var stuff = Soup.from(require('../../config/list.json')[category]);
+	var all = Soup.from(Soup.from(require('../../config/list.json')));
 
 	let disabled = !(psc.author.hasPermissions(["admin"]) || isDev(ctx.author.id));
+	if (disabled) all.delete("Administrator");
+
 
 	/* button shit */
 	let general = new psc.Button({ id: "clamHelp/General", emoji: "👥", style: "secondary"});
@@ -23,6 +26,25 @@ async function data(ctx, cmd) {
 
 	/* select menu shit */
 	var options = [];
+
+	if (cmd.args[0]) {
+		var the = all.values.flat().filter( (v) => { return v.name == cmd.args[0] });
+
+		if (the.length <= 0) {
+			return psc.reply({ embeds: [
+				new psc.Embed({
+					description: `${declineEmoji} I couldn't find a command with that name.`,
+					color: colors.decline
+				})
+			], deleteAfter: "3s" });
+		}
+
+		[ category, stuff ] = all.filter( (_, c) => {
+			return c.includes(the[0]);
+		}).pour(Array)[0];
+
+		stuff = Soup.from(stuff);
+	}
 	
 	stuff.forEach( (com) => {
 		options.push({
@@ -42,7 +64,7 @@ async function data(ctx, cmd) {
 
 
 	/* more button shit */
-	var btns = [general, manage, mod, economy, admin];
+	var btns = [ general, manage, mod, economy, admin ];
 	var comps = [ [search], btns ];
 
 	comps = comps.map( (btns) => { return new psc.ActionRow(btns); });
@@ -53,19 +75,45 @@ async function data(ctx, cmd) {
 	
 
 	/* embed stuff */
-	let embed = new psc.Embed({
-		title: `${category} Commands  ${emojify(category)}`,
-		description: desc.join("\n"),
-
-		fields: [
-			{ name: "** **", value: "** **" }
-		],
+	var embed;
+	
+	if (cmd.args[0]) {
+		let titleName = cmd.args[0].split("");titleName[0]=titleName[0].toUpperCase();titleName=titleName.join("");
 		
-		footer: `${versionText} v${version}`,
-		thumbnail: icon,
+		embed = new psc.Embed({
+			title: `${titleName} Command`,
+			
+			fields: [
+				{ name: "Description", value: `• ${the[0].desc}`, inline: true },
+				{ name: "Category", value: `• ${category}`, inline: true },
+				{ name: "** **", value: "** **", inline: true },
+				{ name: "Arguments", value: (the[0].args.length > 0) ? "• `"+the[0].args.join("`, `")+"`" : "• None", inline: true },
+				{ name: "Aliases", value: (the[0].aliases.length > 0) ? "• !"+the[0].aliases.join(", !") : "• None", inline: true },
+				{ name: "** **", value: "** **", inline: false }
+			],
 
-		color: psc.colors.clam
-	});
+			footer: `${versionText} v${version}`,
+			thumbnail: icon,
+			
+			color: psc.colors.clam
+		});
+	}
+	
+	else {
+		embed = new psc.Embed({
+			title: `${category} Commands  ${emojify(category)}`,
+			description: desc.join("\n"),
+	
+			fields: [
+				{ name: "** **", value: "** **" }
+			],
+			
+			footer: `${versionText} v${version}`,
+			thumbnail: icon,
+	
+			color: psc.colors.clam
+		});
+	}
 
 
 	/* the dming */
@@ -81,10 +129,12 @@ async function data(ctx, cmd) {
 		], deleteAfter: "3s" });
 	}
 
-	ctx.reply({embeds: [{
+	psc.reply({embeds: [{
 		color: 0x3498DB,
-		description: `Check the DM I sent you for the help page!`,
-	}]});
+		description: `Check the DM I sent you!`,
+	}],
+		deleteAfter: "5s"
+	});
 }
 
 psc.command("help", data);
