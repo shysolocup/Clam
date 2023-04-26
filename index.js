@@ -5,7 +5,6 @@ const psc = new PSClient({ client: bot, prefix: "!" });
 
 const config = require('./config/config.json');
 const { Clanner } = require('./src/classes');
-const clans = new Clanner();
 
 /* login stuff */
 bot.on("ready", () => {
@@ -22,6 +21,7 @@ bot.on("messageCreate", () => {
 
 /* status updater */
 function update() {
+	var clans = new Clanner();
 	bot.user.setPresence({
 		activities: [{
 			name: `over ${clans.count()} ${(clans.count() == 1) ? "clan" : "clans" }`,
@@ -35,10 +35,19 @@ function update() {
 bot.login(config.token);
 module.exports = { psc, bot };
 
+console.log("===========================================");
+console.log(`Build Log :: ${ (new Date()).toISOString() }`);
+console.log("===========================================\n");
+
 
 /* builds the commands */
 require('./src/commands/build'); 
 
 
 /* builds the events */
-require('./src/events/build'); 
+require('./src/events/build');
+
+
+console.log("\n===========================================\n");
+
+console.log("Console Outputs:\n");
