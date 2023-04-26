@@ -50,6 +50,15 @@ async function data(ctx, cmd) {
 	}
 
     let clan = clans.fetch(id);
+    
+    if (clan.status == 2 || clan.status == 3) {
+    	return psc.reply({ embeds: [
+			new psc.Embed({
+				description: `${declineEmoji} This clan is invite only.`,
+				color: colors.decline
+			})
+		], deleteAfter: "3s" });
+    }
 
     if (clan.members.includes(user.id)) {
         return psc.reply({ embeds: [
