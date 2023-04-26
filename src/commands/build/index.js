@@ -16,4 +16,4 @@ console.log("\nCommands Built");
 
 
 var { psc } = require('../../../index.js');
-console.log(`${psc.commandList.length}/${commandCount} commands done\n`);
+console.log(`\n${psc.commandList.length}/${commandCount} commands done\n`);
