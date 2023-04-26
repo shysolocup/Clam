@@ -26,7 +26,6 @@ class ClanTemplate {
             ops: [ ],
             bans: [ ],
             status: 1,
-            unlisted: false,
 	    	funds: 0,
             gold: false
         });
