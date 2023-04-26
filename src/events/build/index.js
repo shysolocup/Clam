@@ -8,4 +8,4 @@ eventFiles.forEach( (file) => {
 	require(`../${file}`);
 });
 
-console.log("Events Built");
+console.log("Events Built\n");
