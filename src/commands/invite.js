@@ -54,7 +54,7 @@ async function data(ctx, cmd) {
     if ((clan.status == 2 || clan.status == 3) && !clan.members.includes(ctx.author.id)) {
     	return psc.reply({ embeds: [
 			new psc.Embed({
-				description: `${declineEmoji} This clan is invite only.`,
+				description: `${declineEmoji} You have to be in an invite only clan to invite people.`,
 				color: colors.decline
 			})
 		], deleteAfter: "3s" });
