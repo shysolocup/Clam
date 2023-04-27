@@ -5,6 +5,7 @@
 - [ ] added src/classes/Catch.js even tho it's not a class but whatever
 - [ ] updated src/packages/discordpps/index.js
 - [ ] updated commands to use the new Catch stuff
+- [ ] added ban because fuck marx (also unban)
 
 ## 04-26-23
 - [ ] added src/commands/join.js
