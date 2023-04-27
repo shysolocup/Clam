@@ -1,20 +1,13 @@
 const { Soup } = require('stews');
 var { psc, bot } = require('../../index.js');
 var { colors, emojis, infostuffs } = require('../assets');
-var { Clanner } = require('../classes');
+var { Clanner, Catch } = require('../classes');
 
 async function data(ctx, cmd) {
-	if (cmd.onCooldown) {
-		return psc.reply({embeds: [
-			new psc.Embed({
-				title: "Woah there!  :face_with_spiral_eyes:",
-				description: `${emojis.decline} You've been timed out from using this command for a bit.`,
-				color: colors.decline
-			})
-		],
-			deleteAfter: "3s"
-		});
-	}
+	if ( Catch( cmd.onCooldown, { 
+		head: `Woah there!  :face_with_spiral_eyes:`,
+		text: `You've been timed out from using this command for a bit.`,
+	}) ) return;
 	
 
 	let clans = new Clanner();
@@ -24,50 +17,23 @@ async function data(ctx, cmd) {
 
 
     /* handling */
-	if (!user) {
-		return psc.reply({ embeds: [
-			new psc.Embed({
-				description: `${emojis.decline} Please put a valid user`,
-				color: colors.decline
-			})
-		], deleteAfter: "3s" });
-	}
-	if (!id) {
-		return psc.reply({ embeds: [
-			new psc.Embed({
-				description: `${emojis.decline} Please put a clan ID.`,
-				color: colors.decline
-			})
-		], deleteAfter: "3s" });
-	}
-	if (!clans.has(id, ctx.guild.id)) {
-		return psc.reply({ embeds: [
-			new psc.Embed({
-				description: `${emojis.decline} There is no clan with that ID.`,
-				color: colors.decline
-			})
-		], deleteAfter: "3s" });
-	}
+	if ( 
+		Catch( !user, { text: 'Please put a valid user.' }) ||
+		Catch( !id, { text: 'Please put a clan ID.' }) ||
+		Catch( !clans.has(id, ctx.guild.id), { text: 'There is no clan with that ID.'})
+	) return;
+
 
     let clan = clans.fetch(id);
-    
-    if ((clan.status == 2 || clan.status == 3) && !clan.members.includes(ctx.author.id)) {
-    	return psc.reply({ embeds: [
-			new psc.Embed({
-				description: `${emojis.decline} You have to be in an invite only clan to invite people.`,
-				color: colors.decline
-			})
-		], deleteAfter: "3s" });
-    }
 
-    if (clan.members.includes(user.id)) {
-        return psc.reply({ embeds: [
-			new psc.Embed({
-				description: `${emojis.decline} User is already in the clan.`,
-				color: colors.decline
-			})
-		], deleteAfter: "3s" });
-    }
+    
+	/* more handling */
+	if (
+		Catch( (clan.status == 2 || clan.status == 3) && !clan.members.includes(ctx.author), {
+			text: 'You have to be in an invite only clan to invite people.'
+		}) ||
+		Catch( clan.members.includes(user.id), { text: 'User is already in clan.'})
+	) return;
 
 
     /* buttons n stuff */
