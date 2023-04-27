@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { colors, acceptEmoji, declineEmoji, isDev, emojify } = require('../assets');
+var { colors, emojis, isDev, emojify } = require('../assets');
 
 var { icon } = require('../../config/defaults.json');
 var { version, versionText } = require('../../config/config.json');
@@ -33,7 +33,7 @@ async function data(ctx, cmd) {
 		if (the.length <= 0) {
 			return psc.reply({ embeds: [
 				new psc.Embed({
-					description: `${declineEmoji} I couldn't find a command with that name.`,
+					description: `${emojis.decline} I couldn't find a command with that name.`,
 					color: colors.decline
 				})
 			], deleteAfter: "3s" });
@@ -123,7 +123,7 @@ async function data(ctx, cmd) {
 	catch(err) {
 		return psc.reply({ embeds: [
 			new psc.Embed({
-				description: `${declineEmoji} Your DMs are off so I can't send you the stuff :(`,
+				description: `${emojis.decline} Your DMs are off so I can't send you the stuff :(`,
 				color: colors.decline
 			})
 		], deleteAfter: "3s" });
