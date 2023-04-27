@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { colors, acceptEmoji, declineEmoji, isDev, emojify } = require('../assets');
+var { colors, emojis, isDev, emojify } = require('../assets');
 
 var { icon } = require('../../config/defaults.json');
 var { version, versionText } = require('../../config/config.json');
