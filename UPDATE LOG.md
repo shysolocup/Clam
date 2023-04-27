@@ -4,7 +4,6 @@
 - [ ] updated commands that use acceptEmoji, declineEmoji, and goldEmoji so that it's now emojis.accept, emojis.decline, and emojis.gold
 - [ ] added src/classes/Handle.js
 - [ ] updated src/packages/discordpps/index.js
-- [ ] added src/events/error.js
 
 ## 04-26-23
 - [ ] added src/commands/join.js
