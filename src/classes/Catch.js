@@ -10,7 +10,7 @@ class Catch {
         let color = (contents.color) ? contents.color : (call) ? colors.decline : colors.accept;
         let time = (contents.time) ? contents.time : "3s";
         
-        return (call) ? psc.reply({
+        if (call) psc.reply({
             embeds: [
                 new Embed({
                     title: contents.head,
@@ -29,7 +29,7 @@ class Catch {
             deleteAfter: time
         })
 
-        : {};
+        return call;
     }
 }
 
