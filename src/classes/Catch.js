@@ -11,7 +11,7 @@ function Catch(call, contents={ head:null, text:null, footer:null, color:null, e
     
     if (call) poster({
         embeds: [
-            new Embed({
+            new psc.Embed({
                 title: contents.head,
                 description: `${emoji}  ${contents.text}`,
 
@@ -19,12 +19,12 @@ function Catch(call, contents={ head:null, text:null, footer:null, color:null, e
 
                 author: contents.author,
                 footer: contents.footer,
-
-                ephemeral: true,
+				
                 color: color
             })
         ],
 
+		ephemeral: true,
         deleteAfter: time
     })
 
