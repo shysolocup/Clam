@@ -3,6 +3,7 @@ var { colors, emojis, isDev, emojify } = require('../assets');
 
 var { icon } = require('../../config/defaults.json');
 var { version, versionText } = require('../../config/config.json');
+var { Catch } = require('../classes');
 
 const { Soup } = require('stews');
 
@@ -30,14 +31,7 @@ async function data(ctx, cmd) {
 	if (cmd.args[0]) {
 		var the = all.values.flat().filter( (v) => { return v.name == cmd.args[0] });
 
-		if (the.length <= 0) {
-			return psc.reply({ embeds: [
-				new psc.Embed({
-					description: `${emojis.fail} I couldn't find a command with that name.`,
-					color: colors.fail
-				})
-			], deleteAfter: "3s" });
-		}
+		if ( Catch( this.length <= 0, { text: "I couldn't find a command with that name." }) ) return;
 
 		[ category, stuff ] = all.filter( (_, c) => {
 			return c.includes(the[0]);
@@ -123,7 +117,7 @@ async function data(ctx, cmd) {
 	catch(err) {
 		return psc.reply({ embeds: [
 			new psc.Embed({
-				description: `${emojis.decline} Your DMs are off so I can't send you the stuff :(`,
+				description: `${emojis.fail} Your DMs are off so I can't send you the stuff :(`,
 				color: colors.fail
 			})
 		], deleteAfter: "3s" });
