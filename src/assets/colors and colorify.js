@@ -2,8 +2,8 @@ var { psc } = require('../../index.js');
 
 let colors = psc.colors;
 
-colors.accept = "#57F287";
-colors.decline = "#ED4245";
+colors.success = "#57F287";
+colors.fail = "#ED4245";
 
 function colorify(balance) {
 	balance = parseInt(`${balance}`.split(",").join(""));
