@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { colors, acceptEmoji, declineEmoji } = require('../assets');
+var { colors, emojis } = require('../assets');
 
 const { Soup } = require('stews');
 
@@ -9,7 +9,7 @@ async function data(ctx, cmd) {
 		return psc.reply({embeds: [
 			new psc.Embed({
 				title: "Woah there!  :face_with_spiral_eyes:",
-				description: `${declineEmoji} You've been timed out from using this command for a bit.`,
+				description: `${emojis.decline} You've been timed out from using this command for a bit.`,
 				color: colors.decline
 			})
 		],
@@ -30,7 +30,7 @@ async function data(ctx, cmd) {
 	
 	const embed = new psc.Embed({
 		title: "Clan Creation :sparkles:",
-		description: `${acceptEmoji} Created ${ (name) ? " `" + name + "`" : "your new clan"}!`,
+		description: `${emojis.accept} Created ${ (name) ? " `" + name + "`" : "your new clan"}!`,
 		footer: `( id: ${clan.id} )`,
 		color: colors.accept
 	});
