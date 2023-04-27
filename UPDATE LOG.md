@@ -4,6 +4,7 @@
 - [ ] updated commands that use acceptEmoji, declineEmoji, and goldEmoji so that it's now emojis.accept, emojis.decline, and emojis.gold
 - [ ] added src/classes/Catch.js even tho it's not a class but whatever
 - [ ] updated src/packages/discordpps/index.js
+- [ ] updated commands to use the new Catch stuff
 
 ## 04-26-23
 - [ ] added src/commands/join.js
