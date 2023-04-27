@@ -1,6 +1,7 @@
 ## 04-27-23
 - [ ] updated src/assets to split it into multiple files
 - [ ] moved src/assets/1.3.js and src/assets/1.4.js to src/assets/versions
+- [ ] updated commands that use acceptEmoji, declineEmoji, and goldEmoji so that it's now emojis.accept, emojis.decline, and emojis.gold
 
 ## 04-26-23
 - [ ] added src/commands/join.js
