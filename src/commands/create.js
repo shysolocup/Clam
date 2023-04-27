@@ -5,19 +5,15 @@ const { Soup } = require('stews');
 
 
 async function data(ctx, cmd) {
-	if (cmd.onCooldown) {
-		return psc.reply({embeds: [
-			new psc.Embed({
-				title: "Woah there!  :face_with_spiral_eyes:",
-				description: `${emojis.decline} You've been timed out from using this command for a bit.`,
-				color: colors.decline
-			})
-		],
-			deleteAfter: "3s"
-		});
-	}
-	
-	const { Clan } = require('../classes');
+	const { Clan, Catch } = require('../classes');
+
+	/* handling */
+	if ( Catch( cmd.onCooldown, { 
+		head: `Woah there!  :face_with_spiral_eyes:`,
+		text: `You've been timed out from using this command for a bit.`,
+	}) ) return;
+
+
 	let attachments = Soup.from(ctx.attachments);
 
 	
