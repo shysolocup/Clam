@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { colors, colorify, pearl, pearlify, declineEmoji } = require('../assets');
+var { colors, colorify, pearl, pearlify, emojis } = require('../assets');
 
 async function data(ctx, cmd) {
 	const { Econner } = require('../classes');
@@ -13,7 +13,7 @@ async function data(ctx, cmd) {
 	if (!user) {
 		return psc.reply({ embeds: [
 			new psc.Embed({
-				description: `${declineEmoji} Please put a valid user.`,
+				description: `${emojis.decline} Please put a valid user.`,
 				color: colors.decline
 			})
 		], deleteAfter: "3s" });
