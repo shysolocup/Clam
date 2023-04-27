@@ -33,7 +33,7 @@ async function data(ctx, cmd) {
 			text: 'You have to be in an invite only clan to invite people.'
 		}) ||
 		Catch( clan.members.includes(user.id), { text: 'User is already in that clan.'}) ||
-		Catch( clan.bans.includes(user.id), { text: 'User is banned in that clan.'})
+		Catch( clan.bans.includes(user.id), { text: 'User is banned from that clan.'})
 	) return;
 
 
