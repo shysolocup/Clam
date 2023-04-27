@@ -1,6 +1,6 @@
 let emojis = {
-	accept: "<:confirm:1052011206891798618>",
-	decline: "<:decline:1052011672774131762>",
+	success: "<:confirm:1052011206891798618>",
+	fail: "<:decline:1052011672774131762>",
 	gold: "<:goldenclam:1052759240885940264>"
 };
 
