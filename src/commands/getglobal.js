@@ -1,6 +1,6 @@
 var { psc, bot } = require('../../index.js');
 var { pearl, pearlify, colors, colorify, emojis, infostuffs } = require('../assets');
-var { Clanner } = require('../classes');
+var { Clanner, Catch } = require('../classes');
 
 const { Soup } = require('stews');
 
