@@ -17,7 +17,7 @@ async function data(ctx, cmd) {
 
 
     /* handling */
-	if (
+	if ( 
 		Catch( !user, { text: 'Please put a valid user.' }) ||
 		Catch( !id, { text: 'Please put a clan ID.' }) ||
 		Catch( !clans.has(id, ctx.guild.id), { text: 'There is no clan with that ID.'})
@@ -32,7 +32,8 @@ async function data(ctx, cmd) {
 		Catch( (clan.status == 2 || clan.status == 3) && !clan.members.includes(ctx.author), {
 			text: 'You have to be in an invite only clan to invite people.'
 		}) ||
-		Catch( clan.members.includes(user.id), { text: 'User is already in clan.'})
+		Catch( clan.members.includes(user.id), { text: 'User is already in that clan.'}) ||
+		Catch( clan.bans.includes(user.id), { text: 'User is banned in that clan.'})
 	) return;
 
 
