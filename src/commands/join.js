@@ -21,7 +21,8 @@ async function data(ctx, cmd) {
 	/* more handling */
 	if (
 		Catch( clan.status == 2 || clan.status == 3, { text: "This clan is invite only." }) ||
-		Catch( clan.members.includes(ctx.author.id), { text: "You're already in that clan."})
+		Catch( clan.members.includes(ctx.author.id), { text: "You're already in that clan."}) ||
+		Catch( clan.bans.includes(ctx.author.id), { text: "You're banned in that clan."})
 	) return;
     
 
