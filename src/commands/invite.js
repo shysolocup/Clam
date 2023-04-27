@@ -17,7 +17,7 @@ async function data(ctx, cmd) {
 
 
     /* handling */
-	if ( 
+	if (
 		Catch( !user, { text: 'Please put a valid user.' }) ||
 		Catch( !id, { text: 'Please put a clan ID.' }) ||
 		Catch( !clans.has(id, ctx.guild.id), { text: 'There is no clan with that ID.'})
