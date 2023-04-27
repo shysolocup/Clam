@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { colors, acceptEmoji, declineEmoji, infostuffs } = require('../assets/index.js');
+var { colors, emojis, infostuffs } = require('../assets/index.js');
 var { Clanner } = require('../classes/index.js');
 
 const { Soup } = require('stews');
@@ -13,7 +13,7 @@ async function data(ctx) {
         if (!infostuffs.has(ctx.message.id)) {
             return ctx.reply({ embeds: [
                 new psc.Embed({
-                    description: `${declineEmoji} Command timed out.`,
+                    description: `${emojis.decline} Command timed out.`,
                     color: colors.decline,
                     ephemeral: true
                 })
@@ -30,7 +30,7 @@ async function data(ctx) {
         if (!clans.has(clan.id)) {
             return ctx.reply({ embeds: [
                 new psc.Embed({
-                    description: `${declineEmoji} Clan has been deleted or altered.`,
+                    description: `${emojis.decline} Clan has been deleted or altered.`,
                     color: colors.decline,
                     ephemeral: true
                 })
@@ -40,7 +40,7 @@ async function data(ctx) {
         if (reciever.id != ctx.member.id) {
             return ctx.reply({ embeds: [
                 new psc.Embed({
-                    description: `${declineEmoji} That's not for you. :angry:`,
+                    description: `${emojis.decline} That's not for you. :angry:`,
                     color: colors.decline,
                     ephemeral: true
                 })
@@ -56,7 +56,7 @@ async function data(ctx) {
 
         let embed = new psc.Embed({
             title: "Invite  :tada:",
-            description: `${declineEmoji}  Looks like <@${reciever.id}> doesn't wanna party with you guys :(`,
+            description: `${emojis.decline}  Looks like <@${reciever.id}> doesn't wanna party with you guys :(`,
             footer: `( id: ${clan.id} )`,
             color: colors.decline
         });
