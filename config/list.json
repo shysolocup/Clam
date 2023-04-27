@@ -50,10 +50,5 @@
 			{ "name": "remfunds", "args": ["amount", "clanID"], "aliases": ["fremove"], "desc": "Removes funds from a clan" },
 			{ "name": "setfunds", "args": ["amount", "clanID"], "aliases": ["fset"], "desc": "Sets funds in a clan" },
 			{ "name": "clearfunds", "args": ["amount", "clanID"], "aliases": ["fclear"], "desc": "Clears funds for a clan" }
-		],
-  
-		"Developer": [
-			{ "name": "getglobal", "args": ["clanID"], "aliases": [], "desc": "Gets a clan no matter what server it's in" },
-			{ "name": "dump", "args": [], "aliases": [], "desc": "Dumps the infostuffs into a JSON file" }
 		]
 }
