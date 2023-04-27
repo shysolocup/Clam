@@ -1,6 +1,6 @@
 var { psc, bot } = require('../../index.js');
 var { pearl, pearlify, colors, colorify, emojis, infostuffs } = require('../assets');
-var { Clanner } = require('../classes');
+var { Clanner, Catch } = require('../classes');
 
 const { Soup } = require('stews');
 
@@ -20,48 +20,22 @@ psc.buttonAction(data);
 /* stuff */
 async function stuff(ctx) {
 	let clans = new Clanner();
+	
+	
+	/* handling */
+	if ( Catch( !infostuffs.has(ctx.message.id), { text: "Command timed out." }) ) return;
 
-	if (!infostuffs.has(ctx.message.id)) {
-		return ctx.reply({ embeds: [
-			new psc.Embed({
-				description: `${emojis.decline} Command timed out.`,
-				color: colors.decline,
-                ephemeral: true
-			})
-		]});
-	}
-
+	
 	let [ user, clan ] = infostuffs.get(ctx.message.id);
     let id = clan.id;
 	
-	/* handling */
-	if (user.id != ctx.member.id) {
-		return ctx.reply({ embeds: [
-			new psc.Embed({
-				description: `${emojis.decline} That's not for you. :angry:`,
-				color: colors.decline,
-				ephemeral: true
-			})
-		]});
-	}
-	if (!id) {
-		return ctx.reply({ embeds: [
-			new psc.Embed({
-				description: `${emojis.decline} Please put a clan ID.`,
-				color: colors.decline,
-                ephemeral: true
-			})
-		]});
-	}
-	if (!clans.has(id)) {
-		return ctx.reply({ embeds: [
-			new psc.Embed({
-				description: `${emojis.decline} Clan has been deleted or altered.`,
-				color: colors.decline,
-                ephemeral: true
-			})
-		]});
-	}
+	
+	/* more handling */
+	if ( 
+		Catch( user.id != ctx.member.id, { text: "That's not for you. :angry:" }) ||
+		Catch( !id, { text: "Please put a clan ID." }) ||
+		Catch( !clans.has(id), { text: "Clan has been deleted or altered." })
+	) return;
 
 
 	/* the stuff */
