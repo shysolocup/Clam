@@ -2,7 +2,7 @@ var { psc, bot } = require('../../index.js');
 var { colors, colorify, pearl, pearlify, emojis } = require('../assets');
 
 async function data(ctx, cmd) {
-	const { Econner } = require('../classes');
+	const { Econner, Catch } = require('../classes');
 	let econner = new Econner();
 
 	
@@ -10,14 +10,7 @@ async function data(ctx, cmd) {
 
 	
 	/* handling */
-	if (!user) {
-		return psc.reply({ embeds: [
-			new psc.Embed({
-				description: `${emojis.decline} Please put a valid user.`,
-				color: colors.decline
-			})
-		], deleteAfter: "3s" });
-	}
+	if ( Catch( !user, { text: `Please put a valid user.` }) ) return;
 
 
 	let balance = (econner.has(user.id)) ? econner.fetchHand(user.id) : 0;
