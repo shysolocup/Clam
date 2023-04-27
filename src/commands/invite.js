@@ -1,6 +1,6 @@
 const { Soup } = require('stews');
 var { psc, bot } = require('../../index.js');
-var { colors, acceptEmoji, declineEmoji, infostuffs } = require('../assets');
+var { colors, emojis, infostuffs } = require('../assets');
 var { Clanner } = require('../classes');
 
 async function data(ctx, cmd) {
@@ -8,7 +8,7 @@ async function data(ctx, cmd) {
 		return psc.reply({embeds: [
 			new psc.Embed({
 				title: "Woah there!  :face_with_spiral_eyes:",
-				description: `${declineEmoji} You've been timed out from using this command for a bit.`,
+				description: `${emojis.decline} You've been timed out from using this command for a bit.`,
 				color: colors.decline
 			})
 		],
@@ -27,7 +27,7 @@ async function data(ctx, cmd) {
 	if (!user) {
 		return psc.reply({ embeds: [
 			new psc.Embed({
-				description: `${declineEmoji} Please put a valid user`,
+				description: `${emojis.decline} Please put a valid user`,
 				color: colors.decline
 			})
 		], deleteAfter: "3s" });
@@ -35,7 +35,7 @@ async function data(ctx, cmd) {
 	if (!id) {
 		return psc.reply({ embeds: [
 			new psc.Embed({
-				description: `${declineEmoji} Please put a clan ID.`,
+				description: `${emojis.decline} Please put a clan ID.`,
 				color: colors.decline
 			})
 		], deleteAfter: "3s" });
@@ -43,7 +43,7 @@ async function data(ctx, cmd) {
 	if (!clans.has(id, ctx.guild.id)) {
 		return psc.reply({ embeds: [
 			new psc.Embed({
-				description: `${declineEmoji} There is no clan with that ID.`,
+				description: `${emojis.decline} There is no clan with that ID.`,
 				color: colors.decline
 			})
 		], deleteAfter: "3s" });
@@ -54,7 +54,7 @@ async function data(ctx, cmd) {
     if ((clan.status == 2 || clan.status == 3) && !clan.members.includes(ctx.author.id)) {
     	return psc.reply({ embeds: [
 			new psc.Embed({
-				description: `${declineEmoji} You have to be in an invite only clan to invite people.`,
+				description: `${emojis.decline} You have to be in an invite only clan to invite people.`,
 				color: colors.decline
 			})
 		], deleteAfter: "3s" });
@@ -63,7 +63,7 @@ async function data(ctx, cmd) {
     if (clan.members.includes(user.id)) {
         return psc.reply({ embeds: [
 			new psc.Embed({
-				description: `${declineEmoji} User is already in the clan.`,
+				description: `${emojis.decline} User is already in the clan.`,
 				color: colors.decline
 			})
 		], deleteAfter: "3s" });
