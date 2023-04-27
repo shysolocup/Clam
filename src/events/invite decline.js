@@ -10,7 +10,7 @@ async function data(ctx) {
 
     if (buttonID == "inviteDecline") {
         /* handling */
-	if ( Catch( !infostuffs.has(ctx.message.id), { text: "Command timed out." }) ) return;
+	if ( Catch( !infostuffs.has(ctx.message.id), { text: "Command timed out.", poster: ctx.reply.bind(ctx) }) ) return;
 
 	   
 	/* stuff */
@@ -20,8 +20,8 @@ async function data(ctx) {
 	
 	/* more handling */
 	if (
-		Catch( !clans.has(clan.id), { text: "Clan has been deleted or altered."}) ||
-		Catch( reciever.id != ctx.member.id, { text: "That's not for you. :angry:" })
+		Catch( !clans.has(clan.id), { text: "Clan has been deleted or altered.", poster: ctx.reply.bind(ctx) }) ||
+		Catch( reciever.id != ctx.member.id, { text: "That's not for you. :angry:", poster: ctx.reply.bind(ctx) })
 	) return;
 	    
         
