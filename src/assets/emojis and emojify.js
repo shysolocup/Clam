@@ -8,4 +8,4 @@ function emojify(category) {
 	return { "general": "👥", "management": "🛠️", "moderation": "🛡️", "economy": "💰", "administrator": "🔓"}[category.toLowerCase()];
 }
 
-module.exports = { emojis emojify };
+module.exports = { emojis, emojify };
