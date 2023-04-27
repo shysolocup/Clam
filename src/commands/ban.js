@@ -43,6 +43,7 @@ async function data(ctx, cmd) {
 		footer: `( id: ${clan.id} )`,
 		color: colors.success
 	});
+	
 
 	ctx.reply({ embeds: [embed] });
 	clans.ban(clan.id, user.id);
