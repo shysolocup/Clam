@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { pearl, pearlify, colors, colorify, goldEmoji, acceptEmoji, declineEmoji, infostuffs } = require('../assets');
+var { pearl, pearlify, colors, colorify, emojis, infostuffs } = require('../assets');
 var { Clanner } = require('../classes');
 
 const { Soup } = require('stews');
@@ -13,7 +13,7 @@ async function data(ctx, cmd) {
 	if (!id) {
 		return psc.reply({ embeds: [
 			new psc.Embed({
-				description: `${declineEmoji} Please put a clan ID.`,
+				description: `${emojis.decline} Please put a clan ID.`,
 				color: colors.decline
 			})
 		], deleteAfter: "3s" });
@@ -21,7 +21,7 @@ async function data(ctx, cmd) {
 	if (!clans.has(id, ctx.guild.id)) {
 		return psc.reply({ embeds: [
 			new psc.Embed({
-				description: `${declineEmoji} There is no clan with that ID.`,
+				description: `${emojis.decline} There is no clan with that ID.`,
 				color: colors.decline
 			})
 		], deleteAfter: "3s" });
@@ -31,7 +31,7 @@ async function data(ctx, cmd) {
 	/* the stuff */
 	let clan = clans.fetch(id, ctx.guild.id);
 	
-	let name = (clan.gold) ? `${clan.name}  ${goldEmoji}` : clan.name;
+	let name = (clan.gold) ? `${clan.name}  ${emojis.gold}` : clan.name;
 	let members = (clan.members.join(">, <@") == []) ? "None" : `<@${clan.members.join(">, <@")}>`;
 	let ops = (clan.ops.join(">, <@") == []) ? "None" : `<@${clan.ops.join(">, <@")}>`;
 	let status = (clan.status == 1) ? "Public" : (clan.status == 2) ?  "Private" : (clan.status == 3) ? "Unlisted" : "Public";
