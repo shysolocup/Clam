@@ -26,9 +26,9 @@ async function data(ctx, cmd) {
 	
 	const embed = new psc.Embed({
 		title: "Clan Creation :sparkles:",
-		description: `${emojis.accept} Created ${ (name) ? " `" + name + "`" : "your new clan"}!`,
+		description: `${emojis.success} Created ${ (name) ? " `" + name + "`" : "your new clan"}!`,
 		footer: `( id: ${clan.id} )`,
-		color: colors.accept
+		color: colors.success
 	});
 
 	ctx.reply({ embeds: [embed] });
