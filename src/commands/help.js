@@ -33,8 +33,8 @@ async function data(ctx, cmd) {
 		if (the.length <= 0) {
 			return psc.reply({ embeds: [
 				new psc.Embed({
-					description: `${emojis.decline} I couldn't find a command with that name.`,
-					color: colors.decline
+					description: `${emojis.fail} I couldn't find a command with that name.`,
+					color: colors.fail
 				})
 			], deleteAfter: "3s" });
 		}
@@ -95,7 +95,7 @@ async function data(ctx, cmd) {
 			footer: `${versionText} v${version}`,
 			thumbnail: icon,
 			
-			color: psc.colors.clam
+			color: colors.clam
 		});
 	}
 	
@@ -111,7 +111,7 @@ async function data(ctx, cmd) {
 			footer: `${versionText} v${version}`,
 			thumbnail: icon,
 	
-			color: psc.colors.clam
+			color: colors.clam
 		});
 	}
 
@@ -124,7 +124,7 @@ async function data(ctx, cmd) {
 		return psc.reply({ embeds: [
 			new psc.Embed({
 				description: `${emojis.decline} Your DMs are off so I can't send you the stuff :(`,
-				color: colors.decline
+				color: colors.fail
 			})
 		], deleteAfter: "3s" });
 	}
