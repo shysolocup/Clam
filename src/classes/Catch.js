@@ -26,7 +26,7 @@ function Catch(call, contents={ head:null, text:null, footer:null, color:null, e
 
 		ephemeral: true,
         deleteAfter: time
-    })
+    });
 
     return call;
 }
