@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { pearl, pearlify, colors, colorify, goldEmoji, declineEmoji, infostuffs } = require('../assets');
+var { pearl, pearlify, colors, colorify, emojis, infostuffs } = require('../assets');
 var { Clanner } = require('../classes');
 
 const { Soup } = require('stews');
@@ -24,7 +24,7 @@ async function stuff(ctx) {
 	if (!infostuffs.has(ctx.message.id)) {
 		return ctx.reply({ embeds: [
 			new psc.Embed({
-				description: `${declineEmoji} Command timed out.`,
+				description: `${emojis.decline} Command timed out.`,
 				color: colors.decline,
                 ephemeral: true
 			})
@@ -38,7 +38,7 @@ async function stuff(ctx) {
 	if (user.id != ctx.member.id) {
 		return ctx.reply({ embeds: [
 			new psc.Embed({
-				description: `${declineEmoji} That's not for you. :angry:`,
+				description: `${emojis.decline} That's not for you. :angry:`,
 				color: colors.decline,
 				ephemeral: true
 			})
@@ -47,7 +47,7 @@ async function stuff(ctx) {
 	if (!id) {
 		return ctx.reply({ embeds: [
 			new psc.Embed({
-				description: `${declineEmoji} Please put a clan ID.`,
+				description: `${emojis.decline} Please put a clan ID.`,
 				color: colors.decline,
                 ephemeral: true
 			})
@@ -56,7 +56,7 @@ async function stuff(ctx) {
 	if (!clans.has(id)) {
 		return ctx.reply({ embeds: [
 			new psc.Embed({
-				description: `${declineEmoji} Clan has been deleted or altered.`,
+				description: `${emojis.decline} Clan has been deleted or altered.`,
 				color: colors.decline,
                 ephemeral: true
 			})
@@ -65,7 +65,7 @@ async function stuff(ctx) {
 
 
 	/* the stuff */
-	let name = (clan.gold) ? `${clan.name}  ${goldEmoji}` : clan.name;
+	let name = (clan.gold) ? `${clan.name}  ${emojis.gold}` : clan.name;
 	let members = (clan.members.join(">, <@") == []) ? "None" : `<@${clan.members.join(">, <@")}>`;
 	let ops = (clan.ops.join(">, <@") == []) ? "None" : `<@${clan.ops.join(">, <@")}>`;
 	let status = (clan.status == 1) ? "Public" : (clan.status == 2) ? "Private" : (clan.status == 3) ? "Unlisted" : "Public";
