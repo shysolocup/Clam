@@ -13,7 +13,7 @@ async function data(ctx, cmd) {
 	let clans = new Clanner();
 	let [user, id] = cmd.args;
 
-    user = psc.fetchUser(user);
+    user = await psc.fetchUser(user);
 
 
     /* handling */
