@@ -42,9 +42,9 @@ async function data(ctx, cmd) {
 		footer: `( id: ${clan.id} )`,
 		color: colors.success
 	});
-  
+	
 
-	ctx.reply({ embeds: [embed] });
+	ctx.reply({ embeds: [embed] }).catch(e=>{});
 	clans.unban(clan.id, user.id);
 }
 
