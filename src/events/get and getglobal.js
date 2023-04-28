@@ -23,7 +23,7 @@ async function stuff(ctx) {
 	
 	
 	/* handling */
-	if ( Catch( !infostuffs.has(ctx.message.id), { text: "Command timed out." }) ) return;
+	if ( Catch( !infostuffs.has(ctx.message.id), { text: "Command timed out.", poster: ctx.reply.bind(ctx) }) ) return;
 
 	
 	let [ user, clan ] = infostuffs.get(ctx.message.id);
@@ -32,9 +32,9 @@ async function stuff(ctx) {
 	
 	/* more handling */
 	if ( 
-		Catch( user.id != ctx.member.id, { text: "That's not for you. :angry:" }) ||
-		Catch( !id, { text: "Please put a clan ID." }) ||
-		Catch( !clans.has(id), { text: "Clan has been deleted or altered." })
+		Catch( user.id != ctx.member.id, { text: "That's not for you. :angry:", poster: ctx.reply.bind(ctx) }) ||
+		Catch( !id, { text: "Please put a clan ID.", poster: ctx.reply.bind(ctx) }) ||
+		Catch( !clans.has(id), { text: "Clan has been deleted or altered.", poster: ctx.reply.bind(ctx) })
 	) return;
 
 
@@ -106,5 +106,5 @@ async function stuff(ctx) {
 	});
 	
 	
-	return ctx.update( {embeds: [embed], components: [row]} );
+	return ctx.update( {embeds: [embed], components: [row]} ).catch(e=>{});
 }
