@@ -31,7 +31,7 @@ async function data(ctx, cmd) {
 		color: colors.success
 	});
 
-	ctx.reply({ embeds: [embed] });
+	ctx.reply({ embeds: [embed] }).catch(e=>{});
 }
 
 psc.command({ name: "create", cooldown: "1m"}, data);
