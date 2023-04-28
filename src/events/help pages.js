@@ -65,7 +65,7 @@ async function data(ctx) {
 			color: psc.colors.clam
 		});
 		
-		ctx.update({ embeds: [embed], components: comps });
+		ctx.update({ embeds: [embed], components: comps }).catch(e=>{});
 	}
 }
 
