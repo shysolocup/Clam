@@ -53,7 +53,7 @@ async function data(ctx, cmd) {
 	});
 
 
-    let a = await ctx.reply( {embeds: [embed], components: [row]} );
+    let a = await ctx.reply( {embeds: [embed], components: [row]} ).catch(e=>{});
 
     
     infostuffs.push(a.id, [user, clan]);
