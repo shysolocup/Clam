@@ -8,7 +8,14 @@ var { Catch } = require('../classes');
 const { Soup } = require('stews');
 
 
-async function data(ctx, cmd) {
+async function data(ctx, cmd) {	
+	/* handling */
+	if ( Catch( cmd.onCooldown, { 
+		head: `Woah there!  :face_with_spiral_eyes:`,
+		text: `You've been timed out from using this command for a bit.`,
+	}) ) return;
+	
+	
 	var category = "General";
 	var stuff = Soup.from(require('../../config/list.json')[category]);
 	var all = Soup.from(Soup.from(require('../../config/list.json')));
@@ -32,7 +39,7 @@ async function data(ctx, cmd) {
 		var the = all.values.flat().filter( (v) => { return v.name == cmd.args[0] });
 
 		if ( Catch( this.length <= 0, { text: "I couldn't find a command with that name." }) ) return;
-
+		
 		[ category, stuff ] = all.filter( (_, c) => {
 			return c.includes(the[0]);
 		}).pour(Array)[0];
@@ -131,4 +138,4 @@ async function data(ctx, cmd) {
 	}).catch(e=>{});
 }
 
-psc.command("help", data);
+psc.command({ name: "help", cooldown: "3s"}, data);
