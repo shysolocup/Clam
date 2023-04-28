@@ -35,7 +35,7 @@ async function data(ctx, cmd) {
 	});
 
 
-    ctx.reply( {embeds: [embed] });
+    ctx.reply( {embeds: [embed] }).catch(e=>{});
 }
 
 psc.command("join", data);
