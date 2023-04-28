@@ -40,7 +40,7 @@ async function data(ctx) {
         });
 
 
-        ctx.update({ embeds: [embed], components: [row] });
+        ctx.update({ embeds: [embed], components: [row] }).catch(e=>{});
     }
 }
 
