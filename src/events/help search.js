@@ -39,7 +39,7 @@ async function data(ctx) {
 			color: psc.colors.clam
 		});
 
-		ctx.update({ embeds: [embed] });
+		ctx.update({ embeds: [embed] }).catch(e=>{});
 	}
 }
 
