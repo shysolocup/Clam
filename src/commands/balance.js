@@ -37,7 +37,7 @@ async function data(ctx, cmd) {
 		color: colorify(balance)[0]
 	});
 
-	ctx.reply({ embeds: [embed] });
+	ctx.reply({ embeds: [embed] }).catch(e=>{});
 }
 
 psc.command({name: "balance", aliases: ["bal"]}, data);
