@@ -112,7 +112,7 @@ async function data(ctx, cmd) {
 
 	/* the dming */
 	try {
-		await ctx.author.send({ embeds: [embed], components: comps });
+		await ctx.author.send({ embeds: [embed], components: comps }).catch(e=>{});
 	}
 	catch(err) {
 		return psc.reply({ embeds: [
@@ -120,7 +120,7 @@ async function data(ctx, cmd) {
 				description: `${emojis.fail} Your DMs are off so I can't send you the stuff :(`,
 				color: colors.fail
 			})
-		], deleteAfter: "3s" });
+		], deleteAfter: "3s" }).catch(e=>{});
 	}
 
 	psc.reply({embeds: [{
@@ -128,7 +128,7 @@ async function data(ctx, cmd) {
 		description: `Check the DM I sent you!`,
 	}],
 		deleteAfter: "5s"
-	});
+	}).catch(e=>{});
 }
 
 psc.command("help", data);
