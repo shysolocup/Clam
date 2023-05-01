@@ -2,7 +2,7 @@
 		"General": [
 			{ "name": "help", "args": ["(Optional name)"], "aliases": [], "desc": "DMs the author the help page" },
 			{ "name": "get", "args": ["clanID"], "aliases": [], "desc": "Sends a page with details about a clan" },
-			{ "name": "list", "args": [], "aliases": [], "desc": "A list of all clans in a server" },
+			{ "name": "list", "args": [], "aliases": ["view"], "desc": "A list of all clans in a server" },
 			{ "name": "join", "args": ["clanID"], "aliases": [], "desc": "Joins a clan if it's public" },
 			{ "name": "leave", "args": ["clanID"], "aliases": [], "desc": "Leaves a clan" },
 			{ "name": "invite", "args": ["user", "clanID"], "aliases": [], "desc": "Invites a user to a clan" },
