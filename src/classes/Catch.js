@@ -1,10 +1,11 @@
 const { Embed } = require('../packages/discordpps');
 
-function Catch(call, contents={ head:null, text:null, footer:null, color:null, emoji:null, fields:null, author:null, time:null, delete:true, poster:null, components:null, files:null, image:null, thumbnail:null, textEmoji:true }) {
+function Catch(call, contents={ head:null, text:null, footer:null, color:null, emoji:null, fields:null, author:null, time:null, delete:true, poster:null, components:null, files:null, image:null, thumbnail:null, textEmoji:true, post:true }) {
     var { colors, emojis } = require('../assets');
     var { psc } = require('../../index.js');
 
 
+    contents.post = (contents.post != undefined) ? contents.post : true;
     contents.delete = (contents.delete != undefined) ? contents.delete : true;
     contents.textEmoji = (contents.textEmoji != undefined) ? contents.textEmoji : true;
 
@@ -15,7 +16,7 @@ function Catch(call, contents={ head:null, text:null, footer:null, color:null, e
 	let poster = (contents.poster) ? contents.poster : psc.reply;
     
 
-    if (call) poster({
+    if (call && contents.post) poster({
         embeds: [
             new psc.Embed({
                 title: contents.head,
