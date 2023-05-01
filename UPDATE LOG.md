@@ -1,3 +1,10 @@
+## 05-01-23
+- added command !export
+- added command !dump
+- added commands and events for !list and !listall
+- updated Catch and Clanner classes
+- added a moderator section for !get and !getglobal that shows the bans, icon, banner and if the clan is gold
+
 ## 04-27-23
 - updated src/assets to split it into multiple files
 - moved src/assets/1.3.js and src/assets/1.4.js to src/assets/versions
