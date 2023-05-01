@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { pearl, pearlify, colors, colorify, emojis, infostuffs } = require('../assets');
+var { pearl, pearlify, colors, colorify, emojis, infostuffs, isDev } = require('../assets');
 var { Clanner, Catch } = require('../classes');
 
 const { Soup } = require('stews');
@@ -43,6 +43,7 @@ async function stuff(ctx) {
 	/* the stuff */
 	let name = (clan.gold) ? `${clan.name}  ${emojis.gold}` : clan.name;
 	let members = (clan.members.join(">, <@") == []) ? "None" : `<@${clan.members.join(">, <@")}>`;
+	let bans = (clan.bans.join(">, <@") == []) ? "None" : `<@${clan.bans.join(">, <@")}>`;
 	let ops = (clan.ops.join(">, <@") == []) ? "None" : `<@${clan.ops.join(">, <@")}>`;
 	let status = clans.status(clan.status);
 	let shout = `"${clan.shout.content}" - <@${clan.shout.author}>`;
@@ -55,8 +56,9 @@ async function stuff(ctx) {
 	let homeButton = new psc.Button({ id: "clanGet/Home", emoji: "🏡", style: (category == "Home") ? "primary" : "secondary" });
 	let statsButton = new psc.Button({ id: "clanGet/Stats", emoji: "📊", style: (category == "Stats") ? "primary" : "secondary" });
 	let economyButton = new psc.Button({ id: "clanGet/Economy", emoji: "💰", style: (category == "Economy") ? "primary" : "secondary" });
+	let modButton = new psc.Button({ id: "clanGet/Moderation", emoji: "🛡️", style: (category == "Moderation") ? "primary" : "secondary", disabled: !(clan.ops.includes(user.id) || isDev(user.id)) });
 
-    let row = new psc.ActionRow([ homeButton, statsButton, economyButton ]);
+    let row = new psc.ActionRow([ homeButton, statsButton, economyButton, modButton ]);
 
 
     /* fields */
@@ -85,6 +87,16 @@ async function stuff(ctx) {
 			{ name:"Funds", value: "`"+pearl+pearlify(clan.funds)+"`", inline: true},
 			{ name:"Rank", value: "`"+colorify(clan.funds)[1]+"`", inline: true},
 			{ name:"** **", value: "** **", inline: false},
+        ];
+    }
+	else if (category == "Moderation") {
+        fields = [
+            { name:"** **", value: "** **", inline: false},
+            { name:"Bans", value: `${bans}`, inline: true},
+            { name:"Icon URL", value: `[Link](${icon})`, inline: true},
+			{ name:"Banner URL", value: `[Link](${banner})`, inline: true},
+			{ name:"Gold", value: `${clan.gold}`, inline: true},
+            { name:"** **", value: "** **", inline: false},
         ];
     }
 	
