@@ -42,7 +42,7 @@ async function stuff(ctx) {
 	let name = (clan.gold) ? `${clan.name}  ${emojis.gold}` : clan.name;
 	let members = (clan.members.join(">, <@") == []) ? "None" : `<@${clan.members.join(">, <@")}>`;
 	let ops = (clan.ops.join(">, <@") == []) ? "None" : `<@${clan.ops.join(">, <@")}>`;
-	let status = (clan.status == 1) ? "Public" : (clan.status == 2) ? "Private" : (clan.status == 3) ? "Unlisted" : "Public";
+	let status = clans.status(clan.status);
 	let shout = `"${clan.shout.content}" - <@${clan.shout.author}>`;
 	
 	let icon = Soup.from(clan.icon).replaceAll(" ", "_").join("");
