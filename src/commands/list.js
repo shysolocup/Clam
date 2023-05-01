@@ -64,4 +64,4 @@ async function data(ctx, cmd) {
 	setTimeout(() => infostuffs.delete(a.id), 21600000);
 }
 
-psc.command("list", data);
+psc.command({ name: "list", aliases: ["view"] }, data);
