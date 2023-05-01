@@ -34,7 +34,7 @@ async function data(ctx, cmd) {
 	let homeButton = new psc.Button({ id: "clanGet/Home", emoji: "🏡", style: "primary" });
 	let statsButton = new psc.Button({ id: "clanGet/Stats", emoji: "📊", style: "secondary" });
 	let economyButton = new psc.Button({ id: "clanGet/Economy", emoji: "💰", style: "secondary" });
-	let modButton = new psc.Button({ id: "clanGet/Moderation", emoji: "🛡️", style: "secondary", disabled: !(clan.ops.includes(ctx.author.id) || isDev(ctx.author.id)) });
+	let modButton = new psc.Button({ id: "clanGet/Moderation", emoji: "🛡️", style: "secondary", disabled: !(clan.ops.includes(ctx.author.id) || clan.owner==ctx.author.id || isDev(ctx.author.id)) });
 
 	let row = new psc.ActionRow([ homeButton, statsButton, economyButton, modButton ]);
 	
@@ -53,7 +53,7 @@ async function data(ctx, cmd) {
 				{ name:"** **", value: "** **", inline: true},
 				{ name:"Operators", value: `${ops}`, inline: true},
 				{ name:"** **", value: "** **", inline: false},
-				
+
 			],
 			
 			
