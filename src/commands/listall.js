@@ -1,10 +1,18 @@
+/* THIS IS A DEV/ADMIN ONLY COMMAND AND THUS ONLY SHOWS UP IN THE LOCKED ADMINISTRATOR SECTION */
+
 var { psc, bot } = require('../../index.js');
-var { colors, emojis, infostuffs } = require('../assets');
+var { colors, emojis, infostuffs, isDev } = require('../assets');
 var { Clanner, Catch } = require('../classes');
 
 const { Soup } = require('stews');
 
 async function data(ctx, cmd) {
+	/* handling */
+	let disabled = !(psc.author.hasPermissions(["admin"]) || isDev(ctx.author.id));
+    	if ( Catch( disabled, { post: false }) ) return;
+	
+	
+	/* clanner and list stuff */
 	var clans = new Clanner();
 	var list = clans.listify(ctx.guild.id, true);
     var disabled = list.total <= 0;
