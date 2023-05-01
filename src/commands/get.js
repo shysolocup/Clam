@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { pearl, pearlify, colors, colorify, emojis, infostuffs } = require('../assets');
+var { pearl, pearlify, colors, colorify, emojis, infostuffs, isDev } = require('../assets');
 var { Clanner, Catch } = require('../classes');
 
 const { Soup } = require('stews');
@@ -34,8 +34,9 @@ async function data(ctx, cmd) {
 	let homeButton = new psc.Button({ id: "clanGet/Home", emoji: "🏡", style: "primary" });
 	let statsButton = new psc.Button({ id: "clanGet/Stats", emoji: "📊", style: "secondary" });
 	let economyButton = new psc.Button({ id: "clanGet/Economy", emoji: "💰", style: "secondary" });
-	
-	let row = new psc.ActionRow([ homeButton, statsButton, economyButton ]);
+	let modButton = new psc.Button({ id: "clanGet/Moderation", emoji: "🛡️", style: "secondary", disabled: !(clan.ops.includes(ctx.author.id) || isDev(ctx.author.id)) });
+
+	let row = new psc.ActionRow([ homeButton, statsButton, economyButton, modButton ]);
 	
 	
 	/* the */
@@ -53,18 +54,6 @@ async function data(ctx, cmd) {
 				{ name:"Operators", value: `${ops}`, inline: true},
 				{ name:"** **", value: "** **", inline: false},
 				
-				/*
-				{ name:"** **", value: "** **", inline: false},
-				{ name:"Members", value: `${members}`, inline: true},
-				{ name:"Member Count", value: `${clan.members.length}`, inline: true},
-				{ name:"** **", value: "** **", inline: false},
-				*/
-				/*
-				{ name:"** **", value: "** **", inline: false},
-				{ name:"Funds", value: "`"+pearl+pearlify(clan.funds)+"`", inline: true},
-				{ name:"Rank", value: "`"+colorify(clan.funds)[1]+"`", inline: true},
-				{ name:"** **", value: "** **", inline: false},
-				*/
 			],
 			
 			
