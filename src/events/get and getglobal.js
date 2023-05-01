@@ -8,7 +8,7 @@ const { Soup } = require('stews');
 async function data(ctx) {
     const buttonID = ctx.customId;
 
-    if (buttonID == "clanHome" || buttonID == "clanStats" || buttonID == "clanEconomy") {
+    if (buttonID.startsWith("clanGet/")) {
         stuff(ctx);
     }
 }
@@ -28,6 +28,8 @@ async function stuff(ctx) {
 	
 	let [ user, clan ] = infostuffs.get(ctx.message.id);
     let id = clan.id;
+
+	let category = ctx.customId.split("clanGet/")[1];
 	
 	
 	/* more handling */
@@ -50,16 +52,16 @@ async function stuff(ctx) {
 	
 	
 	/* buttons */
-	let homeButton = new psc.Button({ id: "clanHome", emoji: "🏡", style: (ctx.customId == "clanHome") ? "primary" : "secondary" });
-	let statsButton = new psc.Button({ id: "clanStats", emoji: "📊", style: (ctx.customId == "clanStats") ? "primary" : "secondary" });
-	let economyButton = new psc.Button({ id: "clanEconomy", emoji: "💰", style: (ctx.customId == "clanEconomy") ? "primary" : "secondary" });
+	let homeButton = new psc.Button({ id: "clanGet/Home", emoji: "🏡", style: (ctx.customId == "clanHome") ? "primary" : "secondary" });
+	let statsButton = new psc.Button({ id: "clanGet/Stats", emoji: "📊", style: (ctx.customId == "clanStats") ? "primary" : "secondary" });
+	let economyButton = new psc.Button({ id: "clanGet/Economy", emoji: "💰", style: (ctx.customId == "clanEconomy") ? "primary" : "secondary" });
 
     let row = new psc.ActionRow([ homeButton, statsButton, economyButton ]);
 
 
     /* fields */
     var fields;
-    if (ctx.customId == "clanHome") {
+    if (category == "Home") {
         fields = [
             { name:"** **\nShout:", value: shout , inline: false},
             { name:"** **", value: "** **", inline: false},
@@ -69,7 +71,7 @@ async function stuff(ctx) {
             { name:"** **", value: "** **", inline: false}
         ];
     }
-    else if (ctx.customId == "clanStats") {
+    else if (category == "Stats") {
         fields = [
             { name:"** **", value: "** **", inline: false},
             { name:"Members", value: `${members}`, inline: true},
@@ -77,7 +79,7 @@ async function stuff(ctx) {
             { name:"** **", value: "** **", inline: false},
         ];
     }
-    else if (ctx.customId == "clanEconomy") {
+    else if (category == "Economy") {
         fields = [
             { name:"** **", value: "** **", inline: false},
 			{ name:"Funds", value: "`"+pearl+pearlify(clan.funds)+"`", inline: true},
