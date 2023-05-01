@@ -41,12 +41,15 @@ Commands Checklist
 - [x] ~~listall~~
 - [ ] op
 - [ ] remfunds
+- [ ] sell
 - [ ] set
 - [ ] setfunds
+- [ ] shop
 - [ ] shout
 - [ ] slots
 - [ ] steal
 - [x] ~~unban~~
+- [ ] use
 - [ ] withdraw
 - [ ] work
 <br>
