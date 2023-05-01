@@ -141,7 +141,7 @@ class Clanner {
 	}
 
 
-	listify(guildID) {
+	listify(guildID, includeUnlisted=false) {
 		var clans = this.in(guildID);
 
 		var list = new Soup({
@@ -159,7 +159,7 @@ class Clanner {
 			var { emojis } = require('../assets');
 			let data = clans[i];
 
-			if (data.status != 3) {
+			if (data.status != 3 || includeUnlisted) {
 				try {
 					if (!list.fields.get(page+1) && count >= 5) { page += 1; list.pages += 1; list.fields.push( [] ); count = 0; }
 
