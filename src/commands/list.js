@@ -25,6 +25,7 @@ async function data(ctx, cmd) {
 	if ( 
 		Catch( !clans.all[ctx.guild.id], {
 			head: `Clans in ${ctx.guild.name}`,
+			text: `There are no clans in this server`,
 
 			fields: [{
 				name: "• None", 
@@ -35,8 +36,9 @@ async function data(ctx, cmd) {
 
 			thumbnail: ctx.guild.iconURL(),
 			footer: `Page 1/1`,
-
+			
 			delete: false,
+			textEmoji: false,
 			components: [row]
 		}) 
 	) return;
