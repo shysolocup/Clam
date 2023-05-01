@@ -34,7 +34,8 @@ async function data(ctx, cmd) {
 	if (
 		Catch( !clan.ops.includes(ctx.author.id) && clan.owner != ctx.author.id, { text: "You have to have operator to ban users."}) ||
 		Catch( clan.ops.includes(user.id) && clan.owner != ctx.author.id, { text: "Only the owner can ban operators."}) ||
-		Catch( clan.bans.includes(user.id), { text: 'User is already banned from that clan.'})
+		Catch( clan.bans.includes(user.id), { text: 'User is already banned from that clan.'}) ||
+		Catch( clan.owner == user.id, { text: "You can't ban the owner of the clan."})
 	) return;
 
 	
