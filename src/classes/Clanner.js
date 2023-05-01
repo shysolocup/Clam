@@ -161,7 +161,7 @@ class Clanner {
 
 			if (data.status != 3) {
 				try {
-					if (!list.fields.get(page+1) && count >= 5) { page += 1; list.pages += 1; list.fields[page] = []; count = 0; }
+					if (!list.fields.get(page+1) && count >= 5) { page += 1; list.pages += 1; list.fields.push( [] ); count = 0; }
 
 					list.fields[page].push({
 						name: `• ${data.name} ${ (data.gold) ? emojis.gold : "" } ( id: ${data.id} )`,
