@@ -162,7 +162,7 @@ class Clanner {
 					if (!list.fields[page+1] && count >= 5) { page++; list.pages++; list.fields[page] = []; count = 0; }
 
 					list.fields[page].push({
-						name: `• ${data.name} ${ (data.flag) ? emojis.gold : "" } ( id: ${data.id} )`,
+						name: `• ${data.name} ${ (data.gold) ? emojis.gold : "" } ( id: ${data.id} )`,
 						value: `** ** Owned by <@${data.owner}>\n** ** Members: ${data.members.length}\n** ** ${this.status(data.status)}`
 					});
 
