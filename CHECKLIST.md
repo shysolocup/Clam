@@ -70,6 +70,7 @@ Update Checklist
 - [x] add unlisted admin command so that admins can see unlisted clans
 - [ ] actually add steal for economy lol
 - [ ] update economy system to give less from working
+- [ ] update economy system to have a working shop that admins can add things to
 <br>
 
 Economy Checklist
