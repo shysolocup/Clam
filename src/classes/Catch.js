@@ -1,6 +1,6 @@
 const { Embed } = require('../packages/discordpps');
 
-function Catch(call, contents={ head:null, text:null, footer:null, color:null, emoji:null, fields:null, author:null, time:null, delete:true, poster:null, components:null, files:null }) {
+function Catch(call, contents={ head:null, text:null, footer:null, color:null, emoji:null, fields:null, author:null, time:null, delete:true, poster:null, components:null, files:null, image:null, thumbnail:null }) {
     var { colors, emojis } = require('../assets');
     var { psc } = require('../../index.js');
 
@@ -20,16 +20,19 @@ function Catch(call, contents={ head:null, text:null, footer:null, color:null, e
                 author: contents.author,
                 footer: contents.footer,
 
-                files: contents.files,
+                image: contents.image,
+                thumbnail: contents.thumbnail,
 				
                 color: color
             })
         ],
 
         components: contents.components,
+        files: contents.files,
 
 		ephemeral: true,
         deleteAfter: time
+
     }).catch(e=>{});
 
     return call;
