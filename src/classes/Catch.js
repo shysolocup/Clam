@@ -13,7 +13,7 @@ function Catch(call, contents={ head:null, text:null, footer:null, color:null, e
         embeds: [
             new psc.Embed({
                 title: contents.head,
-                description: `${emoji}  ${contents.text}`,
+                description: (contents.text) ? `${emoji}  ${contents.text}` : undefined,
 
                 fields: contents.fields,
 
