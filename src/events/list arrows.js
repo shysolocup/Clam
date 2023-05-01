@@ -1,6 +1,6 @@
 var { psc, bot } = require('../../index.js');
-var { colors, emojis, infostuffs } = require('../assets');
-var { Clanner, Catch } = require('../classes');
+var { colors, emojis, infostuffs } = require('../assets/index.js');
+var { Clanner, Catch } = require('../classes/index.js');
 
 const { Soup } = require('stews');
 
@@ -29,7 +29,7 @@ async function data(ctx, cmd) {
 		/* page handling */
 		if (name == "bigLeft") page = 0;
 		else if (name == "left") page = (page-1 < 0) ? list.pages-1 : page-1;
-		else if (name == "right") page = (page+1 > list.pages) ? 0 : page+1;
+		else if (name == "right") page = (page+1 > list.pages-1) ? 0 : page+1;
 		else if (name == "bigRight") page = list.pages-1;
 		
 		
