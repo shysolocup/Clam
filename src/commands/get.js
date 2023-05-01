@@ -31,9 +31,9 @@ async function data(ctx, cmd) {
 	
 	
 	/* buttons */
-	let homeButton = new psc.Button({ id: "clanHome", emoji: "🏡", style: "primary" });
-	let statsButton = new psc.Button({ id: "clanStats", emoji: "📊", style: "secondary" });
-	let economyButton = new psc.Button({ id: "clanEconomy", emoji: "💰", style: "secondary" });
+	let homeButton = new psc.Button({ id: "clanGet/Home", emoji: "🏡", style: "primary" });
+	let statsButton = new psc.Button({ id: "clanGet/Stats", emoji: "📊", style: "secondary" });
+	let economyButton = new psc.Button({ id: "clanGet/Economy", emoji: "💰", style: "secondary" });
 	
 	let row = new psc.ActionRow([ homeButton, statsButton, economyButton ]);
 	
