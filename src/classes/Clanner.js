@@ -143,6 +143,7 @@ class Clanner {
 
 	listify(guildID) {
 		var clans = this.in(guildID);
+
 		var list = new Soup({
 			pages: 1,
 			total: 0,
@@ -155,19 +156,20 @@ class Clanner {
 		var count = 0;
 
 		for (let i = 0; i < clans.length; i++) {
+			var { emojis } = require('../assets');
 			let data = clans[i];
 
 			if (data.status != 3) {
 				try {
-					if (!list.fields[page+1] && count >= 5) { page++; list.pages++; list.fields[page] = []; count = 0; }
+					if (!list.fields.get(page+1) && count >= 5) { page += 1; list.pages += 1; list.fields[page] = []; count = 0; }
 
 					list.fields[page].push({
 						name: `• ${data.name} ${ (data.gold) ? emojis.gold : "" } ( id: ${data.id} )`,
 						value: `** ** Owned by <@${data.owner}>\n** ** Members: ${data.members.length}\n** ** ${this.status(data.status)}`
 					});
 
-					list.total++;
-					count++;
+					list.total += 1;
+					count += 1;
 				}
 				catch(e) {}
 			}
