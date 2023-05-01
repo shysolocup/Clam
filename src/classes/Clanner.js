@@ -137,7 +137,7 @@ class Clanner {
 
 
 	status(int) {
-		return (int == 1) ? "Public" : (int == 2) ? "Private" : (int == 3) ? "Unlisted" : "Public";
+		return (int == 1) ? "Public 👥" : (int == 2) ? "Private 🔒" : (int == 3) ? "Unlisted 👻" : "Public 👥";
 	}
 
 
@@ -161,11 +161,11 @@ class Clanner {
 
 			if (data.status != 3 || includeUnlisted) {
 				try {
-					if (!list.fields.get(page+1) && count >= 5) { page += 1; list.pages += 1; list.fields.push( [] ); count = 0; }
+					if (!list.fields.get(page+1) && count >= 3) { page += 1; list.pages += 1; list.fields.push( [] ); count = 0; }
 
 					list.fields[page].push({
 						name: `• ${data.name} ${ (data.gold) ? emojis.gold : "" } ( id: ${data.id} )`,
-						value: `** ** Owned by <@${data.owner}>\n** ** Members: ${data.members.length}\n** ** ${this.status(data.status)}`
+						value: `** ** Owned by <@${data.owner}>\n** ** Members: ${ "`"+data.members.length+"`" }\n** ** ${this.status(data.status)}`
 					});
 
 					list.total += 1;
