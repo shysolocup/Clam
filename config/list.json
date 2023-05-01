@@ -32,7 +32,11 @@
 			{ "name": "withdraw", "args": ["amount", "clanID"], "aliases": [], "desc": "Removes pearls from a clan YOU OWN" },
 			{ "name": "give", "args": ["user", "amount"], "aliases": [], "desc": "Gives a user pearls" },
 			{ "name": "steal", "args": ["user"], "aliases": [], "desc": "Steals pearls from a user" },
-			{ "name": "slots", "args": ["bet"], "aliases": [], "desc": "A slot machine that can multiply your bet by up to 10x" }
+			{ "name": "slots", "args": ["bet"], "aliases": [], "desc": "A slot machine that can multiply your bet by up to 10x" },
+			{ "name": "shop", "args": [], "aliases": ["store"], "desc": "Sends the shop page for the server" },
+			{ "name": "buy", "args": ["item", "(Optional amount)"], "aliases": [], "desc": "Buys an item for pearls" },
+			{ "name": "sell", "args": ["item", "(Optional amount))"], "aliases": [], "desc": "Sells an item for pearls" },
+			{ "name": "use", "args": ["item"], "aliases": [], "desc": "Uses a bought item" },
 		],
 		
 		"Administrator": [
