@@ -95,7 +95,6 @@ async function stuff(ctx) {
             { name:"Bans", value: `${bans}`, inline: true},
             { name:"Icon URL", value: `[Link](${icon})`, inline: true},
 			{ name:"Banner URL", value: `[Link](${banner})`, inline: true},
-			{ name:"Gold", value: `${clan.gold}`, inline: true},
             { name:"** **", value: "** **", inline: false},
         ];
     }
