@@ -9,5 +9,6 @@
     "shout", 
     "private", 
     "public", 
-    "unlisted" 
+    "unlisted",
+    "images"
 ]
