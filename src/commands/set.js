@@ -1,12 +1,11 @@
 const { AttachmentBuilder } = require('discord.js');
 const Canvas = require('@napi-rs/canvas');
-const { promises } = require('fs');
-const { join } = require('path');
-const { Soup } = require('stews');
 
 var { psc, bot } = require('../../index.js');
 var { colors, emojis } = require('../assets');
 var { Clanner, Catch } = require('../classes');
+var { Embed } = require('discord.js');
+const { Soup } = require('stews');
 
 
 async function data(ctx, cmd) {
@@ -149,18 +148,15 @@ async function data(ctx, cmd) {
 
             context.drawImage(image, 0, 0, 500, 500);
 
-            let attachment = new AttachmentBuilder(await canvas.encode("png"), { name: `clan-${attr.toLowerCase()}.png` });
+            let attachment = new AttachmentBuilder(canvas.toBuffer("image/png"), { name: `clan-${attr.toLowerCase()}.png` });
 
             rawEmbed.image = `attachment://${attachment.name}`;
+            rawEmbed.files = [attachment];
 
-            let embed = new psc.Embed(rawEmbed);
-
-            /*
             clans.set(id, attr.toLowerCase(), image);
 
             rawEmbed.description = `${emojis.success} Set clan ${attr.toLowerCase()} to`;
             rawEmbed.image = image;
-            */
         }
         else {
             let link = value.toLowerCase();
@@ -269,6 +265,10 @@ async function data(ctx, cmd) {
 
 
     let embed = new psc.Embed(rawEmbed);
+
+    let stuff = {
+        embeds: [embed]
+    }
 
     ctx.reply({
         embeds: [embed]
