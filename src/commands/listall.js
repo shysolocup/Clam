@@ -8,8 +8,8 @@ const { Soup } = require('stews');
 
 async function data(ctx, cmd) {
 	/* handling */
-	let disabled = !(psc.author.hasPermissions(["admin"]) || isDev(ctx.author.id));
-    	if ( Catch( disabled, { post: false }) ) return;
+	let gay = !(psc.author.hasPermissions(["admin"]) || isDev(ctx.author.id));
+    if ( Catch( gay, { post: false }) ) return;
 	
 	
 	/* clanner and list stuff */
