@@ -177,6 +177,12 @@ class Clanner {
 
 		return list;
 	}
+
+	canSet(attr) {
+		attr = attr.toString();
+		let settables = new Soup([ "name", "description", "icon", "banner", "color", "status" ]);
+		return settables.includes(attr);
+	}
 	
 }
 
