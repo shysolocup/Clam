@@ -10,5 +10,6 @@
     "private", 
     "public", 
     "unlisted",
-    "images"
+    "images",
+	"resize"
 ]
