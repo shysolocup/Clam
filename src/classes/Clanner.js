@@ -179,8 +179,8 @@ class Clanner {
 	}
 
 	canSet(attr) {
-		attr = attr.toString();
-		let settables = new Soup([ "name", "description", "icon", "banner", "color", "status" ]);
+		attr = attr.toLowerCase();
+		let settables = require('../../config/settables.json');
 		return settables.includes(attr);
 	}
 	
