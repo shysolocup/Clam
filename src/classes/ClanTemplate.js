@@ -27,7 +27,8 @@ class ClanTemplate {
             bans: [ ],
             status: 1,
 	    	funds: 0,
-            gold: false
+            gold: false,
+			resize: true
         });
     }
 }
