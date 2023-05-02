@@ -64,6 +64,15 @@ async function data(ctx, cmd) {
         rawEmbed.description = `${emojis.success} Set clan description to ${"`"+value+"`"}`;
     }
 
+    // color
+    else if (attr.toLowerCase() == "color") {
+        let color;
+        if (Object.keys(colors).includes(value.toLowerCase())) color = colors[value.toLowerCase()];
+        else {
+            if ( Catch() )
+        }
+    }
+
     // icon and banner
     else if ( ["icon", "banner"].includes(attr.toLowerCase()) ) {
         if (ctx.attachments.size > 0) {
