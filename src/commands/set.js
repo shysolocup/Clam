@@ -66,11 +66,17 @@ async function data(ctx, cmd) {
 
     // color
     else if (attr.toLowerCase() == "color") {
-        let color;
-        if (Object.keys(colors).includes(value.toLowerCase())) color = colors[value.toLowerCase()];
+        var color;
+
+        if (Soup.from(colors).includes(value.toLowerCase())) color = colors[value.toLowerCase()];
+
         else {
-            if ( Catch() )
+            if ( Catch( !value.startsWith("#") && value.toLowerCase() != "rank", { text: "Color must be a hex color or rank: `#FFFFFF or rank`"}) ) return;
+            color = value.toLowerCase();
         }
+
+        clans.set(id, "color", color);
+        rawEmbed.description = `${emojis.success} Set clan color to ${"`"+color.toUpperCase()+"`"}`;
     }
 
     // icon and banner
