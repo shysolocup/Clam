@@ -121,8 +121,8 @@ async function data(ctx, cmd) {
 
             if ( Catch( attachments.length <= 0, { text: "Files entered aren't useable file types: `.PNG, .JPG, .JPEG, .GIF`", deleteAfter: "4s" }) ) return;
             
-            let icon = attachments[0];
-            let banner = attachments[1];
+            var icon = attachments[0];
+            var banner = attachments[1];
 
             if (icon && banner) {
                 clans.set(id, "icon", icon);
@@ -141,26 +141,51 @@ async function data(ctx, cmd) {
             }
         }
         else {
-            let [ icon, banner ] = value.toLowerCase().split(" ");
+            var [ icon, banner ] = value.toLowerCase().split(" ");
             if (
                 Catch( value=="", { text: "Please put an attachment or link to set to."}) ||
                 Catch(
 
-                    !link.endsWith(".png") && 
-                    !link.endsWith(".jpg") && 
-                    !link.endsWith(".jpeg") &&
-                    !link.endsWith(".gif") && 
-                    !link.endsWith(".webp"),
+                    !icon.endsWith(".png") && 
+                    !icon.endsWith(".jpg") && 
+                    !icon.endsWith(".jpeg") &&
+                    !icon.endsWith(".gif") && 
+                    !icon.endsWith(".webp"),
                         
                     { text: "Files entered aren't useable file types: `.PNG, .JPG, .JPEG, .GIF`" }
 
                 )
             ) return;
+            if (
+                banner &&
+                Catch(
 
-            clans.set(id, attr.toLowerCase(), value);
+                    !banner.endsWith(".png") && 
+                    !banner.endsWith(".jpg") && 
+                    !banner.endsWith(".jpeg") &&
+                    !banner.endsWith(".gif") && 
+                    !banner.endsWith(".webp"),
 
-            rawEmbed.description = `${emojis.success} Set clan ${attr.toLowerCase()} to`;
-            rawEmbed.image = image;
+                    { text: "Files entered aren't useable file types: `.PNG, .JPG, .JPEG, .GIF`" }
+
+                )
+            ) return;
+
+            if (icon && banner) {
+                clans.set(id, "icon", icon);
+                clans.set(id, "banner", banner);
+
+                rawEmbed.description = `${emojis.success} Set clan icon and banner to`;
+                rawEmbed.thumbnail = icon;
+                rawEmbed.image = banner;
+            }
+
+            else if (icon && !banner) {
+                clans.set(id, "icon", icon);
+
+                rawEmbed.description = `${emojis.success} Set clan icon to`;
+                rawEmbed.image = icon;
+            }
         }
     }
 
