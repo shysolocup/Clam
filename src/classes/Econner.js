@@ -42,9 +42,15 @@ class Econner {
 		return Soup.from(require('../data/economy.json')).has(id);
 	}
 
-    deposit(amount, id) {
-        let hands = Soup.from(require('../data/economy.json'));
+    deposit(amount, userID, clanID) {
+        this.removeHand(amount, userID);
+	    this.addClan(amount, clanID);
     }
+	
+	withdraw(amount, userID, clanID) {
+		this.addHand(amount, userID);
+		this.removeClan(amount, clanID);
+	}
 	
 }
 
