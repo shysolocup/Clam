@@ -140,6 +140,10 @@ class Clanner {
 		return (int == 1) ? "Public 👥" : (int == 2) ? "Private 🔒" : (int == 3) ? "Unlisted 👻" : "Public 👥";
 	}
 
+	intStatus(string) {
+		return (string == "public") ? 1 : (string == "private") ? 2 : (string == "unlisted") ? 3 : 1;
+	}
+
 
 	listify(guildID, includeUnlisted=false) {
 		var clans = this.in(guildID);
