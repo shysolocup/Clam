@@ -1,7 +1,13 @@
+const { AttachmentBuilder } = require('discord.js');
+const Canvas = require('@napi-rs/canvas');
+const { promises } = require('fs');
+const { join } = require('path');
 const { Soup } = require('stews');
+
 var { psc, bot } = require('../../index.js');
 var { colors, emojis } = require('../assets');
 var { Clanner, Catch } = require('../classes');
+
 
 async function data(ctx, cmd) {
 	if ( Catch( cmd.onCooldown, { 
@@ -25,7 +31,26 @@ async function data(ctx, cmd) {
 
     
     /* handling */
+
     if (
+        Catch( !clans.has(id, ctx.guild.id) && !clans.has(attr, ctx.guild.id), { text: "There is no clan with that ID." }) ||
+
+
+        Catch( function() {
+            if (clans.has(id, ctx.guild.id)) {
+                let clan = clans.fetch(id);
+
+                return !clan.ops.includes(ctx.author.id) && ctx.author.id != clan.owner;
+            }
+            else if (clans.has(attr, ctx.guild.id)) {
+                let clan = clans.fetch(attr);
+
+                return !clan.ops.includes(ctx.author.id) && ctx.author.id != clan.owner;
+            }
+        }(),
+        { text: "Only operators of the clan can edit attributes."}) ||
+
+
         Catch( !attr, { text: 'Please put an attribute to set.' }) ||
         Catch( !clans.canSet(attr) && !clans.canSet(id), { text: "That is not an attribute you can set."}) ||
         Catch( !id, { text: 'Please put a clan ID.' }) ||
@@ -37,15 +62,13 @@ async function data(ctx, cmd) {
 
             { text: 'Please put a value.' }
 
-        ) ||
-
-        Catch( !clans.has(id, ctx.guild.id) && !clans.has(attr, ctx.guild.id), { text: "There is no clan with that ID." }) 
+        )
 
     ) return;
 
 
     /* embed stuff */
-    let rawEmbed = {
+    var rawEmbed = {
         title: `Clan Editing  :tools:`,
         color: colors.success,
         footer: `( id: ${id} )`
@@ -64,6 +87,16 @@ async function data(ctx, cmd) {
         rawEmbed.description = `${emojis.success} Set clan description to ${"`"+value+"`"}`;
     }
 
+    // shout
+    else if (attr.toLowerCase() == "shout") {
+        clans.shout(id, value, ctx.author.id);
+        rawEmbed.description = `${emojis.success} Set clan shout to`;
+        rawEmbed.fields = [
+            { name:"Shout:", value: `"${value}" - <@${ctx.author.id}>` , inline: false},
+            { name:"** **", value: "** **", inline: false}
+        ];
+    }
+
     // color
     else if (attr.toLowerCase() == "color") {
         var color;
@@ -79,6 +112,22 @@ async function data(ctx, cmd) {
         rawEmbed.description = `${emojis.success} Set clan color to ${"`"+color.toUpperCase()+"`"}`;
     }
 
+    // status
+    else if ( attr.toLowerCase() == "status" || ["private", "public", "unlisted"].includes(id.toLowerCase()) ) {
+        if (["private", "public", "unlisted"].includes(id.toLowerCase())) {
+            clans.set(attr, "status", clans.intStatus(id.toLowerCase()));
+
+            rawEmbed.description = `${emojis.success} Set clan status to ${clans.status(clans.intStatus(id.toLowerCase()))}`;
+            rawEmbed.footer = `( id: ${attr} )`;
+        }
+        else {
+            clans.set(id, "status", clans.intStatus(value.toLowerCase()));
+
+            rawEmbed.description = `${emojis.success} Set clan status to ${clans.status(clans.intStatus(value.toLowerCase()))}`;
+            rawEmbed.footer = `( id: ${id} )`;
+        }
+    }
+
     // icon and banner
     else if ( ["icon", "banner"].includes(attr.toLowerCase()) ) {
         if (ctx.attachments.size > 0) {
@@ -92,12 +141,26 @@ async function data(ctx, cmd) {
 
             if ( Catch( attachments.length <= 0, { text: "Files entered aren't useable file types: `.PNG, .JPG, .JPEG, .GIF`", deleteAfter: "4s" }) ) return;
             
-            let image = attachments[0];
+            const canvas = Canvas.createCanvas(500, 500);
+            const context = canvas.getContext('2d');
 
+            var imageURL = attachments[0];
+            let image = await Canvas.loadImage(imageURL);
+
+            context.drawImage(image, 0, 0, 500, 500);
+
+            let attachment = new AttachmentBuilder(await canvas.encode("png"), { name: `clan-${attr.toLowerCase()}.png` });
+
+            rawEmbed.image = `attachment://${attachment.name}`;
+
+            let embed = new psc.Embed(rawEmbed);
+
+            /*
             clans.set(id, attr.toLowerCase(), image);
 
             rawEmbed.description = `${emojis.success} Set clan ${attr.toLowerCase()} to`;
             rawEmbed.image = image;
+            */
         }
         else {
             let link = value.toLowerCase();
