@@ -41,6 +41,7 @@ Commands Checklist
 - [ ] item
 - [x] ~~join~~
 - [x] ~~kick~~
+- [ ] leaderboard
 - [x] ~~leave~~
 - [x] ~~list~~
 - [x] ~~listall~~
