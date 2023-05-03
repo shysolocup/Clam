@@ -98,6 +98,7 @@ async function data(ctx, cmd) {
         clans.shout(id, value, ctx.author.id);
         rawEmbed.description = `${emojis.success} Set clan shout to`;
         rawEmbed.fields = [
+			{ name:"** **", value: "** **", inline: false},
             { name:"Shout:", value: `"${value}" - <@${ctx.author.id}>` , inline: false},
             { name:"** **", value: "** **", inline: false}
         ];
