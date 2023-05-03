@@ -52,8 +52,8 @@ async function data(ctx, cmd) {
 	
 	stuff.forEach( (com) => {
 		options.push({
-			label: `!${com.name}`,
-			value: `clamSearch/${category}/${com.name}`,
+			label: `${prefix}${com.name}`,
+			value: `clamSearch/${category}/${com.name}/${ctx.guild.id}`,
 			description: com.desc
 		});
 	});
