@@ -1,3 +1,24 @@
+## 05-03-23
+- added command !prefix
+- added config/prefixes.json
+- updated package src/packages/discordpps
+- updated prefix in psc: index.js
+- updated majority of commands that use prefixes to work with the new prefix stuff
+
+## 05-02-23
+- added command !set
+- added command !allies
+- added command !enemies
+- changed config/defaults.json clan images to be from this repo
+- added package @napi-rs/canvas
+- upscaled icon and transparent icon to be 500x500
+- upscaled banner to be 1500x500
+- added file config/settables.json
+- updated class Clanner to have canSet()
+- updated class Econner to have deposit() and withdraw()
+- updated class ClanTemplate to make them have a resize value
+- added folder and related files: *[src/assets/images](https://github.com/nuttmegg/Clam/tree/main/src/assets/images) | [src/assets/images/icon.png](https://github.com/nuttmegg/Clam/blob/main/src/assets/images/icon.png) | [src/assets/images/banner.png](https://github.com/nuttmegg/Clam/blob/main/src/assets/images/banner.png) | [src/assets/images/icon_transparent.png](https://github.com/nuttmegg/Clam/blob/main/src/assets/images/icon_transparent.png)*
+
 ## 05-01-23
 - added command !export
 - added command !dump
