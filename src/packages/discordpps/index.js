@@ -1,4 +1,4 @@
-/* :: Discord+PS :: Version 0.6.0 | 04/27/23 :: */
+/* :: Discord+PS :: Version 0.6.0 | 05/03/23 :: */
 
 /* :: Created by nutmeg using :: *//*
 	- Stews: https://github.com/nuttmegg/stews
@@ -232,14 +232,14 @@ class PSClient {
     
     executeCMD(name, ctx, cmd=null) { return this.executeCommand(name, ctx, cmd); }
 
-	commandFormat(string) {
+	commandFormat(string, prefix) {
 		let res = {};
-		let pos = (this.prefix)
-			? string.toLowerCase().indexOf(this.prefix.toLowerCase())
+		let pos = (prefix)
+			? string.toLowerCase().indexOf(prefix.toLowerCase())
 		: 0;
 		
-		res["name"] = (this.prefix)
-			? string.toLowerCase().replace(this.prefix.toLowerCase(), "").split(" ")[pos]
+		res["name"] = (prefix)
+			? string.toLowerCase().replace(prefix.toLowerCase(), "").split(" ")[pos]
 		: string.toLowerCase().split(" ")[pos];
 
 		let soup = new Soup(string.split(" "));
@@ -253,8 +253,13 @@ class PSClient {
 
 	commandHandler(ctx) {
 		if (ctx.author.bot || ctx.author.id == this.client.user.id) return;
-		if (this.prefix && (!ctx.content.startsWith(this.prefix) || ctx.content.endsWith(this.prefix) && ctx.content.startsWith(this.prefix))) return;
-		let cmd = this.commandFormat(ctx.content);
+		
+		let prefix = (this.prefix instanceof Object && this.prefix[ctx.guild.id] ) ? this.prefix[ctx.guild.id] : (this.prefix instanceof Object) ? this.prefix.default : this.prefix;
+		
+		if (prefix && (!ctx.content.startsWith(prefix) || (ctx.content.endsWith(prefix) && ctx.content.startsWith(prefix)))) return;
+		
+		let cmd = this.commandFormat(ctx.content, prefix);
+		
 		if (this.commandExists(cmd.name)) {
 			this.executeCommand(cmd.name, ctx, cmd);
 		}
