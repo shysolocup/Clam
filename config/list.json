@@ -14,7 +14,9 @@
 			{ "name": "create", "args": ["(Optional name)"], "aliases": [], "desc": "Creates a new clan" },
 			{ "name": "set", "args": ["attr", "clanID", "value"], "aliases": ["edit"], "desc": "Sets an attribute in a clan" },
 			{ "name": "shout", "args": ["clanID"], "aliases": [], "desc": "Changes the clan shout" },
-			{ "name": "disband", "args": ["clanID"], "aliases": [], "desc": "Deletes a clan" }
+			{ "name": "disband", "args": ["clanID"], "aliases": [], "desc": "Deletes a clan" },
+			{ "name": "allies", "args": ["clanID", "add/remove", "clanIDs"], "aliases": [], "desc": "Editor for a clan's allies" },
+			{ "name": "enemies", "args": ["clanID", "add/remove", "clanIDs"], "aliases": [], "desc": "Editor for a clan's enemies" },
 		],
   
 		"Moderation": [
