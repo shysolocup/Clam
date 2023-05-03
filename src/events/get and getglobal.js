@@ -62,7 +62,7 @@ async function stuff(ctx) {
 	/* buttons */
 	let homeButton = new psc.Button({ id: "clanGet/Home", emoji: "🏡", style: (category == "Home") ? "primary" : "secondary" });
 	let statsButton = new psc.Button({ id: "clanGet/Stats", emoji: "📊", style: (category == "Stats") ? "primary" : "secondary" });
-	let economyButton = new psc.Button({ id: "clanGet/Economy", emoji: "💰", style: (category == "Economy") ? "primary" : "secondary" });
+	let economyButton = new psc.Button({ id: "clanGet/Economy", emoji: "🛍️", style: (category == "Economy") ? "primary" : "secondary" });
 	let alliancesButton = new psc.Button({ id: "clanGet/Alliances", emoji: "⚔️", style: (category == "Alliances") ? "primary" : "secondary" });
 
     let row = new psc.ActionRow([ homeButton, statsButton, economyButton, alliancesButton ]);
