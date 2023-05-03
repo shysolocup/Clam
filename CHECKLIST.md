@@ -82,8 +82,42 @@ Update Checklist
 - [ ] update economy system to have a working shop that admins can add things to
 <br>
 
-Economy Checklist
-- [ ] a clan economy where someone can sell items for pearls and when someone buys it the pearl's funds go up
+Economy Update Checklist
+- [ ] !shop is like list but it shows all default items then clan items
+- [ ] !buy gives pearls if item is from a clan
+- [ ] !item create (id) (name)
+- [ ] !item remove (id) (name)
+- [ ] !item set (attr) (id) (value)
+- [ ] !item set (id) (attr) (value)
+- [ ] items can have roles attached if the person who creates it is an admin
+```json
+{
+    "guildID": {
+        "clanID": {
+            "item name": {
+                "name": "item name",
+                "description": "item description",
+                "creator": "creatorID",
+                "guild": "guildID",
+                "roles": {
+                    "add": [
+                        "roleID 1",
+                        "roleID 2"
+                    ],
+                    "remove": [
+                        "roleID 3",
+                        "roleID 4"
+                    ]
+                },
+                "price": 0
+            }
+        }
+    }
+}
+```
+<br>
+
+Economy Games Checklist
 - [ ] that one card game from club penguin lol
 - [ ] clicking contest
 - [ ] ultimate slot machine that can 500x your bet if you win
