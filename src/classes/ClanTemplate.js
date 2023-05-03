@@ -6,14 +6,17 @@ class ClanTemplate {
 		var nick = (ctx.member.nickname) ? ctx.member.nickname.split("") : ctx.author.username.split("");
 		nick[0] = nick[0].toUpperCase();
 		nick = nick.join("");
+
+        var prefixes = require('../../config/prefixes.json');
+        var prefix = (prefixes instanceof Object && prefixes[ctx.guild.id]) ? prefixes[ctx.guild.id] : (prefixes instanceof Object) ? prefixes.default : prefixes;
 		
         return new Soup({
             id: id.join(""),
             name: (name) ? name : `${nick}'s Clan`,
-            description: "Welcome to your brand new clan!\nUse !set to change parts of the clan to your liking.",
+            description: `Welcome to your brand new clan!\nUse ${prefix}set to change parts of the clan to your liking.`,
 
             shout: new Soup({
-                content: "You can use !shout to change the shout.",
+                content: `You can use ${prefix}shout to change the shout.`,
                 author: "1050917862233100508"
             }),
             
