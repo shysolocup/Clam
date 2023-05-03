@@ -9,15 +9,18 @@ the code management hell and the goofy shit 🙏
 
 Commands Checklist
 - [ ] addfunds
+- [x] ~~allies~~
 - [x] ~~balance~~
 - [x] ~~ban~~
 - [ ] banner
+- [ ] buy
 - [ ] clearfunds
 - [x] ~~create~~
 - [ ] deop
 - [ ] deposit
 - [ ] disband
 - [x] ~~dump~~
+- [x] ~~enemies~~
 - [x] ~~export~~
 - [ ] forceban
 - [ ] forcedisband
@@ -40,9 +43,10 @@ Commands Checklist
 - [x] ~~list~~
 - [x] ~~listall~~
 - [ ] op
+- [x] prefix
 - [ ] remfunds
 - [ ] sell
-- [ ] set
+- [x] ~~set~~
 - [ ] setfunds
 - [ ] shop
 - [ ] shout
@@ -57,7 +61,7 @@ Commands Checklist
 Update Checklist
 - [x] ~~add new shit to the command list~~
 - [x] ~~add a name argument to create~~
-- [ ] change set to be !set (attr) (clanID) (value)
+- [x] ~~change set to be !set (attr) (clanID) (value)~~
 - [x] ~~add an unlisted tag for clans~~
 - [ ] make it so every force(thing) command has an f(thing) alias
 - [ ] update dep and with to be !dep (amount) (clanID)
