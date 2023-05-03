@@ -43,10 +43,12 @@ async function stuff(ctx) {
 	/* the stuff */
 	let name = (clan.gold) ? `${clan.name}  ${emojis.gold}` : clan.name;
 	let members = (clan.members.join(">, <@") == []) ? "None" : `<@${clan.members.join(">, <@")}>`;
-	let bans = (clan.bans.join(">, <@") == []) ? "None" : `<@${clan.bans.join(">, <@")}>`;
 	let ops = (clan.ops.join(">, <@") == []) ? "None" : `<@${clan.ops.join(">, <@")}>`;
 	let status = clans.status(clan.status);
 	let shout = `"${clan.shout.content}" - <@${clan.shout.author}>`;
+
+	let allies = (clan.allies.length == 0) ? "None" : clan.allies.map( (v) => { return `${clans.fetch(v).name} ${"`("+v+")`"}`; }).join("\n");
+	let enemies = (clan.enemies.length == 0) ? "None" : clan.enemies.map( (v) => { return `${clans.fetch(v).name} ${"`("+v+")`"}`; }).join("\n");
 	
 	let icon = Soup.from(clan.icon).replaceAll(" ", "_").join("");
 	let banner = Soup.from(clan.banner).replaceAll(" ", "_").join("");
@@ -56,9 +58,9 @@ async function stuff(ctx) {
 	let homeButton = new psc.Button({ id: "clanGet/Home", emoji: "🏡", style: (category == "Home") ? "primary" : "secondary" });
 	let statsButton = new psc.Button({ id: "clanGet/Stats", emoji: "📊", style: (category == "Stats") ? "primary" : "secondary" });
 	let economyButton = new psc.Button({ id: "clanGet/Economy", emoji: "💰", style: (category == "Economy") ? "primary" : "secondary" });
-	let modButton = new psc.Button({ id: "clanGet/Moderation", emoji: "🛡️", style: (category == "Moderation") ? "primary" : "secondary", disabled: !(clan.ops.includes(user.id) || clan.owner==user.id || isDev(user.id)) });
+	let alliancesButton = new psc.Button({ id: "clanGet/Alliances", emoji: "⚔️", style: (category == "Alliances") ? "primary" : "secondary" });
 
-    let row = new psc.ActionRow([ homeButton, statsButton, economyButton, modButton ]);
+    let row = new psc.ActionRow([ homeButton, statsButton, economyButton, alliancesButton ]);
 
 
     /* fields */
@@ -89,12 +91,11 @@ async function stuff(ctx) {
 			{ name:"** **", value: "** **", inline: false},
         ];
     }
-	else if (category == "Moderation") {
+	else if (category == "Alliances") {
         fields = [
             { name:"** **", value: "** **", inline: false},
-            { name:"Bans", value: `${bans}`, inline: true},
-            { name:"Icon URL", value: `[Link](${icon})`, inline: true},
-			{ name:"Banner URL", value: `[Link](${banner})`, inline: true},
+            { name:"Allies", value: `${allies}`, inline: true},
+			{ name:"Enemies", value: `${enemies}`, inline: true},
             { name:"** **", value: "** **", inline: false},
         ];
     }
