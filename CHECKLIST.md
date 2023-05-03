@@ -12,7 +12,7 @@ Commands Checklist
 - [x] ~~allies~~
 - [x] ~~balance~~
 - [x] ~~ban~~
-- [ ] banner
+- [x] ~~banner~~
 - [ ] buy
 - [ ] clearfunds
 - [x] ~~create~~
@@ -34,7 +34,7 @@ Commands Checklist
 - [ ] give
 - [ ] gold
 - [x] ~~help~~
-- [ ] icon
+- [x] ~~icon~~
 - [ ] import
 - [x] ~~invite~~
 - [x] ~~join~~
