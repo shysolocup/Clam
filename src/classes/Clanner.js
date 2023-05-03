@@ -13,11 +13,11 @@ class Clanner {
 	every() {
 		let stuff = new Soup(Object);
 
-		let values = Soup.from(require('../data/clans.json')).values;
+		let clans = Soup.from(require('../data/clans.json'));
 
-		values.forEach( (guild) => {
+		clans.forEach( (guildID, guild) => {
 			Soup.from(guild).forEach( (k, v) => {
-				stuff.push(k, v);
+				stuff.push(`${guildID}/${k}`, v);
 			});
 		});
 		
