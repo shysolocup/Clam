@@ -99,6 +99,7 @@ Economy Update Checklist
                 "description": "item description",
                 "creator": "creatorID",
                 "guild": "guildID",
+                "clan": "clanID",
                 "roles": {
                     "add": [
                         "roleID 1",
