@@ -41,19 +41,24 @@ async function stuff(ctx) {
 
 
 	/* the stuff */
-	let name = (clan.gold) ? `${clan.name}  ${emojis.gold}` : clan.name;
-	let members = (clan.members.join(">, <@") == []) ? "None" : `<@${clan.members.join(">, <@")}>`;
-	let ops = (clan.ops.join(">, <@") == []) ? "None" : `<@${clan.ops.join(">, <@")}>`;
-	let status = clans.status(clan.status);
-	let shout = `"${clan.shout.content}" - <@${clan.shout.author}>`;
-
-	let allies = (clan.allies.length == 0) ? "None" : clan.allies.map( (v) => { return `${clans.fetch(v).name} ${"`("+v+")`"}`; }).join("\n");
-	let enemies = (clan.enemies.length == 0) ? "None" : clan.enemies.map( (v) => { return `${clans.fetch(v).name} ${"`("+v+")`"}`; }).join("\n");
+	try {
+		let name = (clan.gold) ? `${clan.name}  ${emojis.gold}` : clan.name;
+		let members = (clan.members.join(">, <@") == []) ? "None" : `<@${clan.members.join(">, <@")}>`;
+		let ops = (clan.ops.join(">, <@") == []) ? "None" : `<@${clan.ops.join(">, <@")}>`;
+		let status = clans.status(clan.status);
+		let shout = `"${clan.shout.content}" - <@${clan.shout.author}>`;
 	
-	let icon = Soup.from(clan.icon).replaceAll(" ", "_").join("");
-	let banner = Soup.from(clan.banner).replaceAll(" ", "_").join("");
-	
-	
+		let allies = (clan.allies.length == 0) ? "None" : clan.allies.map( (v) => { return `${clans.fetch(v).name} ${"`("+v+")`"}`; }).join("\n");
+		let enemies = (clan.enemies.length == 0) ? "None" : clan.enemies.map( (v) => { return `${clans.fetch(v).name} ${"`("+v+")`"}`; }).join("\n");
+		
+		let icon = Soup.from(clan.icon).replaceAll(" ", "_").join("");
+		let banner = Soup.from(clan.banner).replaceAll(" ", "_").join("");
+	}
+	catch(err) {
+		return Catch( true, { text: "A required part of the clan has been removed or altered.", poster: ctx.reply.bind(ctx) });
+	}
+		
+		
 	/* buttons */
 	let homeButton = new psc.Button({ id: "clanGet/Home", emoji: "🏡", style: (category == "Home") ? "primary" : "secondary" });
 	let statsButton = new psc.Button({ id: "clanGet/Stats", emoji: "📊", style: (category == "Stats") ? "primary" : "secondary" });
