@@ -60,7 +60,7 @@ async function data(ctx, cmd) {
 
     /* embed stuff */
     var rawEmbed = {
-        title: `Clan Alliances :crossed_swords:`,
+        title: `Clan Alliances 🛡️`,
         color: colors.success,
         footer: `( id: ${id} )`
     }
@@ -127,4 +127,4 @@ async function data(ctx, cmd) {
 	ctx.reply({ embeds: [embed] });
 }
 
-psc.command("allies", data);
+psc.command({ name: "allies", aliases: ["alliances"]}, data);
