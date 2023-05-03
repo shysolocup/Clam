@@ -2,7 +2,7 @@ const { Soup } = require('stews');
 const { ItemTemplate } = require('./ItemTemplate.js');
 
 class Item {
-    constructor(ctx, name) {
+    constructor(ctx, name=null) {
         var items = Soup.from(require('../data/items.json'));
 
         var contents = new ItemTemplate(ctx, name);
