@@ -20,6 +20,9 @@ async function data(ctx, cmd) {
 	var stuff = Soup.from(require('../../config/list.json')[category]);
 	var all = Soup.from(Soup.from(require('../../config/list.json')));
 
+	var prefixes = require('../../config/prefixes.json');
+	var prefix = (prefixes instanceof Object && prefixes[ctx.guild.id]) ? prefixes[ctx.guild.id] : (prefixes instanceof Object) ? prefixes.default : prefixes;
+
 	let disabled = !(psc.author.hasPermissions(["admin"]) || isDev(ctx.author.id));
 	if (disabled) all.delete("Administrator");
 
@@ -71,7 +74,7 @@ async function data(ctx, cmd) {
 	comps = comps.map( (btns) => { return new psc.ActionRow(btns); });
 	
 	var desc = stuff.copy().map( (com) => {
-		return `!${com.name}: ${ "`"+com.desc+"`" }`;
+		return `${prefix}${com.name}: ${ "`"+com.desc+"`" }`;
 	});
 	
 
@@ -89,7 +92,7 @@ async function data(ctx, cmd) {
 				{ name: "Category", value: `• ${category}`, inline: true },
 				{ name: "** **", value: "** **", inline: true },
 				{ name: "Arguments", value: (the[0].args.length > 0) ? "• `"+the[0].args.join("`, `")+"`" : "• None", inline: true },
-				{ name: "Aliases", value: (the[0].aliases.length > 0) ? "• !"+the[0].aliases.join(", !") : "• None", inline: true },
+				{ name: "Aliases", value: (the[0].aliases.length > 0) ? `• ${prefix}`+the[0].aliases.join(`, ${prefix}`) : "• None", inline: true },
 				{ name: "** **", value: "** **", inline: false }
 			],
 
