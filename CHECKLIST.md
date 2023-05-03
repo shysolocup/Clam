@@ -123,6 +123,7 @@ Economy Update Checklist
         "clanID/item name 2"
     ]
 }
+```
 <br>
 
 Economy Games Checklist
