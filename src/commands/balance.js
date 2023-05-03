@@ -22,12 +22,12 @@ async function data(ctx, cmd) {
 	let rank = colorify( (econner.has(user.id)) ? pearlify(Math.round(balance)) : 0 )[1];
 	let leaderboard = Soup.from(econner.userLB());
 
-	let globalRank = (leaderboard.has(user.id)) ? leaderboard.indexOf(user.id)+1 : "None";
+	let userRank = (leaderboard.has(user.id)) ? leaderboard.indexOf(user.id)+1 : "None";
 
 	let username = user.username.split("");username[0]=username[0].toUpperCase();username=username.join("");
 
-	if (typeof globalRank == "number") {
-		globalRank = `${globalRank}${((int) => {
+	if (typeof userRank == "number") {
+		userRank = `${userRank}${((int) => {
 			if (int > 3 && int < 21) return "th";
 			switch( int % 10) {
 				case 1: return "st"; break;
@@ -35,7 +35,7 @@ async function data(ctx, cmd) {
 				case 3: return "rd"; break;
 				default: return "th"; break;
 			}
-		})(globalRank)}`;
+		})(userRank)}`;
 	}
 	
 	/* embed stuff */
