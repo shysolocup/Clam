@@ -28,7 +28,7 @@ async function data(ctx, cmd) {
 
 	
 	const embed = new psc.Embed({
-		description: `${emojis.success} Set the guild's prefix to ${"`"+prefix+"`"}`,
+		description: `${emojis.success} Set the server's prefix to ${"`"+prefix+"`"}`,
 		color: colors.success
 	});
 
