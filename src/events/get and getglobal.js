@@ -48,8 +48,8 @@ async function stuff(ctx) {
 		var status = clans.status(clan.status);
 		var shout = `"${clan.shout.content}" - <@${clan.shout.author}>`;
 	
-		var allies = (clan.allies.length == 0) ? "None" : clan.allies.map( (v) => { return `${clans.fetch(v).name} ${"`("+v+")`"}`; }).join("\n");
-		var enemies = (clan.enemies.length == 0) ? "None" : clan.enemies.map( (v) => { return `${clans.fetch(v).name} ${"`("+v+")`"}`; }).join("\n");
+		var allies = (clan.allies.length == 0) ? "None" : clan.allies.map( (v) => { return `${clans.fetch(v).name} (${"`"+v+"`"})`; }).join("\n");
+		var enemies = (clan.enemies.length == 0) ? "None" : clan.enemies.map( (v) => { return `${clans.fetch(v).name} (${"`"+v+"`"})`; }).join("\n");
 		
 		var icon = Soup.from(clan.icon).replaceAll(" ", "_").join("");
 		var banner = Soup.from(clan.banner).replaceAll(" ", "_").join("");
