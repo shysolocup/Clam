@@ -4,7 +4,6 @@ const Canvas = require('@napi-rs/canvas');
 var { psc, bot } = require('../../index.js');
 var { colors, emojis } = require('../assets');
 var { Clanner, Catch } = require('../classes');
-var { Embed } = require('discord.js');
 const { Soup } = require('stews');
 
 
