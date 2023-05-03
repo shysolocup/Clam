@@ -38,6 +38,7 @@ Commands Checklist
 - [ ] import
 - [ ] inventory
 - [x] ~~invite~~
+- [ ] item
 - [x] ~~join~~
 - [x] ~~kick~~
 - [x] ~~leave~~
@@ -82,6 +83,7 @@ Update Checklist
 <br>
 
 Economy Checklist
+- [ ] a clan economy where someone can sell items for pearls and when someone buys it the pearl's funds go up
 - [ ] that one card game from club penguin lol
 - [ ] clicking contest
 - [ ] ultimate slot machine that can 500x your bet if you win
