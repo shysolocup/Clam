@@ -1,11 +1,14 @@
 ## 05-03-23
 - added command !prefix
+- added command !kick
 - added config/prefixes.json
 - updated package src/packages/discordpps
 - updated prefix in psc: index.js
 - updated majority of commands that use prefixes to work with the new prefix stuff
 - added event prefix mention
 - added command !icon and !banner
+- updated command !ban
+- you can't yourself
 
 ## 05-02-23
 - added command !set
