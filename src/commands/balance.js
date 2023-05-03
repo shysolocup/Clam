@@ -20,7 +20,7 @@ async function data(ctx, cmd) {
 	/* field stuff */
 	let hand = `${pearl}${ (econner.has(user.id)) ? pearlify(Math.round(balance)) : 0 }`;
 	let rank = colorify( (econner.has(user.id)) ? pearlify(Math.round(balance)) : 0 )[1];
-	let leaderboard = Soup.from(econner.userLB());
+	let leaderboard = Soup.from(econner.userLB(ctx.guild));
 
 	let userRank = (leaderboard.has(user.id)) ? leaderboard.indexOf(user.id)+1 : "None";
 
