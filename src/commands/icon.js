@@ -31,7 +31,7 @@ async function data(ctx, cmd) {
     }
     
     ctx.reply({
-        content: `Here's the icon for ${clan.name}:`,
+        content: `Here's the icon for ${clan.name} (${"`"+id+"`"}):`,
         files: [{ attachment: icon, name: `clan-icon.png` }]
     })
 }
