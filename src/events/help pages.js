@@ -11,8 +11,12 @@ async function data(ctx) {
 	var buttonID = ctx.customId;
 
 	if (buttonID.startsWith("clamHelp/")) {
-		var category = buttonID.split("clamHelp/")[1];
+		var [ _, category, guildID ] = buttonID.split("/");
 		var stuff = Soup.from(require('../../config/list.json')[category]);
+
+
+		var prefixes = require('../../config/prefixes.json');
+        var prefix = (prefixes instanceof Object && prefixes[guildID]) ? prefixes[guildID] : (prefixes instanceof Object) ? prefixes.default : prefixes;
 
 	
 		/* button shit */
@@ -25,8 +29,8 @@ async function data(ctx) {
 		
 		stuff.forEach( (com) => {
 			options.push({
-				label: `!${com.name}`,
-				value: `clamSearch/${category}/${com.name}`,
+				label: `${prefix}${com.name}`,
+				value: `clamSearch/${category}/${com.name}/${guildID}`,
 				description: com.desc
 			});
 		});
@@ -46,7 +50,7 @@ async function data(ctx) {
 		comps = comps.map( (btns) => { return new psc.ActionRow(btns); });
 		
 		var desc = stuff.copy().map( (com) => {
-			return `!${com.name}: ${ "`"+com.desc+"`" }`;
+			return `${prefix}${com.name}: ${ "`"+com.desc+"`" }`;
 		});
 		
 	
