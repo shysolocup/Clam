@@ -36,6 +36,7 @@ Commands Checklist
 - [x] ~~help~~
 - [x] ~~icon~~
 - [ ] import
+- [ ] inventory
 - [x] ~~invite~~
 - [x] ~~join~~
 - [x] ~~kick~~
