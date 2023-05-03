@@ -6,6 +6,15 @@ class Econner {
 		return Soup.from(require('../data/economy.json'));
 	}
 
+    in(guildID) {
+        Soup.from(require('../data/economy.json'));
+        var { psc } = require('../../index.js');
+
+        let guild = psc.fetchGuild(guildID);
+
+        console.log(guild);
+    }
+
 	fetchHand(id) {
         let hands = Soup.from(require('../data/economy.json'));
         return hands.get(id);
