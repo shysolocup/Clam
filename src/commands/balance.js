@@ -1,5 +1,6 @@
 var { psc, bot } = require('../../index.js');
 var { colors, colorify, pearl, pearlify, emojis } = require('../assets');
+var { Soup } = require('stews');
 
 async function data(ctx, cmd) {
 	const { Econner, Catch } = require('../classes');
@@ -19,14 +20,28 @@ async function data(ctx, cmd) {
 	/* field stuff */
 	let hand = `${pearl}${ (econner.has(user.id)) ? pearlify(Math.round(balance)) : 0 }`;
 	let rank = colorify( (econner.has(user.id)) ? pearlify(Math.round(balance)) : 0 )[1];
+	let leaderboard = Soup.from(econner.globalLeaderboard());
+
+	let globalRank = (leaderboard.has(user.id)) ? leaderboard.indexOf(user.id)+1 : "None";
 
 	let username = user.username.split("");username[0]=username[0].toUpperCase();username=username.join("");
 
+	if (typeof globalRank == "number") {
+		globalRank = `${globalRank}${((int) => {
+			if (int > 3 && int < 21) return "th";
+			switch( int % 10) {
+				case 1: return "st"; break;
+				case 2: return "nd"; break;
+				case 3: return "rd"; break;
+				default: return "th"; break;
+			}
+		})(globalRank)}`;
+	}
 	
 	/* embed stuff */
 	let embed = new psc.Embed({
 		title: `${ (ctx.author.id == user.id) ? "Your" : `${username}'s` } Balance  :bucket:`,
-		description: (ctx.author.id == user.id) ? (balance <= -999999999999999) ? "How did you manage this" : (balance < 0) ? "(PS. Enjoy rank 5 poor)" : "" : null,
+		description: `Global Leaderboard Rank: ${globalRank}`,
 
 		fields: [
 			{ name: "Hand", value: "`" + `${hand}` + "`", inline: true },
