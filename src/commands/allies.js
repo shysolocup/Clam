@@ -90,7 +90,7 @@ async function data(ctx, cmd) {
         
 		clans.set(id, "allies", filtered);
         
-		rawEmbed.description = `${emojis.success} removed ${ (msgStuff.length == 1) ? "alliance" : "alliances" } ${msgStuff.join(", ")}`;
+		rawEmbed.description = `${emojis.success} Removed ${ (msgStuff.length == 1) ? "alliance" : "alliances" } ${msgStuff.join(", ")}`;
     }
 
     // add
@@ -118,7 +118,7 @@ async function data(ctx, cmd) {
         
 		clans.set(id, "allies", clan.allies);
         
-		rawEmbed.description = `${emojis.success} added ${ (msgStuff.length == 1) ? "alliance" : "alliances" } ${msgStuff.join(", ")}`;
+		rawEmbed.description = `${emojis.success} Added ${ (msgStuff.length == 1) ? "alliance" : "alliances" } ${msgStuff.join(", ")}`;
     }
 	
 
