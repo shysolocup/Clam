@@ -9,7 +9,7 @@
 - added command !icon and !banner
 - updated command !ban
 - you can't yourself
-- added command files !inventory and !item
+- added command files !inventory !item and !leaderboard
 - added class files Item and ItemTemplate
 - added data files items.json and inventories.json
 
