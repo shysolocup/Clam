@@ -38,7 +38,7 @@
 			{ "name": "shop", "args": [], "aliases": ["store"], "desc": "Sends the shop page for the server" },
 			{ "name": "buy", "args": ["item", "(Optional amount)"], "aliases": [], "desc": "Buys an item for pearls" },
 			{ "name": "sell", "args": ["item", "(Optional amount))"], "aliases": [], "desc": "Sells an item for pearls" },
-			{ "name": "use", "args": ["item"], "aliases": [], "desc": "Uses a bought item" },
+			{ "name": "use", "args": ["item"], "aliases": [], "desc": "Uses a bought item" }
 		],
 		
 		"Administrator": [
