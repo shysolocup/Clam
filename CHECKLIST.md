@@ -90,6 +90,9 @@ Economy Update Checklist
 - [ ] !item set (attr) (id) (value)
 - [ ] !item set (id) (attr) (value)
 - [ ] items can have roles attached if the person who creates it is an admin
+<br>
+
+items.json
 ```json
 {
     "guildID": {
@@ -116,6 +119,7 @@ Economy Update Checklist
     }
 }
 ```
+inventories.json
 ```json
 {
     "userID": [
