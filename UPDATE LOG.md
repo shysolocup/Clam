@@ -11,7 +11,7 @@
 - you can't yourself
 - added command files !inventory and !item
 - added class files Item and ItemTemplate
-- added data file items.json
+- added data files items.json and inventories.json
 
 ## 05-02-23
 - added command !set
