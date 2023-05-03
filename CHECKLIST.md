@@ -38,7 +38,7 @@ Commands Checklist
 - [ ] import
 - [x] ~~invite~~
 - [x] ~~join~~
-- [ ] kick
+- [x] ~~kick~~
 - [x] ~~leave~~
 - [x] ~~list~~
 - [x] ~~listall~~
