@@ -116,6 +116,13 @@ Economy Update Checklist
     }
 }
 ```
+```json
+{
+    "userID": [
+        "clanID/item name 1",
+        "clanID/item name 2"
+    ]
+}
 <br>
 
 Economy Games Checklist
