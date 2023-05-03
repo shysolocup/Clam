@@ -19,24 +19,28 @@ async function data(ctx, cmd) {
 
 	/* the stuff */
 	let clan = clans.fetch(id, ctx.guild.id);
-	
-	let name = (clan.gold) ? `${clan.name}  ${emojis.gold}` : clan.name;
-	let members = (clan.members.join(">, <@") == []) ? "None" : `<@${clan.members.join(">, <@")}>`;
-	let ops = (clan.ops.join(">, <@") == []) ? "None" : `<@${clan.ops.join(">, <@")}>`;
-	let status = clans.status(clan.status);
-	let shout = `"${clan.shout.content}" - <@${clan.shout.author}>`;
-	
-	let icon = Soup.from(clan.icon).replaceAll(" ", "_").join("");
-	let banner = Soup.from(clan.banner).replaceAll(" ", "_").join("");
+
+	try {
+		var name = (clan.gold) ? `${clan.name}  ${emojis.gold}` : clan.name;
+		var ops = (clan.ops.join(">, <@") == []) ? "None" : `<@${clan.ops.join(">, <@")}>`;
+		var status = clans.status(clan.status);
+		var shout = `"${clan.shout.content}" - <@${clan.shout.author}>`;
+		
+		var icon = Soup.from(clan.icon).replaceAll(" ", "_").join("");
+		var banner = Soup.from(clan.banner).replaceAll(" ", "_").join("");
+	}
+	catch(err) {
+		return Catch( true, { text: "A required part of the clan has been removed or altered.", poster: ctx.reply });
+	}
 	
 	
 	/* buttons */
 	let homeButton = new psc.Button({ id: "clanGet/Home", emoji: "🏡", style: "primary" });
 	let statsButton = new psc.Button({ id: "clanGet/Stats", emoji: "📊", style: "secondary" });
 	let economyButton = new psc.Button({ id: "clanGet/Economy", emoji: "💰", style: "secondary" });
-	let modButton = new psc.Button({ id: "clanGet/Moderation", emoji: "🛡️", style: "secondary", disabled: !(clan.ops.includes(ctx.author.id) || clan.owner==ctx.author.id || isDev(ctx.author.id)) });
+	let alliancesButton = new psc.Button({ id: "clanGet/Alliances", emoji: "⚔️", style: "secondary" });
 
-	let row = new psc.ActionRow([ homeButton, statsButton, economyButton, modButton ]);
+	let row = new psc.ActionRow([ homeButton, statsButton, economyButton, alliancesButton ]);
 	
 	
 	/* the */
