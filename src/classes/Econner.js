@@ -52,16 +52,14 @@ class Econner {
 		this.removeClan(amount, clanID);
 	}
 	
-	userLeaderboard(guildID=null) {
+	userLeaderboard() {
 		let hands = (Soup.from(require('../data/economy.json'))).entries;
-
-        if (guildID) hands = hands.filter( (v) => { return v[1].guild == guildID });
 		
 		return Object.fromEntries(hands.sort( (a, b) => { return b[1] - a[1] }));
 	}
 	
-	clanLeaderboard(guildID) {
-		let clans = Soup.from((new Clanner()).in(guildID)).entries;
+	clanLeaderboard(guildID=null) {
+		let clans = Soup.from(new Clanner()).every().entries;
 		
 		return Object.fromEntries(clans.sort( (a, b) => { return b[1].funds - a[1].funds }));
 	}
