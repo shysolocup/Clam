@@ -9,6 +9,7 @@
 - added command !icon and !banner
 - updated command !ban
 - you can't yourself
+- added command file for !inventory
 
 ## 05-02-23
 - added command !set
