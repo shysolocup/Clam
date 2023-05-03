@@ -42,17 +42,17 @@ async function stuff(ctx) {
 
 	/* the stuff */
 	try {
-		let name = (clan.gold) ? `${clan.name}  ${emojis.gold}` : clan.name;
-		let members = (clan.members.join(">, <@") == []) ? "None" : `<@${clan.members.join(">, <@")}>`;
-		let ops = (clan.ops.join(">, <@") == []) ? "None" : `<@${clan.ops.join(">, <@")}>`;
-		let status = clans.status(clan.status);
-		let shout = `"${clan.shout.content}" - <@${clan.shout.author}>`;
+		var name = (clan.gold) ? `${clan.name}  ${emojis.gold}` : clan.name;
+		var members = (clan.members.join(">, <@") == []) ? "None" : `<@${clan.members.join(">, <@")}>`;
+		var ops = (clan.ops.join(">, <@") == []) ? "None" : `<@${clan.ops.join(">, <@")}>`;
+		var status = clans.status(clan.status);
+		var shout = `"${clan.shout.content}" - <@${clan.shout.author}>`;
 	
-		let allies = (clan.allies.length == 0) ? "None" : clan.allies.map( (v) => { return `${clans.fetch(v).name} ${"`("+v+")`"}`; }).join("\n");
-		let enemies = (clan.enemies.length == 0) ? "None" : clan.enemies.map( (v) => { return `${clans.fetch(v).name} ${"`("+v+")`"}`; }).join("\n");
+		var allies = (clan.allies.length == 0) ? "None" : clan.allies.map( (v) => { return `${clans.fetch(v).name} ${"`("+v+")`"}`; }).join("\n");
+		var enemies = (clan.enemies.length == 0) ? "None" : clan.enemies.map( (v) => { return `${clans.fetch(v).name} ${"`("+v+")`"}`; }).join("\n");
 		
-		let icon = Soup.from(clan.icon).replaceAll(" ", "_").join("");
-		let banner = Soup.from(clan.banner).replaceAll(" ", "_").join("");
+		var icon = Soup.from(clan.icon).replaceAll(" ", "_").join("");
+		var banner = Soup.from(clan.banner).replaceAll(" ", "_").join("");
 	}
 	catch(err) {
 		return Catch( true, { text: "A required part of the clan has been removed or altered.", poster: ctx.reply.bind(ctx) });
