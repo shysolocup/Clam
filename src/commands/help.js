@@ -28,11 +28,11 @@ async function data(ctx, cmd) {
 
 
 	/* button shit */
-	let general = new psc.Button({ id: "clamHelp/General", emoji: "👥", style: "secondary"});
-	let manage = new psc.Button({ id: "clamHelp/Management", emoji: "🛠️", style: "secondary"});
-	let mod = new psc.Button({ id: "clamHelp/Moderation", emoji: "🛡️", style: "secondary"});
-	let economy = new psc.Button({ id: "clamHelp/Economy", emoji: "💰", style: "secondary"});
-	let admin = new psc.Button({ id: "clamHelp/Administrator", emoji: (disabled) ? "🔒" : "🔓", style: "danger", disabled: disabled});
+	let general = new psc.Button({ id: `clamHelp/General/${ctx.guild.id}`, emoji: "👥", style: "secondary"});
+	let manage = new psc.Button({ id: `clamHelp/Management/${ctx.guild.id}`, emoji: "🛠️", style: "secondary"});
+	let mod = new psc.Button({ id: `clamHelp/Moderation/${ctx.guild.id}`, emoji: "🛡️", style: "secondary"});
+	let economy = new psc.Button({ id: `clamHelp/Economy/${ctx.guild.id}`, emoji: "💰", style: "secondary"});
+	let admin = new psc.Button({ id: `clamHelp/Administrator/${ctx.guild.id}`, emoji: (disabled) ? "🔒" : "🔓", style: "danger", disabled: disabled});
 
 
 	/* select menu shit */
