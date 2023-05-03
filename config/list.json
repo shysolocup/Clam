@@ -16,7 +16,7 @@
 			{ "name": "shout", "args": ["clanID"], "aliases": [], "desc": "Changes the clan shout" },
 			{ "name": "disband", "args": ["clanID"], "aliases": [], "desc": "Deletes a clan" },
 			{ "name": "allies", "args": ["clanID", "add/remove", "clanIDs"], "aliases": ["alliances"], "desc": "Editor for a clan's allies" },
-			{ "name": "enemies", "args": ["clanID", "add/remove", "clanIDs"], "aliases": ["rivalries", "rivals"], "desc": "Editor for a clan's enemies" },
+			{ "name": "enemies", "args": ["clanID", "add/remove", "clanIDs"], "aliases": ["rivalries", "rivals"], "desc": "Editor for a clan's enemies" }
 		],
   
 		"Moderation": [
