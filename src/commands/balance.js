@@ -41,7 +41,7 @@ async function data(ctx, cmd) {
 	/* embed stuff */
 	let embed = new psc.Embed({
 		title: `${ (ctx.author.id == user.id) ? "Your" : `${username}'s` } Balance  :bucket:`,
-		description: `Global Leaderboard Rank: ${globalRank}`,
+		description: `Global Leaderboard Rank: ${userRank}`,
 
 		fields: [
 			{ name: "Hand", value: "`" + `${hand}` + "`", inline: true },
