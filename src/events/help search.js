@@ -10,12 +10,15 @@ async function data(ctx) {
 	if (selectID.startsWith("clamSearch/")) {
 
 		/* getting the stuff */
-		let [_, category, name] = selectID.split("/");
+		var [_, category, name, guildID] = selectID.split("/");
 
 
 		/* getting the category's commands */
 		var list = require('../../config/list.json')[category];
 		var cmd = list.filter( (v) => { return v.name == name })[0];
+
+		var prefixes = require('../../config/prefixes.json');
+        var prefix = (prefixes instanceof Object && prefixes[guildID]) ? prefixes[guildID] : (prefixes instanceof Object) ? prefixes.default : prefixes;
 
 		let titleName = name.split("");titleName[0]=titleName[0].toUpperCase();titleName=titleName.join("")
 
@@ -29,7 +32,7 @@ async function data(ctx) {
 				{ name: "Category", value: `• ${category}`, inline: true },
 				{ name: "** **", value: "** **", inline: true },
 				{ name: "Arguments", value: (cmd.args.length > 0) ? "• `"+cmd.args.join("`, `")+"`" : "• None", inline: true },
-				{ name: "Aliases", value: (cmd.aliases.length > 0) ? "• !"+cmd.aliases.join(", !") : "• None", inline: true },
+				{ name: "Aliases", value: (cmd.aliases.length > 0) ? `• ${prefix}`+cmd.aliases.join(`, ${prefix}`) : "• None", inline: true },
 				{ name: "** **", value: "** **", inline: false }
 			],
 
