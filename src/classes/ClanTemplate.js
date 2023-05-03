@@ -25,6 +25,8 @@ class ClanTemplate {
             members: [ ctx.author.id ],
             ops: [ ],
             bans: [ ],
+			allies: [ ],
+			enemies: [ ],
             status: 1,
 	    	funds: 0,
             gold: false,
