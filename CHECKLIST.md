@@ -90,6 +90,7 @@ Economy Update Checklist
 - [ ] !item set (attr) (id) (value)
 - [ ] !item set (id) (attr) (value)
 - [ ] items can have roles attached if the person who creates it is an admin
+- [ ] server leaderboard for hands and clans (hopefully)
 <br>
 
 items.json
@@ -132,5 +133,4 @@ inventories.json
 
 Economy Games Checklist
 - [ ] that one card game from club penguin lol
-- [ ] clicking contest
 - [ ] ultimate slot machine that can 500x your bet if you win
