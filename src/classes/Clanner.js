@@ -10,6 +10,20 @@ class Clanner {
 		return Soup.from(require('../data/clans.json')[guildID]);
 	}
 
+	every() {
+		let stuff = new Soup(Object);
+
+		let values = Soup.from(require('../data/clans.json')).values;
+
+		values.forEach( (guild) => {
+			Soup.from(guild).forEach( (k, v) => {
+				stuff.push(k, v);
+			});
+		});
+		
+		return stuff;
+	}
+
 	fetch(id, guildID=null) {
 		let clans = Soup.from(require('../data/clans.json'));
 
