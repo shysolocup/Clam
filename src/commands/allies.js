@@ -9,13 +9,6 @@ const { Soup } = require('stews');
 
 
 async function data(ctx, cmd) {
-	if ( Catch( cmd.onCooldown, { 
-		head: `Woah there!  :face_with_spiral_eyes:`,
-		text: `You've been timed out from using this command for a bit.`,
-	}) ) return;
-	
-
-    /* setup */
 	let clans = new Clanner();
     let args = Soup.from(cmd.args);
 
