@@ -75,7 +75,7 @@ class Econner {
 		return Object.fromEntries(hands.sort( (a, b) => { return b[1] - a[1] }));
 	}
 	
-	clanLB(guildID=null) {
+	async clanLB(guildID=null) {
 		let clans = Soup.from((new Clanner()).every()).entries;
 
         if (guildID) clans = clans.filter( (v) => { return v[1].guild == guildID });
