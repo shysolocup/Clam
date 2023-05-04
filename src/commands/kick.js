@@ -47,7 +47,7 @@ async function data(ctx, cmd) {
 	
 
 	ctx.reply({ embeds: [embed] }).catch(e=>{});
-	clans.leave(clan.id, user.id);
+	clans.leave(clan.id, user.id, ctx.guild.id);
 }
 
 psc.command({ name: "kick", cooldown: "2s"}, data);
