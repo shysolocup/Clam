@@ -45,7 +45,7 @@ async function data(ctx, cmd) {
 	
 
 	ctx.reply({ embeds: [embed] }).catch(e=>{});
-	clans.unban(clan.id, user.id);
+	clans.unban(clan.id, user.id, ctx.guild.id);
 }
 
 psc.command({ name: "unban", cooldown: "2s"}, data);
