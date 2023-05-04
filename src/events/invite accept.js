@@ -41,7 +41,7 @@ async function data(ctx) {
 
         ctx.update({ embeds: [embed], components: [row] }).catch(e=>{});
 
-        clans.join(clan.id, reciever.id);
+        clans.join(clan.id, reciever.id, ctx.guild.id);
     }
 }
 
