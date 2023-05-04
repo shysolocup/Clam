@@ -1,3 +1,15 @@
+## 05-04-23
+- added commands !op and !deop
+- added command !leaderboard
+- added command !shout
+- compressed force commands into !force
+- compressed funds commands into !funds
+- added id attribute for !set
+- updated all commands that use Clanner set
+- updated class Clanner set functions to require a guildID
+- updated class Econner to have an in() function
+- updated class Econner to have user and clan leaderboards
+
 ## 05-03-23
 - added command !prefix
 - added command !kick
