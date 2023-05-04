@@ -106,12 +106,14 @@ async function data(ctx, cmd) {
 
     // id
     else if (attr.toLowerCase() == "id") {
-	var clan = clans.fetch(id);
+        var clan = clans.fetch(id);
+        value = value.split(" ")[0];
+
         if (
-            Catch( !clan.ops.includes(ctx.author.id) && clan.owner != ctx.author.id, { text: "You have to have operator to ban users." })
+            Catch( !clan.ops.includes(ctx.author.id) && clan.owner != ctx.author.id, { text: "You have to have operator to ban users." }) ||
+            Catch( clans.has(value, ctx.guild.id), { text: "This server already has a clan with that id." })
         ) return;
 
-        value = value.split(" ")[0];
         clans.setID(id, value, ctx.guild.id);
         rawEmbed.description = `${emojis.success} Set clan id to ${"`"+value+"`"}`;
     }
