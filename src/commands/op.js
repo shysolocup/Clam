@@ -34,6 +34,7 @@ async function data(ctx, cmd) {
 	if (
 		Catch( clan.owner != ctx.author.id, { text: "Only the clan owner can op users." }) ||
 		Catch( clan.ops.includes(user.id), { text: "User is already operator in that clan." }) ||
+		Catch( !clan.members.includes(user.id), { text: "You can't op someone who isn't in the clan." }) ||
 		Catch( ctx.author.id == user.id, { text: "You can't yourself." })
 	) return;
 
