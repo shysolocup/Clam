@@ -1,6 +1,3 @@
-const { AttachmentBuilder } = require('discord.js');
-const Canvas = require('@napi-rs/canvas');
-
 var { psc, bot } = require('../../index.js');
 var { colors, emojis } = require('../assets');
 var { Clanner, Catch } = require('../classes');
