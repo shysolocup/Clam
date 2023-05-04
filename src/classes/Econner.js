@@ -61,8 +61,16 @@ class Econner {
 		this.removeClan(amount, clanID);
 	}
 	
-	userLB(guildID=null) {
-		let hands = (Soup.from(require('../data/economy.json'))).entries;
+	async userLB(guildID=null) {
+		var hands = (Soup.from(require('../data/economy.json'))).entries;
+        let { psc } = require('../../index.js');
+
+        if (guildID) {
+            let guild = await psc.fetchGuild(guildID);
+            let members = Soup.from(await guild.members.fetch());
+
+            hands = hands.filter( (v) => { return members.includes(v[0]); });
+        }
 		
 		return Object.fromEntries(hands.sort( (a, b) => { return b[1] - a[1] }));
 	}
