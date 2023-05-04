@@ -76,26 +76,26 @@ async function data(ctx, cmd) {
 
     // name
     if (attr.toLowerCase() == "name") {
-        clans.set(id, "name", value);
+        clans.set(id, "name", value, ctx.guild.id);
         rawEmbed.description = `${emojis.success} Set clan name to ${"`"+value+"`"}`;
     }
 
     // description
     else if ( [ "description", "desc" ].includes(attr.toLowerCase()) ) {
-        clans.set(id, "description", value);
+        clans.set(id, "description", value, ctx.guild.id);
         rawEmbed.description = `${emojis.success} Set clan description to ${"`"+value+"`"}`;
     }
 
 	// resize
     else if (attr.toLowerCase() == "resize") {
 		let bool = ( ["true", "on"].includes(value.toLowerCase()) ) ? true : ( ["false", "off"].includes(value.toLowerCase()) ) ? false : true
-        clans.set(id, "resize", bool);
+        clans.set(id, "resize", bool, ctx.guild.id);
         rawEmbed.description = `${emojis.success} Set icon and banner resizing to ${"`"+bool+"`"}`;
     }
 
     // shout
     else if (attr.toLowerCase() == "shout") {
-        clans.shout(id, value, ctx.author.id);
+        clans.shout(id, value, ctx.author.id, ctx.guild.id);
         rawEmbed.description = `${emojis.success} Set clan shout to`;
         rawEmbed.fields = [
 			{ name:"** **", value: "** **", inline: false},
@@ -115,19 +115,19 @@ async function data(ctx, cmd) {
             color = value.toLowerCase();
         }
 
-        clans.set(id, "color", color);
+        clans.set(id, "color", color, ctx.guild.id);
         rawEmbed.description = `${emojis.success} Set clan color to ${"`"+color.toUpperCase()+"`"}`;
     }
 
     // status
     else if ( ["status", "private", "public", "unlisted"].includes(attr.toLowerCase()) ) {
         if (["private", "public", "unlisted"].includes(attr.toLowerCase())) {
-            clans.set(id, "status", clans.intStatus(attr.toLowerCase()));
+            clans.set(id, "status", clans.intStatus(attr.toLowerCase()), ctx.guild.id);
 
             rawEmbed.description = `${emojis.success} Set clan status to ${clans.status(clans.intStatus(attr.toLowerCase()))}`;
         }
         else {
-            clans.set(id, "status", clans.intStatus(value.toLowerCase()));
+            clans.set(id, "status", clans.intStatus(value.toLowerCase()), ctx.guild.id);
 
             rawEmbed.description = `${emojis.success} Set clan status to ${clans.status(clans.intStatus(value.toLowerCase()))}`;
         }
@@ -348,12 +348,12 @@ async function data(ctx, cmd) {
 	let stuff = reply.embeds[0];
 
 	if (rawEmbed.icon && rawEmbed.banner) {
-		clans.set(id, "icon", stuff.thumbnail.url);
-		clans.set(id, "banner", stuff.image.url);
+		clans.set(id, "icon", stuff.thumbnail.url, ctx.guild.id);
+		clans.set(id, "banner", stuff.image.url, ctx.guild.id);
 	}
 		
-	else if (rawEmbed.icon) clans.set(id, "icon", stuff.image.url);
-	else if (rawEmbed.banner) clans.set(id, "banner", stuff.image.url);
+	else if (rawEmbed.icon) clans.set(id, "icon", stuff.image.url, ctx.guild.id);
+	else if (rawEmbed.banner) clans.set(id, "banner", stuff.image.url, ctx.guild.id);
 }
 
 psc.command({ name: "set", aliases: ["edit"], cooldown: "1s" }, data);
