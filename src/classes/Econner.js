@@ -61,7 +61,7 @@ class Econner {
 		this.removeClan(amount, clanID);
 	}
 	
-	userLB() {
+	userLB(guildID=null) {
 		let hands = (Soup.from(require('../data/economy.json'))).entries;
 		
 		return Object.fromEntries(hands.sort( (a, b) => { return b[1] - a[1] }));
