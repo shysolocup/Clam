@@ -141,7 +141,7 @@ class Clanner {
 	}
 
 
-	deop(id, userID, guildiD) {
+	deop(id, userID, guildID) {
 		let ops = Soup.from(this.fetch(id, guildID).ops);
 		if (ops.has(userID)) ops.remove(userID);
 
