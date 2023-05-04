@@ -116,7 +116,7 @@ async function data(ctx, cmd) {
 
         clans.setID(id, value, ctx.guild.id);
         rawEmbed.description = `${emojis.success} Set clan id to ${"`"+value+"`"}`;
-        rawEmbed.footer = `( old id: ${value} )`;
+        rawEmbed.footer = `( old id: ${id} )`;
         id = value;
     }
 
