@@ -106,6 +106,7 @@ async function data(ctx, cmd) {
 
     // id
     else if (attr.toLowerCase() == "id") {
+	var clan = clans.fetch(id);
         if (
             Catch( !clan.ops.includes(ctx.author.id) && clan.owner != ctx.author.id, { text: "You have to have operator to ban users." })
         ) return;
