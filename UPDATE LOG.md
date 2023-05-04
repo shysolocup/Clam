@@ -7,7 +7,8 @@
 - added id attribute for !set
 - updated all commands that use Clanner set
 - updated class Clanner set functions to require a guildID
-- updated class Econner to have an in() function
+- added function setID() and disband() to class Clanner
+- added function in() to class Econner
 - updated class Econner to have user and clan leaderboards
 
 ## 05-03-23
