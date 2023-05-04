@@ -36,7 +36,7 @@ async function data(ctx, cmd) {
 
 
     ctx.reply( {embeds: [embed] }).catch(e=>{});
-	clans.join(id, ctx.author.id);
+	clans.join(id, ctx.author.id, ctx.guild.id);
 }
 
 psc.command("join", data);
