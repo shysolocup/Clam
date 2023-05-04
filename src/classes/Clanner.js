@@ -66,6 +66,15 @@ class Clanner {
 	}
 
 
+	disband(id, guildID) {
+		let clan = this.fetch(id, guildID);
+		var clans = Soup.from(require('../data/clans.json'));
+
+		delete clans[clan.guild][id];
+		clans.dump('./src/data/clans.json', null, 4);
+	}
+
+
 	shout(id, content, author, guildID) {
 		let shout = new Shout(content, author);
 		this.set(id, "shout", shout, guildID);
