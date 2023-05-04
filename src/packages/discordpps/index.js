@@ -1,4 +1,4 @@
-/* :: Discord+PS :: Version 0.6.0 | 05/03/23 :: */
+/* :: Discord+PS :: Version 0.6.0 | 05/04/23 :: */
 
 /* :: Created by nutmeg using :: *//*
 	- Stews: https://github.com/nuttmegg/stews
@@ -631,7 +631,7 @@ class PSClient {
 	fetchRole(id, guild=null) { if (!id) return null; var [psc, client, ctx] = Holder; let rawRole = id; if (rawRole.startsWith('<@') && rawRole.endsWith('>')) {rawRole = rawRole.slice(2, -1); if (rawRole.startsWith('&')) {rawRole = rawRole.slice(1); }} rawRole = rawRole.split("").join(""); let role = (guild) ? guild.roles.fetch(rawRole).catch(e=>{}) : ctx.guild.roles.fetch(rawRole).catch(e=>{}); return (!role) ? null : role; }
 	fetchGuildRole(id, guild=null) { return this.fetchRole(id, guild); }
 	
-	fetchGuild(id) { if (!id) return null; let guild = this.client.guilds.cache.get(id); return (!guild) ? null : guild; }
+	fetchGuild(id) { if (!id) return null; let guild = this.client.guilds.fetch(id).catch(e=>{}); return (!guild) ? null : guild; }
 
 	parseEmoji(emoji) { 
 		if (!emoji) return null;
