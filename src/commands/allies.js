@@ -28,7 +28,7 @@ async function data(ctx, cmd) {
     /* handling */
 
     if (
-        Catch( !clans.has(id) && !clans.has(type), { text: "There is no clan with that ID." }) ||
+        Catch( !clans.has(id, ctx.guild.id) && !clans.has(type, ctx.guild.id), { text: "There is no clan with that ID." }) ||
 
 
         Catch( function() {
@@ -88,7 +88,7 @@ async function data(ctx, cmd) {
 
 		if (Catch( msgStuff.join("") == "", { text: 'Clans to add/remove are missing invalid or already removed.' })) return
         
-		clans.set(id, "allies", filtered);
+		clans.set(id, "allies", filtered, ctx.guild.id);
         
 		rawEmbed.description = `${emojis.success} Removed ${ (msgStuff.length == 1) ? "alliance" : "alliances" } ${msgStuff.join(", ")}`;
     }
@@ -116,7 +116,7 @@ async function data(ctx, cmd) {
 			Catch( stuff.includes(id), { text: "You can't add your own clan."})
 		) return
         
-		clans.set(id, "allies", clan.allies);
+		clans.set(id, "allies", clan.allies, ctx.guild.id);
         
 		rawEmbed.description = `${emojis.success} Added ${ (msgStuff.length == 1) ? "alliance" : "alliances" } ${msgStuff.join(", ")}`;
     }
