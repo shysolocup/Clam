@@ -35,7 +35,7 @@ async function data(ctx, cmd) {
 
 
     ctx.reply( {embeds: [embed] }).catch(e=>{});
-	clans.leave(id, ctx.author.id);
+	clans.leave(id, ctx.author.id, ctx.guild.id);
 }
 
 psc.command("leave", data);
