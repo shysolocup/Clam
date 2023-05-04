@@ -1,6 +1,6 @@
 const { Soup } = require('stews');
 
-class IconTemplate {
+class ItemTemplate {
     constructor(ctx, clanID, name=null) {
         var prefixes = require('../../config/prefixes.json');
         var prefix = (prefixes instanceof Object && prefixes[ctx.guild.id]) ? prefixes[ctx.guild.id] : (prefixes instanceof Object) ? prefixes.default : prefixes;
