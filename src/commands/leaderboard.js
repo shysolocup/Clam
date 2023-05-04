@@ -69,13 +69,13 @@ async function data(ctx, cmd) {
 	});
 
 
-	if (userFields.length > 3) {
+	if (userFields.length > 5) {
 		userFields.scoop( (_, i) => {
-			return i >= 3;
+			return i >= 5;
 		});
 		userFields.push("\n...\n");
 		let rankInt = userRanks.indexOf(ctx.author.id)+1;
-		if (rankInt > 3) {
+		if (rankInt > 5) {
 			if (userRanks.get(rankInt-2)) userFields.push(`${userRanks.get(rankInt-2)}:**  **<@${userRanks.keys[rankInt-2]}>**  **•**  **${"`"+pearl}${pearlify(userLB.get(rankInt-2))+"`"}`);
 
 			userFields.push(`**${userRank}**:**  **<@${ctx.author.id}>**  **•**  **${"`"+pearl}${pearlify(userLB.get(rankInt-1))+"`"}`);
@@ -87,16 +87,29 @@ async function data(ctx, cmd) {
 
 	let clanFields = new Soup(Array);
 
+	clanRanks.forEach( (k, v, i) => {
+		let clan = clanLB.get(i);
+		let stuff = `${v}:**  **${clan.name} (${"`"+clan.id+"`"})**  **•**  **${"`"+pearl}${pearlify(clan.funds)+"`"}`;
+		clanFields.push(stuff);
+	});
+
+	if (clanFields.length > 5) {
+		clanFields.scoop( (_, i) => {
+			return i >= 5;
+		});
+		clanFields.push("\n...\n");
+	}
+
 
 	/* embed stuff */
 	let embed = new psc.Embed({
-		author: { name: `${guild} Leaderboard` },
+		title: `${guild} Leaderboard`,
 		description: (userRank) ? `You are ranked **${userRank}**.` : "You aren't on the leaderboard yet.",
 
 		fields: [
-			{ name: "Users", value: userFields.join("\n"), inline: true },
+			{ name: "Users", value: (userFields.join("")=="") ? "None" : userFields.join("\n"), inline: true },
 			{ name: "** **", value: "** **", inline: true },
-			{ name: "Clans", value: "a", inline: true }
+			{ name: "Clans", value: (clanFields.join("")=="") ? "None" : clanFields.join("\n"), inline: true }
 		],
 
 		color: colors.clam,
@@ -104,22 +117,6 @@ async function data(ctx, cmd) {
 	});
 
 	ctx.reply({ embeds: [embed] });
-
-	/*
-    if (typeof userRank == "number") {
-		userRank = `${userRank}${((int) => {
-			if (int > 3 && int < 21) return "th";
-			switch( int % 10) {
-				case 1: return "st"; break;
-				case 2: return "nd"; break;
-				case 3: return "rd"; break;
-				default: return "th"; break;
-			}
-		})(userRank)}`;
-	}
-    */
-	
-	
 }
 
 psc.command({name: "leaderboard", aliases: ["lb"]}, data);
