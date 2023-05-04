@@ -49,16 +49,7 @@
 			{ "name": "export", "args": [], "aliases": [], "desc": "Sends a JSON file with all clans in a server" },
 			{ "name": "import", "args": ["file"], "aliases": [], "desc": "Replaces all clans in a server with those from a JSON file" },
 			{ "name": "listall", "args": [], "aliases": [], "desc": "Gets a list of all clans including unlisted ones" },
-			{ "name": "forcedisband", "args": ["clanID"], "aliases": ["forcedb", "fdb", "fdisband"], "desc": "Disbands a clan by force" },
-			{ "name": "forceset", "args": ["attr", "clanID", "value"], "aliases": ["fset"], "desc": "Sets a thing in a clan by force" },
-			{ "name": "forceshout", "args": ["clanID", "content"], "aliases": ["fshout"], "desc": "Sets a clan shout by force" },
-			{ "name": "forcejoin", "args": ["clanID"], "aliases": ["fjoin"], "desc": "Joins a clan even if it's private" },
-			{ "name": "forceban", "args": ["user", "clanID"], "aliases": ["fban"], "desc": "Bans a user by force" },
-			{ "name": "forceunban", "args": ["user", "clanID"], "aliases": ["funban"], "desc": "Unbans a user by force" },
-			{ "name": "forcekick", "args": ["user", "clanID"], "aliases": ["fkick"], "desc": "Kicks a user by force" },
-			{ "name": "addfunds", "args": ["amount", "clanID"], "aliases": ["fadd"], "desc": "Adds funds to a clan" },
-			{ "name": "remfunds", "args": ["amount", "clanID"], "aliases": ["fremove"], "desc": "Removes funds from a clan" },
-			{ "name": "setfunds", "args": ["amount", "clanID"], "aliases": ["fset"], "desc": "Sets funds in a clan" },
-			{ "name": "clearfunds", "args": ["amount", "clanID"], "aliases": ["fclear"], "desc": "Clears funds for a clan" }
+			{ "name": "force", "args": ["disband/set/shout/join/ban/unban/kick", "(Optional user/clanID/attr)", "(Optional clanID/content)", "(Optional value)"], "aliases": [], "desc": "Forcibly alters clan related things" },
+			{ "name": "funds", "args": ["add/rem/set", "amount", "clanID"], "aliases": [], "desc": "Editor for clan funds" }
 		]
 }
