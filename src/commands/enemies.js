@@ -1,6 +1,3 @@
-const { AttachmentBuilder } = require('discord.js');
-const Canvas = require('@napi-rs/canvas');
-
 var { psc, bot } = require('../../index.js');
 var { colors, emojis } = require('../assets');
 var { Clanner, Catch } = require('../classes');
@@ -28,7 +25,7 @@ async function data(ctx, cmd) {
     /* handling */
 
     if (
-        Catch( !clans.has(id) && !clans.has(type), { text: "There is no clan with that ID." }) ||
+        Catch( !clans.has(id, ctx.guild.id) && !clans.has(type, ctx.guild.id), { text: "There is no clan with that ID." }) ||
 
 
         Catch( function() {
@@ -88,7 +85,7 @@ async function data(ctx, cmd) {
 
 		if (Catch( msgStuff.join("") == "", { text: 'Clans to add/remove are missing invalid or already removed.' })) return
         
-		clans.set(id, "enemies", filtered);
+		clans.set(id, "enemies", filtered, ctx.guild.id);
         
 		rawEmbed.description = `${emojis.success} Removed ${ (msgStuff.length == 1) ? "rivalry" : "rivalries" } ${msgStuff.join(", ")}`;
     }
@@ -116,7 +113,7 @@ async function data(ctx, cmd) {
 			Catch( stuff.includes(id), { text: "You can't add your own clan."})
 		) return
         
-		clans.set(id, "enemies", clan.enemies);
+		clans.set(id, "enemies", clan.enemies, ctx.guild.id);
         
 		rawEmbed.description = `${emojis.success} Added ${ (msgStuff.length == 1) ? "rivalry" : "rivalries" } ${msgStuff.join(", ")}`;
     }
