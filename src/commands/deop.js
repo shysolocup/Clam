@@ -46,7 +46,7 @@ async function data(ctx, cmd) {
 	
 
 	ctx.reply({ embeds: [embed] }).catch(e=>{});
-	clans.deop(clan.id, user.id);
+	clans.deop(clan.id, user.id, ctx.guild.id);
 }
 
 psc.command({ name: "deop", cooldown: "2s"}, data);
