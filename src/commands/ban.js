@@ -48,7 +48,7 @@ async function data(ctx, cmd) {
 	
 
 	ctx.reply({ embeds: [embed] }).catch(e=>{});
-	clans.ban(clan.id, user.id);
+	clans.ban(clan.id, user.id, ctx.guild.id);
 }
 
 psc.command({ name: "ban", cooldown: "2s"}, data);
