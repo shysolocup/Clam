@@ -20,10 +20,9 @@ async function data(ctx, cmd) {
 	/* field stuff */
 	let hand = `${pearl}${ (econner.has(user.id)) ? pearlify(Math.round(balance)) : 0 }`;
 	let rank = colorify( (econner.has(user.id)) ? pearlify(Math.round(balance)) : 0 )[1];
-	let leaderboard = Soup.from(econner.userLB(ctx.guild));
 
+	let leaderboard = Soup.from(await econner.userLB(ctx.guild));
 	let userRank = (leaderboard.has(user.id)) ? leaderboard.indexOf(user.id)+1 : "None";
-
 	let username = user.username.split("");username[0]=username[0].toUpperCase();username=username.join("");
 
 	if (typeof userRank == "number") {
@@ -41,7 +40,7 @@ async function data(ctx, cmd) {
 	/* embed stuff */
 	let embed = new psc.Embed({
 		title: `${ (ctx.author.id == user.id) ? "Your" : `${username}'s` } Balance  :bucket:`,
-		description: `Global Leaderboard Rank: ${userRank}`,
+		description: `Leaderboard Rank: ${userRank}`,
 
 		fields: [
 			{ name: "Hand", value: "`" + `${hand}` + "`", inline: true },
