@@ -6,13 +6,16 @@ class Econner {
 		return Soup.from(require('../data/economy.json'));
 	}
 
-    in(guildID) {
-        Soup.from(require('../data/economy.json'));
-        var { psc } = require('../../index.js');
+    async in(guildID) {
+        var hands = (Soup.from(require('../data/economy.json'))).entries;
+        let { psc } = require('../../index.js');
 
-        let guild = psc.fetchGuild(guildID);
+        let guild = await psc.fetchGuild(guildID);
+        let members = Soup.from(await guild.members.fetch());
 
-        console.log(guild);
+        hands = hands.filter( (v) => { return members.includes(v[0]); });
+		
+		return Object.fromEntries(hands.sort( (a, b) => { return b[1] - a[1] }));
     }
 
 	fetchHand(id) {
@@ -20,9 +23,9 @@ class Econner {
         return hands.get(id);
 	}
 
-    fetchClan(id) {
+    fetchClan(id, guildID=null) {
         let clans = new Clanner();
-        return clans.fetch(id).funds;
+        return clans.fetch(id, guildID).funds;
     }
 
     addHand(amount, id) {
