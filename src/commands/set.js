@@ -104,6 +104,17 @@ async function data(ctx, cmd) {
         ];
     }
 
+    // id
+    else if (attr.toLowerCase() == "id") {
+        if (
+            Catch( !clan.ops.includes(ctx.author.id) && clan.owner != ctx.author.id, { text: "You have to have operator to ban users." })
+        ) return;
+
+        value = value.split(" ")[0];
+        clans.setID(id, value, ctx.guild.id);
+        rawEmbed.description = `${emojis.success} Set clan id to ${"`"+value+"`"}`;
+    }
+
     // color
     else if (attr.toLowerCase() == "color") {
         var color;
