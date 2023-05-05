@@ -14,6 +14,7 @@ Commands Checklist
 - [x] ~~banner~~
 - [ ] buy
 - [x] ~~create~~
+- [ ] crime
 - [x] ~~deop~~
 - [ ] deposit
 - [ ] disband
@@ -49,7 +50,7 @@ Commands Checklist
 - [x] ~~unban~~
 - [ ] use
 - [ ] withdraw
-- [ ] work
+- [x] ~~work~~
 <br>
 
 Update Checklist
