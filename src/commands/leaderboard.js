@@ -64,7 +64,7 @@ async function data(ctx, cmd) {
 	let userFields = new Soup(Array);
 
 	userRanks.forEach( (k, v, i) => {
-		let stuff = `${ (k == ctx.author.id) ? `**${v}**` : `${v}` }:**  **<@${k}>**  **•**  **${"`"+pearl}${pearlify(userLB.get(i))+"`"}`;
+		let stuff = `${ (k == ctx.author.id) ? `**${v}**` : `${v}` }:**  **<@${k}> \n ${"`"+pearl}${pearlify(userLB.get(i))+"`"}`;
 		userFields.push(stuff);
 	});
 
@@ -76,11 +76,11 @@ async function data(ctx, cmd) {
 		userFields.push("\n...\n");
 		let rankInt = userRanks.indexOf(ctx.author.id)+1;
 		if (rankInt > 5) {
-			if (userRanks.get(rankInt-2)) userFields.push(`${userRanks.get(rankInt-2)}:**  **<@${userRanks.keys[rankInt-2]}>**  **•**  **${"`"+pearl}${pearlify(userLB.get(rankInt-2))+"`"}`);
+			if (userRanks.get(rankInt-2)) userFields.push(`${userRanks.get(rankInt-2)}:**  **<@${userRanks.keys[rankInt-2]}> \n ${"`"+pearl}${pearlify(userLB.get(rankInt-2))+"`"}`);
 
-			userFields.push(`**${userRank}**:**  **<@${ctx.author.id}>**  **•**  **${"`"+pearl}${pearlify(userLB.get(rankInt-1))+"`"}`);
+			userFields.push(`**${userRank}**:**  **<@${ctx.author.id}> \n ${"`"+pearl}${pearlify(userLB.get(rankInt-1))+"`"}`);
 
-			if (userRanks.get(rankInt)) userFields.push(`${userRanks.get(rankInt)}:**  **<@${userRanks.keys[rankInt]}>**  **•**  **${"`"+pearl}${pearlify(userLB.get(rankInt))+"`"}`);
+			if (userRanks.get(rankInt)) userFields.push(`${userRanks.get(rankInt)}:**  **<@${userRanks.keys[rankInt]}> \n ${"`"+pearl}${pearlify(userLB.get(rankInt))+"`"}`);
 		}
 	}
 
@@ -89,7 +89,7 @@ async function data(ctx, cmd) {
 
 	clanRanks.forEach( (k, v, i) => {
 		let clan = clanLB.get(i);
-		let stuff = `${v}:**  **${clan.name} (${"`"+clan.id+"`"})**  **•**  **${"`"+pearl}${pearlify(clan.funds)+"`"}`;
+		let stuff = `${v}:**  **${clan.name} (${"`"+clan.id+"`"}) \n ${"`"+pearl}${pearlify(clan.funds)+"`"}`;
 		clanFields.push(stuff);
 	});
 
