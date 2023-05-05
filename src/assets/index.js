@@ -9,7 +9,7 @@ const assetFiles = fs.readdirSync(assetPath).filter(file => (file.endsWith('.js'
 
 assetFiles.forEach( (file) => {
 	var stuff = Soup.from(require(`./${file}`));
-	if (file.endsWith('.js') {
+	if (file.endsWith('.js')) {
 		stuff.forEach( (name, data) => { assets.push(name, data); });
 	}
 	else if (file.endsWith('.json')) {
