@@ -97,8 +97,8 @@ class Econner {
 	}
 	
 	
-	give(amount, victim, reciever) {
-        this.removeHand(amount, victim);
+	give(amount, sender, reciever) {
+        this.removeHand(amount, sender);
 	    this.addHand(amount, reciever);
     }
 	
