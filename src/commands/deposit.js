@@ -41,7 +41,7 @@ async function data(ctx, cmd) {
 
 	
 	const embed = new psc.Embed({
-		description: `${emojis.success} Deposited ${"`"+pearl}${pearlify(amount)+"`"} into ${clan.name}`,
+		description: `${emojis.success} Deposited ${"`"+pearl}${pearlify(amount)+"`"} into ${clan.name} (${"`"+id+"`"})`,
 		footer: { text: `( User Balance: ${pearl}${pearlify(bal-amount)} )\n( Clan Funds: ${pearl}${pearlify(clan.funds+amount)} )`, icon: psc.author.avatar() },
 		color: colors.success
 	});
