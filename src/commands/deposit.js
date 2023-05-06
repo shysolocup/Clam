@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { colors, pearl, pearlify } = require('../assets');
+var { colors, pearl, pearlify, emojis } = require('../assets');
 const { Catch, Econner, Clanner } = require('../classes');
 
 const { Soup } = require('stews');
@@ -8,6 +8,8 @@ const { Soup } = require('stews');
 async function data(ctx, cmd) {
     var econner = new Econner();
     var clans = new Clanner();
+
+	let [id, amount] = cmd.args;
 	
 	if ( 
         Catch( cmd.onCooldown, {
@@ -15,24 +17,38 @@ async function data(ctx, cmd) {
 		    text: `You've been timed out from using this command for a bit.`,
 	    }) ||
 
-        Catch( !econner.has(ctx.author.id), { text: "You don't have any pearls to deposit." })
+        Catch( !econner.has(ctx.author.id) || econner.fetchHand(ctx.author.id) <= 0, { text: "You don't have any pearls to deposit." }) ||
+		Catch( !amount, { text: "Please put an amount to deposit."}) ||
+		Catch( !parseInt(amount) && amount.toLowerCase() != "all", { text: "The amount has to be a number or all." }) ||
+		Catch( !id, { text: "Please put a clan ID to deposit the funds into."}) ||
+		Catch( !clans.has(id), { text: "There is no clan with that ID" })
+		
     ) return;
 
-    let [amount, id] = cmd.args;
+	let bal = econner.fetchHand(ctx.author.id);
+	
+	if (amount.toLowerCase() == "all") amount = bal;
+	amount = parseInt(amount);
+
+
+	if ( 
+		Catch( amount > bal, { text: "You don't have enough for that." }) ||
+		Catch( amount < 0, { text: "Invalid amount" })
+	) return;
     
 
     let clan = clans.fetch(id, ctx.guild.id);
 
 	
 	const embed = new psc.Embed({
-		description: `**${random.choice(responses.work).replace("$", "`"+`${pearl}${pearlify(amount)}`+"`")}**`,
-		footer: { text: `( User Balance: ${pearl}${pearlify(bal+amount)} )\n( Clan Funds: ${} )`, icon: psc.author.avatar() },
+		description: `${emojis.success} Deposited ${"`"+pearl}${pearlify(amount)+"`"} into ${clan.name}`,
+		footer: { text: `( User Balance: ${pearl}${pearlify(bal-amount)} )\n( Clan Funds: ${pearl}${pearlify(clan.funds+amount)} )`, icon: psc.author.avatar() },
 		color: colors.success
 	});
 	
 
 	ctx.reply({ embeds: [embed] }).catch(e=>{});
-	econner.deposit(amount, ctx.author.id, );
+	econner.deposit(amount, ctx.author.id, id, ctx.guild.id);
 }
 
-psc.command({ name: "work", cooldown: "5s"}, data);
+psc.command({ name: "deposit", aliases: ["dep"], cooldown: "5s"}, data);
