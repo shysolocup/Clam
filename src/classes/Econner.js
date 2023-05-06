@@ -34,7 +34,7 @@ class Econner {
 
     addHand(amount, id) {
         let hands = Soup.from(require('../data/economy.json'));
-        hands.set(id, (amount+hands.get(id)) );
+        hands.set(id, (hands.get(id)+amount) );
         
         hands.dump('./src/data/economy.json', null, 4);
     }
@@ -42,7 +42,7 @@ class Econner {
 
     removeHand(amount, id) {
         let hands = Soup.from(require('../data/economy.json'));
-        hands.set(id, (amount-hands.get(id)) );
+        hands.set(id, (hands.get(id)-amount) );
         
         hands.dump('./src/data/economy.json', null, 4);
     }
