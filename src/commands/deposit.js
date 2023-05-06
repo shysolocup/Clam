@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { colors, pearl, pearlify, emojis } = require('../assets');
+var { colors, pearl, pearlify, emojis, formatify } = require('../assets');
 const { Catch, Econner, Clanner } = require('../classes');
 
 const { Soup } = require('stews');
@@ -10,6 +10,8 @@ async function data(ctx, cmd) {
     var clans = new Clanner();
 
 	let [id, amount] = cmd.args;
+
+	amount = formatify(amount);
 	
 	if ( 
         Catch( cmd.onCooldown, {
