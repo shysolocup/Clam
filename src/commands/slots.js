@@ -92,4 +92,4 @@ async function data(ctx, cmd) {
 	ctx.reply({ embeds: [embed] }).catch(e=>{});
 }
 
-psc.command({ name: "slots", aliases: ["slot"], cooldown: "0s"}, data);
+psc.command({ name: "slots", aliases: ["slot"], cooldown: "5s"}, data);
