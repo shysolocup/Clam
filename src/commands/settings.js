@@ -61,8 +61,8 @@ async function data(ctx, cmd) {
             title: `${name} // ${setting.toLowerCase()}`,
             
             fields: [
-                { name: "Description:", value: thing[1], inline: true },
-                { name: "Value:", value: thing[0], inline: true },
+                { name: "Description:", value: thing[1], inline: false },
+                { name: "Value:", value: thing[0], inline: false },
                 { name: "** **", value: "** **", inline: false }
             ],
 
