@@ -43,6 +43,7 @@ Commands Checklist
 - [x] ~~prefix~~
 - [ ] sell
 - [x] ~~set~~
+- [x] ~~settings~~
 - [ ] shop
 - [x] ~~shout~~
 - [x] ~~slots~~
