@@ -51,7 +51,7 @@ async function data(ctx, cmd) {
 	
 	/* embed stuff */
 	let rawEmbed = {
-		title: "Ultimate Slot Machine :fire::slot_machine::fire:",
+		title: "Ultimate Slot Machine  :fire::slot_machine::fire:",
 		description: rand.join(" | ")
 	};
 
