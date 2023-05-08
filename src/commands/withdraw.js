@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { colors, pearl, pearlify, emojis, formatify } = require('../assets');
+var { colors, pearl, pearlify, emojis, formatify, caps } = require('../assets');
 const { Catch, Econner, Clanner } = require('../classes');
 
 const { Soup } = require('stews');
@@ -13,6 +13,7 @@ async function data(ctx, cmd) {
 	
 	amount = formatify(amount);
 	
+
 	if ( 
         Catch( cmd.onCooldown, {
 		    head: `Woah there!  :face_with_spiral_eyes:`,
@@ -27,21 +28,27 @@ async function data(ctx, cmd) {
 		
     ) return;
 
+
 	let bal = econner.fetchHand(ctx.author.id);
+    let clan = clans.fetch(id, ctx.guild.id);
 	
-	if (amount.toLowerCase() == "all") amount = bal;
+
+	if (amount.toLowerCase() == "all") amount = clan.funds;
 	amount = parseInt(amount);
 
-    let clan = clans.fetch(id, ctx.guild.id);
 
 	if ( 
+		Catch( bal >= caps.max, { text: "You can't hold anymore." }) ||
 		Catch( amount > clan.funds, { text: "Clan doesn't have enough for that." }) ||
-		Catch( amount < 0, { text: "Invalid amount" })
+		Catch( amount <= 0, { text: "Invalid amount" })
 	) return;
+
+
+	if (bal+amount >= caps.max) amount = caps.max - bal;
 
 	
 	const embed = new psc.Embed({
-		description: `${emojis.success} Withdrew ${"`"+pearl}${pearlify(amount)+"`"} from ${clan.name} (${"`"+id+"`"})`,
+		description: `${emojis.success} Withdrew ${"`"+pearl}${pearlify(amount)+"`"} from ${clan.name} (${"`"+id+"`"}) ${ (bal+amount == caps.max) ? "(max amount reached)" : ""}`,
 		footer: { text: `( User Balance: ${pearl}${pearlify(bal+amount)} )\n( Clan Funds: ${pearl}${pearlify(clan.funds-amount)} )`, icon: psc.author.avatar() },
 		color: colors.success
 	});
