@@ -17,7 +17,7 @@ Commands Checklist
 - [ ] crime
 - [x] ~~deop~~
 - [x] ~~deposit~~
-- [ ] disband
+- [x] ~~disband~
 - [x] ~~dump~~
 - [x] ~~enemies~~
 - [x] ~~export~~
@@ -25,7 +25,7 @@ Commands Checklist
 - [ ] funds
 - [x] ~~get~~
 - [x] ~~getglobal~~
-- [ ] give
+- [x] ~~give~~
 - [ ] gold
 - [x] ~~help~~
 - [x] ~~icon~~
@@ -49,6 +49,7 @@ Commands Checklist
 - [ ] steal
 - [x] ~~unban~~
 - [ ] use
+- [x] ~~uslots~~
 - [x] ~~withdraw~~
 - [x] ~~work~~
 <br>
@@ -124,4 +125,4 @@ inventories.json
 
 Economy Games Checklist
 - [ ] that one card game from club penguin lol
-- [ ] ultimate slot machine that can 500x your bet if you win
+- [x] ~~ultimate slot machine that can 500x your bet if you win~~
