@@ -30,7 +30,7 @@ async function data(ctx, cmd) {
 
 	
 	const embed = new psc.Embed({
-		description: `**${random.choice(responses.work).replace("$", "`"+`${pearl}${pearlify(amount)}`+"`")}**`,
+		description: `**${random.choice(responses.work).replace("$", "`"+`${pearl}${pearlify(amount)}`+"`")}** (max amount reached)`,
 		footer: { text: `( Balance: ${pearl}${pearlify(bal+amount)} )`, icon: psc.author.avatar() },
 		color: colors.blurple
 	});
