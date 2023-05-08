@@ -3,6 +3,7 @@
 - added commands !deposit and !withdraw
 - added command !work
 - added command !disband
+- added command !give
 - added events disband accept and disband decline
 - updated assets colorify and emojis
 - added asset caps
