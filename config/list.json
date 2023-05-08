@@ -33,7 +33,7 @@
 			{ "name": "work", "args": [], "aliases": [], "desc": "Lets you gain pearls" },
 			{ "name": "deposit", "args": ["clanID", "amount"], "aliases": ["dep"], "desc": "Deposits pearls into a clan" },
 			{ "name": "withdraw", "args": ["clanID", "amount"], "aliases": [], "desc": "Removes pearls from a clan YOU OWN" },
-			{ "name": "give", "args": ["user", "amount"], "aliases": [], "desc": "Gives a user pearls" },
+			{ "name": "give", "args": ["user", "amount"], "aliases": ["donate", "don"], "desc": "Gives a user pearls" },
 			{ "name": "steal", "args": ["user"], "aliases": [], "desc": "Steals pearls from a user" },
 			{ "name": "slots", "args": ["bet"], "aliases": ["slot"], "desc": "A slot machine that can multiply your bet by up to 10x" },
 			{ "name": "uslots", "args": ["bet"], "aliases": ["uslot"], "desc": "The ultimate slot machine that can multiply your bet by up to 500x but winning it is extremely rare" },
