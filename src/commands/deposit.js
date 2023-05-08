@@ -35,7 +35,7 @@ async function data(ctx, cmd) {
 
 	if ( 
 		Catch( amount > bal, { text: "You don't have enough for that." }) ||
-		Catch( amount < 0, { text: "Invalid amount" })
+		Catch( amount <= 0, { text: "Invalid amount" })
 	) return;
     
 
