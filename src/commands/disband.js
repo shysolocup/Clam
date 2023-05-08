@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { colors, emojis } = require('../assets');
+var { colors, emojis, infostuffs } = require('../assets');
 var { Clanner, Catch } = require('../classes');
 
 const { Soup } = require('stews');
@@ -22,15 +22,28 @@ async function data(ctx, cmd) {
 	
 	if ( Catch( ctx.author.id != clan.owner, { text: "Only the owner of the clan can disband it." }) ) return;
 	
+    /* buttons n stuff */
+    let disbandAccept = new psc.Button({ id: "disbandAccept", label: "Accept", style: "success"});
+    let disbandDecline = new psc.Button({ id: "disbandDecline", label: "Decline", style: "danger"});
 
-	let embed = new psc.Embed({
-		description: `${emojis.success} Disbanded ${clan.name}`,
-		footer: `( id: ${clan.id} )`
-	});
+    let row = new psc.ActionRow([disbandAccept, disbandDecline]);
 
-	ctx.reply({ embeds: [embed] });
-	
-	clans.disband(id, ctx.guild.id);
+
+    /* embed stuff */
+    let embed = new psc.Embed({
+        title: `Clan Disbanding  🗑️`,
+        description: `Are you sure you would like to disband ${"`"+clan.name+"`"}`,
+
+        footer: `( id: ${clan.id} )`,
+
+        color: colors.blurple
+    });
+
+
+	let a = await ctx.reply({ embeds: [embed], components: [row] });
+
+    infostuffs.push(a.id, clan);
+    setTimeout(() => infostuffs.delete(a.id), 21600000);
 }
 
 psc.command("disband", data);
