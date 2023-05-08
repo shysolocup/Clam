@@ -16,7 +16,7 @@ Commands Checklist
 - [x] ~~create~~
 - [ ] crime
 - [x] ~~deop~~
-- [ ] deposit
+- [x] ~~deposit~~
 - [ ] disband
 - [x] ~~dump~~
 - [x] ~~enemies~~
@@ -45,11 +45,11 @@ Commands Checklist
 - [x] ~~set~~
 - [ ] shop
 - [x] ~~shout~~
-- [ ] slots
+- [x] ~~slots~~
 - [ ] steal
 - [x] ~~unban~~
 - [ ] use
-- [ ] withdraw
+- [x] ~~withdraw~~
 - [x] ~~work~~
 <br>
 
@@ -58,7 +58,6 @@ Update Checklist
 - [x] ~~add a name argument to create~~
 - [x] ~~change set to be !set (attr) (clanID) (value)~~
 - [x] ~~add an unlisted tag for clans~~
-- [ ] update dep and with to be !dep (amount) (clanID)
 - [x] ~~add admin help page~~
 - [ ] add forceban forceunban and forcekick
 - [x] ~~add the funds commands in the commands list~~
@@ -68,9 +67,9 @@ Update Checklist
 - [x] ~~update get and getglobal commands and events to work with unlisted status~~
 - [ ] attempt to add more economy commands put ideas in the part below this
 - [ ] add a change log thing that lets me announce updates and shit
-- [x] add unlisted admin command so that admins can see unlisted clans
+- [x] ~~add unlisted admin command so that admins can see unlisted clans~~
 - [ ] actually add steal for economy lol
-- [ ] update economy system to give less from working
+- [x] ~~update economy system to give less from working~~
 - [ ] update economy system to have a working shop that admins can add things to
 <br>
 
