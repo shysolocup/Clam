@@ -4,6 +4,7 @@
 - added command !work
 - added command !disband
 - added command !give
+- added command !gold
 - added events disband accept and disband decline
 - updated assets colorify and emojis
 - added asset caps
