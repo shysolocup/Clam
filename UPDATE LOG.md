@@ -1,8 +1,9 @@
 ## 05-08-23
-- added command !slots
+- added commands !slots and !uslots
+- added commands !deposit and !withdraw
 - added command !work
-- added command !deposit
-- added command !withdraw
+- added command !disband
+- added events disband accept and disband decline
 - updated assets colorify and emojis
 - added asset caps
 
