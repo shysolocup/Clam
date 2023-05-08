@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { colors, colorify, responses, pearl, pearlify } = require('../assets');
+var { colors, colorify, responses, pearl, pearlify, caps } = require('../assets');
 const { Catch, Econner, Hand } = require('../classes');
 
 const { Soup, random } = require('stews');
@@ -18,7 +18,15 @@ async function data(ctx, cmd) {
 
     let bal = econner.fetchHand(ctx.author.id);
     let rank = colorify(bal)[1];
-    let amount = random.int( 25, (10*rank)+(random.int( 25, (bal+50) )) );
+	let max = 10*rank;
+	if (bal >= 0) max += (random.int( 25, (bal+50) ));
+    let amount = random.int( 25, max );
+
+
+	if ( Catch( bal >= caps.max, { text: "You can't hold anymore." })) return;
+
+
+	if (bal+amount >= caps.max) amount = caps.max-bal;
 
 	
 	const embed = new psc.Embed({
