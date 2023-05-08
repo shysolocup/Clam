@@ -23,8 +23,8 @@ async function data(ctx, cmd) {
 	if ( Catch( ctx.author.id != clan.owner, { text: "Only the owner of the clan can disband it." }) ) return;
 	
     /* buttons n stuff */
-    let disbandAccept = new psc.Button({ id: "disbandAccept", label: "Accept", style: "success"});
-    let disbandDecline = new psc.Button({ id: "disbandDecline", label: "Decline", style: "danger"});
+    let disbandAccept = new psc.Button({ id: "disbandAccept", label: "Yes", style: "success"});
+    let disbandDecline = new psc.Button({ id: "disbandDecline", label: "No", style: "danger"});
 
     let row = new psc.ActionRow([disbandAccept, disbandDecline]);
 
