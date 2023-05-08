@@ -1,3 +1,11 @@
+## 05-08-23
+- added command !slots
+- added command !work
+- added command !deposit
+- added command !withdraw
+- updated assets colorify and emojis
+- added asset caps
+
 ## 05-04-23
 - added commands !op and !deop
 - added command !leaderboard
