@@ -37,7 +37,8 @@ async function data(ctx, cmd) {
 	amount = parseInt(amount);
 
 
-	if ( 
+	if (
+		Catch( ctx.author.id != clan.owner, { text: "Only the owner of the clan can take out funds." }) ||
 		Catch( bal >= caps.max, { text: "You can't hold anymore." }) ||
 		Catch( amount > clan.funds, { text: "Clan doesn't have enough for that." }) ||
 		Catch( amount <= 0, { text: "Invalid amount" })
