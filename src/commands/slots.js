@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { colors, emojis, pearl, pearlify, formatify } = require('../assets');
+var { colors, emojis, pearl, pearlify, formatify, caps } = require('../assets');
 
 const { Soup, random } = require('stews');
 
@@ -44,6 +44,9 @@ async function data(ctx, cmd) {
 	if (
 		Catch( bet > bal, { text: "You don't have that much." })
 	) return;
+
+
+	let amount = bet*mult;
 	
 	
 	/* embed stuff */
@@ -52,17 +55,35 @@ async function data(ctx, cmd) {
 		description: rand.join(" | ")
 	};
 
+
 	if (rand[0] == rand[1] && rand[1] == rand[2]) {
-		rawEmbed.footer = `YOU WIN! Your bet was multiplied x${mult}   +${pearl}${pearlify(bet*mult)}`;
+		rawEmbed.footer = `YOU WIN! Your bet was multiplied x${mult}   +${pearl}${pearlify(amount)}`;
 		rawEmbed.color = colors.success;
 
-		econner.addHand(bet*mult, ctx.author.id);
+		if (bal+amount >= caps.max) {
+			amount = caps.max-bal;
+			rawEmbed.footer = `YOU WIN! You can't hold any more   +${pearl}${pearlify(amount)}`;
+
+			econner.setHand(caps.max, ctx.author.id);
+		}
+		else {
+			econner.addHand(amount, ctx.author.id);
+		}
 	}
+
 	else {
 		rawEmbed.footer = `YOU LOSE! Better luck next time  -${pearl}${pearlify(bet)}`;
 		rawEmbed.color = colors.fail;
 
-		econner.removeHand(bet, ctx.author.id);
+		if (bal-bet <= caps.min) {
+			amount = caps.min+bet;
+			rawEmbed.footer = `YOU LOSE! How did you even manage this   -${pearl}${pearlify(amount)}`;
+
+			econner.setHand(caps.min, ctx.author.id);
+		}
+		else {
+			econner.removeHand(bet, ctx.author.id);
+		}
 	}
 
 
@@ -71,4 +92,4 @@ async function data(ctx, cmd) {
 	ctx.reply({ embeds: [embed] }).catch(e=>{});
 }
 
-psc.command({ name: "slots", aliases: ["slot"], cooldown: "10s"}, data);
+psc.command({ name: "slots", aliases: ["slot"], cooldown: "0s"}, data);
