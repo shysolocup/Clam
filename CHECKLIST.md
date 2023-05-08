@@ -26,7 +26,7 @@ Commands Checklist
 - [x] ~~get~~
 - [x] ~~getglobal~~
 - [x] ~~give~~
-- [ ] gold
+- [x] ~~gold~~
 - [x] ~~help~~
 - [x] ~~icon~~
 - [ ] import
@@ -83,6 +83,7 @@ Economy Update Checklist
 - [ ] !item set (id) (attr) (value)
 - [ ] items can have roles attached if the person who creates it is an admin
 - [ ] server leaderboard for hands and clans (hopefully)
+- [ ] gold multiplies the earnings from work crime and steal by like x1.5
 <br>
 
 items.json
