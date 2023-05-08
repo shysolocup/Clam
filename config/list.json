@@ -1,6 +1,6 @@
 {
 		"General": [
-			{ "name": "help", "args": ["(Optional name)"], "aliases": [], "desc": "DMs the author the help page" },
+			{ "name": "help", "args": ["(Optional command name)"], "aliases": [], "desc": "DMs the author the help page" },
 			{ "name": "prefix", "args": ["(Optional value)"], "aliases": [], "desc": "Gets or sets the server's prefix" },
 			{ "name": "get", "args": ["clanID"], "aliases": [], "desc": "Sends a page with details about a clan" },
 			{ "name": "list", "args": [], "aliases": ["view"], "desc": "A list of all clans in a server" },
@@ -14,7 +14,7 @@
 		"Management": [
 			{ "name": "create", "args": ["(Optional name)"], "aliases": [], "desc": "Creates a new clan" },
 			{ "name": "set", "args": ["attr", "clanID", "value"], "aliases": ["edit"], "desc": "Sets an attribute in a clan" },
-			{ "name": "shout", "args": ["clanID"], "aliases": [], "desc": "Changes the clan shout" },
+			{ "name": "shout", "args": ["clanID", "value"], "aliases": [], "desc": "Changes the clan shout" },
 			{ "name": "disband", "args": ["clanID"], "aliases": [], "desc": "Deletes a clan" },
 			{ "name": "allies", "args": ["clanID", "add/remove", "clanIDs"], "aliases": ["alliances"], "desc": "Editor for a clan's allies" },
 			{ "name": "enemies", "args": ["clanID", "add/remove", "clanIDs"], "aliases": ["rivalries", "rivals"], "desc": "Editor for a clan's enemies" }
@@ -31,11 +31,12 @@
 		"Economy": [
 			{ "name": "balance", "args": ["(Optional user)"], "aliases": ["bal"], "desc": "Sends someone's pearl balance" },
 			{ "name": "work", "args": [], "aliases": [], "desc": "Lets you gain pearls" },
-			{ "name": "deposit", "args": ["amount", "clanID"], "aliases": ["dep"], "desc": "Deposits pearls into a clan" },
-			{ "name": "withdraw", "args": ["amount", "clanID"], "aliases": [], "desc": "Removes pearls from a clan YOU OWN" },
+			{ "name": "deposit", "args": ["clanID", "amount"], "aliases": ["dep"], "desc": "Deposits pearls into a clan" },
+			{ "name": "withdraw", "args": ["clanID", "amount"], "aliases": [], "desc": "Removes pearls from a clan YOU OWN" },
 			{ "name": "give", "args": ["user", "amount"], "aliases": [], "desc": "Gives a user pearls" },
 			{ "name": "steal", "args": ["user"], "aliases": [], "desc": "Steals pearls from a user" },
-			{ "name": "slots", "args": ["bet"], "aliases": [], "desc": "A slot machine that can multiply your bet by up to 10x" },
+			{ "name": "slots", "args": ["bet"], "aliases": ["slot"], "desc": "A slot machine that can multiply your bet by up to 10x" },
+			{ "name": "uslots", "args": ["bet"], "aliases": ["uslot"], "desc": "The ultimate slot machine that can multiply your bet by up to 500x but winning it is extremely rare" },
 			{ "name": "inventory", "args": ["(Optional user)"], "aliases": ["inv"], "desc": "Sends someone's inventory" },
 			{ "name": "leaderboard", "args": [], "aliases": ["lb"], "desc": "Shows the top earnings for the server's clans and users" },
 			{ "name": "shop", "args": [], "aliases": ["store"], "desc": "Sends the shop page for the server" },
