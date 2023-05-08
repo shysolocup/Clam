@@ -7,7 +7,7 @@ colors.fail = "#ED4245";
 
 function colorify(balance) {
 	balance = parseInt(`${balance}`.split(",").join(""));
-	var col = (balance >= 999999999999999) ? ["#FF523A", 11] :
+	var col = (balance >= 99999999999999) ? ["#FF523A", 11] :
 		(balance >= 10000000000000) ? ["#FFFFFF", 10] :
 		(balance >= 1000000000000) ? ["#f1c40f", 9] :
 		(balance >= 100000000000) ? ["#95a5a6", 8] :
@@ -19,7 +19,7 @@ function colorify(balance) {
 		(balance == 800813) ? ["#B00B1E", 800813] :
 		(balance >= 100000) ? ["#1f8b4c", 2] :
 		(balance >= 1000) ? ["#11806a", 1] :
-		(balance <= -999999999999999) ? ["#FFEC67", 999999999999999] :
+		(balance <= -99999999999999) ? ["#FFEC67", 99999999999999] :
 		(balance < 0) ? ["#546e7a", 5] :
 		(balance < 1000) ? ["#99aab5", 0] :
 		["#000000", -1];
