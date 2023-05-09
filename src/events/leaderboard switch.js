@@ -24,7 +24,7 @@ async function data(ctx) {
 
 
         /* getting the leaderboards */
-        var clanLB = await econner.clanLB(ctx.guild.id);
+        var clanLB = await econner.clanLB(ctx.guild.id, ctx.member.id);
         var userLB = await econner.userLB(ctx.guild.id, ctx.member.id);
 
 
