@@ -1,6 +1,6 @@
 ## 05-09-23
-- added command !crime
-- added asset crime responses
+- added commands !crime and !steal
+- added assets crime responses and steal responses
 
 ## 05-08-23
 - added commands !slots and !uslots
