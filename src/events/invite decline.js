@@ -34,9 +34,9 @@ async function data(ctx) {
 
         let embed = new psc.Embed({
             title: "Invite  :tada:",
-            description: `${emojis.decline}  Looks like <@${reciever.id}> doesn't wanna party with you guys :(`,
+            description: `${emojis.fail}  Looks like <@${reciever.id}> doesn't wanna party with you guys :(`,
             footer: `( id: ${clan.id} )`,
-            color: colors.decline
+            color: colors.fail
         });
 
 
