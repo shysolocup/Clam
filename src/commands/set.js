@@ -254,7 +254,7 @@ async function data(ctx, cmd) {
 				rawEmbed.icon = attachment;
 			}
 			if (bannerURL) {
-				let image = await Canvas.loadImage(iconURL);
+				let image = await Canvas.loadImage(bannerURL);
 				
 				let width = (clan.resize) ? 1500 : image.width;
 				let height = (clan.resize) ? 500 : image.height;
@@ -321,7 +321,7 @@ async function data(ctx, cmd) {
 				rawEmbed.icon = attachment;
 			}
 			if (bannerURL) {
-				let image = await Canvas.loadImage(iconURL);
+				let image = await Canvas.loadImage(bannerURL);
 				
 				let width = (clan.resize) ? 1500 : image.width;
 				let height = (clan.resize) ? 500 : image.height;
