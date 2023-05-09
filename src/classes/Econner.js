@@ -139,7 +139,7 @@ class Econner {
                 name.scoop( (_, i) => { return i > 15; });
                 name.set(15, "...");
             }
-            name = `[${name.join("")}](https://discordapp.com/users/${id})`;
+            name = `[${name.join("")}](https://discord.com/users/${id})`;
 
             try {
                 if (!list.content.get(page+1) && count >= 10) { page += 1; list.pages += 1; list.content.push( [] ); count = 0; }
