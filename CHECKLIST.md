@@ -17,7 +17,7 @@ Commands Checklist
 - [ ] crime
 - [x] ~~deop~~
 - [x] ~~deposit~~
-- [x] ~~disband~
+- [x] ~~disband~~
 - [x] ~~dump~~
 - [x] ~~enemies~~
 - [x] ~~export~~
