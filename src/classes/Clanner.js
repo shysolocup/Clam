@@ -171,7 +171,7 @@ class Clanner {
 
 
 	status(int) {
-		return (int == 1) ? "Public 👥" : (int == 2) ? "Private 🔒" : (int == 3) ? "Unlisted 👻" : "Public 👥";
+		return (int == 1) ? "Public 🌏" : (int == 2) ? "Private 🔒" : (int == 3) ? "Unlisted 👻" : "Public 🌏";
 	}
 
 	intStatus(string) {
