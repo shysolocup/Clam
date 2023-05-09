@@ -15,7 +15,7 @@ async function data(ctx, cmd) {
 
         Catch( cmd.onCooldown, { 
 		    head: `Woah there!  :face_with_spiral_eyes:`,
-		    text: `You've been timed out from using this command for a bit.`,
+		    text: `You've been timed out from using this command for a bit.`
 	    })
         
     ) return;
