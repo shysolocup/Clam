@@ -33,9 +33,9 @@ async function data(ctx) {
 
         let embed = new psc.Embed({
             title: "Invite  :tada:",
-            description: `${emojis.accept}  Welcome to the '${clan.name}' club <@${reciever.id}>!`,
+            description: `${emojis.success}  Welcome to the '${clan.name}' club <@${reciever.id}>!`,
             footer: `( id: ${clan.id} )`,
-            color: colors.accept
+            color: colors.success
         });
 
 
