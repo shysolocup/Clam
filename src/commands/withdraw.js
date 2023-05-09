@@ -17,7 +17,7 @@ async function data(ctx, cmd) {
 	if ( 
         Catch( cmd.onCooldown, {
 		    head: `Woah there!  :face_with_spiral_eyes:`,
-		    text: `You've been timed out from using this command for a bit.`,
+		    text: `You've been timed out from using this command for a bit.`
 	    }) ||
 
         Catch( !econner.has(ctx.author.id) || econner.fetchHand(ctx.author.id) <= 0, { text: "You don't have any pearls to withdraw." }) ||
