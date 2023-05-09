@@ -1,5 +1,5 @@
 var { psc, bot } = require('../../index.js');
-var { colors, emojis } = require('../assets');
+var { colors, emojis, isDev } = require('../assets');
 var { Catch } = require('../classes');
 
 const { Soup } = require('stews');
@@ -7,7 +7,7 @@ const { Soup } = require('stews');
 
 async function data(ctx, cmd) {
 	/* handling */
-    let disabled = !(psc.author.hasPermissions(["admin"]));
+    let disabled = !(psc.author.hasPermissions(["admin"]) || isDev(ctx.author.id));
     var prefixes = Soup.from(require('../../config/prefixes.json'));
 
 	if ( 
