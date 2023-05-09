@@ -61,4 +61,4 @@ async function data(ctx, cmd) {
     (fail) ? econner.removeHand(amount, ctx.author.id) : econner.addHand(amount, ctx.author.id);
 }
 
-psc.command({ name: "crime", cooldown: "0s"}, data);
+psc.command({ name: "crime", cooldown: "1m"}, data);
