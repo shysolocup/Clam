@@ -49,7 +49,7 @@ async function data(ctx, cmd) {
 	});
 
 
-	let a = ctx.reply({ embeds: [embed], components: [row] }).catch(e=>{});
+	let a = await ctx.reply({ embeds: [embed], components: [row] }).catch(e=>{});
 
 	
 	infostuffs.push(a.id, [ctx.author, section, page]);
