@@ -47,7 +47,7 @@ async function data(ctx, cmd) {
     
     if (fail) {
         embed = new psc.Embed({
-		    description: `${emojis.fail}  **${random.choice(responses.steal.fail).replace("$", "`"+`${pearl}${pearlify(amount)}`+"`")}** ${ (receiverBal-amount == caps.max) ? "(minimum amount reached)" : ""}`,
+		    description: `${emojis.fail}  **${random.choice(responses.steal.fail).replace("$", "`"+`${pearl}${pearlify(amount)}`+"`").replace("@", `<@${user.id}>`)}** ${ (receiverBal-amount == caps.max) ? "(minimum amount reached)" : ""}`,
 		    footer: { text: `( Balance: ${pearl}${pearlify(receiverBal-amount)} )`, icon: psc.author.avatar() },
 		    color: colors.fail
 	    });
