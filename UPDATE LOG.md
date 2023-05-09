@@ -1,3 +1,7 @@
+## 05-09-23
+- added command !crime
+- added asset crime responses
+
 ## 05-08-23
 - added commands !slots and !uslots
 - added commands !deposit and !withdraw
