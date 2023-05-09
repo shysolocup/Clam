@@ -43,7 +43,7 @@ async function data(ctx, cmd) {
 
 	/* embed stuff */
     let embed = new psc.Embed({
-        title: `${emojis.success} Thanks <@${ctx.author.id}> I'm sure <@${user.id}> appreciates the ${"`"+pearl}${pearlify(amount)+"`"} donation! ${ (receiverBal+amount >= caps.max) ? "(max amount reached)" : "" }`,
+        description: `**${emojis.success} Thanks <@${ctx.author.id}> I'm sure <@${user.id}> appreciates the ${"`"+pearl}${pearlify(amount)+"`"} donation! ${ (receiverBal+amount >= caps.max) ? "(max amount reached)" : "" }**`,
         footer: `( Your Balance: ${pearl}${pearlify(senderBal-amount)} )\n( Receiver's Balance: ${pearl}${pearlify(receiverBal+amount)} )`,
         
         color: colors.success
