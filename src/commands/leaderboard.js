@@ -38,9 +38,10 @@ async function data(ctx, cmd) {
 		author: { name: `${guild} Leaderboards` },
 
 		title: (section == "user") ? "Users Leaderboard" : "Clans Leaderboard",
-		description: (section == "user") ? 
-			((userLB.total <= 0) ? "None" : `${userLB.content[page].join("\n")}\n** **`) : 
-			((clanLB.total <= 0) ? "None" : `${clanLB.content[page].join("\n")}\n** **`) ,
+		description: `${ (section == "user") ? 
+            ((userLB.total <= 0) ? "None" : `${userLB.content[page].join("\n")}\n** **`) : 
+            ((clanLB.total <= 0) ? "None" : `${clanLB.content[page].join("\n")}\n** **`)
+		}\n** **`,
 
 		footer: `Page ${page+1}/${ (section == "user") ? userLB.pages : clanLB.pages }`,
 
