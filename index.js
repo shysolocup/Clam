@@ -41,7 +41,9 @@ console.log("===========================================\n");
 
 
 /* builds the commands */
-require('./src/commands/build'); 
+require('./src/commands/build');
+bot.setMaxListeners(psc.commandList.length);
+psc.setCooldown(1);
 
 
 /* builds the events */
