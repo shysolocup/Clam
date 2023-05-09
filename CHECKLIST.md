@@ -14,7 +14,7 @@ Commands Checklist
 - [x] ~~banner~~
 - [ ] buy
 - [x] ~~create~~
-- [ ] crime
+- [x] ~~crime~~
 - [x] ~~deop~~
 - [x] ~~deposit~~
 - [x] ~~disband~~
@@ -84,7 +84,7 @@ Economy Update Checklist
 - [ ] items can have roles attached if the person who creates it is an admin
 - [ ] server leaderboard for hands and clans (hopefully)
 - [ ] gold multiplies the earnings from work crime and steal by like x1.5
-- [ ] actually add steal
+- [x] ~~actually add crime~~
 <br>
 
 items.json
