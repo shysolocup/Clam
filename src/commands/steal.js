@@ -14,7 +14,7 @@ async function data(ctx, cmd) {
 	}) ) return;
 
 
-    let user = await psc.fetchGuildUser(cmd.args[0]);
+    let user = await psc.fetchUser(cmd.args[0]);
 
 
     if (
