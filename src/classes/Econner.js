@@ -145,7 +145,7 @@ class Econner {
                 if (!list.content.get(page+1) && count >= 5) { page += 1; list.pages += 1; list.content.push( [] ); count = 0; }
 
                 list.content[page].push(
-                    `${ (user.id == userID) ? `**${rank}**` : rank }:**  **${name}**  **•**  **${"`"+pearl}${pearlify(bal)+"`"}`
+                    `${ (userID && user.id == userID) ? "**" : "" }${rank}:**  **${name}**  **•**  **${"`"+pearl}${pearlify(bal)+"`"}${ (userID && user.id == userID) ? "**" : "" }`
                 );
 
                 list.total += 1;
@@ -158,7 +158,7 @@ class Econner {
 	}
 	
 	
-	async clanLB(guildID=null, includeUnlisted=false) {
+	async clanLB(guildID=null, userID=null) {
 		let clans = Soup.from((new Clanner()).every()).entries;
 
         if (guildID) clans = clans.filter( (v) => { return v[1].guild == guildID });
@@ -190,20 +190,17 @@ class Econner {
             }
             name = name.join("");
 
+			try {
+				if (!list.content.get(page+1) && count >= 5) { page += 1; list.pages += 1; list.content.push( [] ); count = 0; }
 
-			if (clan.status != 3 || includeUnlisted) {
-				try {
-					if (!list.content.get(page+1) && count >= 5) { page += 1; list.pages += 1; list.content.push( [] ); count = 0; }
+				list.content[page].push(
+					`${ (userID && clan.owner == userID) ? "**" : "" }${rank}:**  **${name} (${ "`"+clan.id+"`" })**  **•**  **${"`"+pearl}${pearlify(clan.funds)+"`"}${ (userID && clan.owner == userID) ? "**" : "" }`
+				);
 
-					list.content[page].push(
-                        `${rank}:**  **${name} (${ "`"+clan.id+"`" })**  **•**  **${"`"+pearl}${pearlify(clan.funds)+"`"}`
-                    );
-
-					list.total += 1;
-					count += 1;
-				}
-				catch(e) {}
+				list.total += 1;
+				count += 1;
 			}
+			catch(e) {}
 		}
 
         return list.pour();
