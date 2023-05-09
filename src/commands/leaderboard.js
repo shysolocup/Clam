@@ -12,7 +12,7 @@ async function data(ctx, cmd) {
 
 	/* getting the leaderboards */
 	var clanLB = await econner.clanLB(ctx.guild.id);
-	var userLB = await econner.userLB(ctx.guild.id);
+	var userLB = await econner.userLB(ctx.guild.id, ctx.author.id);
 
 
 	let guild = ctx.guild.name.split("");
@@ -51,7 +51,7 @@ async function data(ctx, cmd) {
 
 	let a = await ctx.reply({ embeds: [embed], components: [row] }).catch(e=>{});
 
-	
+
 	infostuffs.push(a.id, [ctx.author, section, page]);
 	setTimeout(() => infostuffs.delete(a.id), 21600000);
 }
