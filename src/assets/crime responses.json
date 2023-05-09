@@ -28,15 +28,25 @@
 		"You mug somebody but they mug you back but you mug them back but then they mug you back but BUT then you mug them back and get $!",
 		"You get $ for helping me write these garbage responses!",
 		"You got away with pirating a game and got $ from it for some reason!",
-		"You stole a couch and found $ in it!"
+		"You stole a couch and found $ in it!",
 		"You did some crime for $ I don't know I'm running out of responses.",
-		"You made a time machine and evaded the time police by selling it for $!"
+		"You made a time machine and evaded the time police by selling it for $!",
+		"You stole the constitution and sold it for $!",
+		"You stole some californium and sold it for $!",
+		"You stole a clock and smashed it with a hammer for some reason but there was $ inside!",
+		"You skipped school for a day and got $ for sleeping I guess!",
+		"You copy pasted an NFT and got payed $ for your bravery!",
+		"You kicked a baby and got payed $ for your bravery!",
+		"You went to a bar and robbed a toddler for $ because you were feeling a little goofy.",
+		"You tried to be goofy and got rewarded with $!",
+		"You betray the council and go on a journey to find Lucer with $ more pearls in your pockets.",
+		"To attempt to find King Lucer is a crime that you are willing to pay. For your bravery you are awarded $!"
 	],
 	
 	"fail": [
 		"You tried to rob an old lady but she pulled a gun on you instead. -$.",
 		"I DIDN'T LIKE YOU TODAY SO I TOOK $ FROM YOU!!",
-		"You did something naughty but got CAUGHT because you're a NAUGHTY LITTLE ONE so you lost $ for NAUGHTINESS!!"
+		"You did something naughty but got CAUGHT because you're a NAUGHTY LITTLE ONE so you lost $ for NAUGHTINESS!!",
 		"You copyright struck a youtuber for using a 2 second clip of you and lost the lawsuit. -$.",
 		"You tried to steal a rich lady's purse but she smacked you in the face with a lamp which made you drop your wallet. -$.",
 		"You tried to rob me because this is another prompt that doesn't say how much you made but I said NO and you died realllly cool like hah idiot.",
@@ -64,6 +74,16 @@
 		"You got caught pirating a game and got fined $.",
 		"You got caught stealing a couch and got fined $.",
 		"You failed some crime and lost $ I don't know I'm running out of responses.",
-		"You made a time machine but got fined $ for 3rd degree time manipulation."
+		"You made a time machine but got fined $ for 3rd degree time manipulation.",
+		"You tried to steal the constitution but got caught and fined for $.",
+		"You got caught trying to steal some californium and got fined $.",
+		"You stole a clock and smashed it with a hammer for some reason but there was the police inside and they fined you $ for clock destruction.",
+		"You skipped school for a day and they fined you $.",
+		"You copy pasted an NFT and they fined you $ for JPEG theft.",
+		"You kicked a baby and got fined $ for toddler assault.",
+		"You went to a bar and kicked a toddler because it was funny then you got fined $.",
+		"You tried to be goofy and got fined $.",
+		"You turned away from the will of the council losing you $ and the council's light. Does that really mean much though?",
+		"To betray the council warrents death but I guess you just lose $ instead."
 	]
 }
