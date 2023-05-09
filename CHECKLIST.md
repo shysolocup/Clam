@@ -70,9 +70,7 @@ Update Checklist
 - [ ] attempt to add more economy commands put ideas in the part below this
 - [ ] add a change log thing that lets me announce updates and shit
 - [x] ~~add unlisted admin command so that admins can see unlisted clans~~
-- [ ] actually add steal for economy lol
 - [x] ~~update economy system to give less from working~~
-- [ ] update economy system to have a working shop that admins can add things to
 - [ ] get the bot on an actual server like heroku so that it runs all the time
 <br>
 
@@ -86,6 +84,7 @@ Economy Update Checklist
 - [ ] items can have roles attached if the person who creates it is an admin
 - [ ] server leaderboard for hands and clans (hopefully)
 - [ ] gold multiplies the earnings from work crime and steal by like x1.5
+- [ ] actually add steal
 <br>
 
 items.json
