@@ -103,7 +103,7 @@ class Econner {
     }
 	
 	
-	async userLB(guildID=null) {
+	async userLB(guildID=null, userID=null) {
 		var hands = (Soup.from(require('../data/economy.json'))).entries;
         var { psc } = require('../../index.js');
 
@@ -145,7 +145,7 @@ class Econner {
                 if (!list.content.get(page+1) && count >= 5) { page += 1; list.pages += 1; list.content.push( [] ); count = 0; }
 
                 list.content[page].push(
-                    `${rank}:**  **${name}**  **•**  **${"`"+pearl}${pearlify(bal)+"`"}`
+                    `${ (user.id == userID) ? `**${rank}**` : rank }:**  **${name}**  **•**  **${"`"+pearl}${pearlify(bal)+"`"}`
                 );
 
                 list.total += 1;
