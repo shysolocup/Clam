@@ -142,7 +142,7 @@ class Econner {
             name = `[${name.join("")}](https://discordapp.com/users/${id})`;
 
             try {
-                if (!list.content.get(page+1) && count >= 5) { page += 1; list.pages += 1; list.content.push( [] ); count = 0; }
+                if (!list.content.get(page+1) && count >= 10) { page += 1; list.pages += 1; list.content.push( [] ); count = 0; }
 
                 list.content[page].push(
                     `${ (userID && user.id == userID) ? "**" : "" }${rank}:**  **${name}**  **•**  **${"`"+pearl}${pearlify(bal)+"`"}${ (userID && user.id == userID) ? "**" : "" }`
@@ -191,7 +191,7 @@ class Econner {
             name = name.join("");
 
 			try {
-				if (!list.content.get(page+1) && count >= 5) { page += 1; list.pages += 1; list.content.push( [] ); count = 0; }
+				if (!list.content.get(page+1) && count >= 10) { page += 1; list.pages += 1; list.content.push( [] ); count = 0; }
 
 				list.content[page].push(
 					`${ (userID && clan.owner == userID) ? "**" : "" }${rank}:**  **${name} (${ "`"+clan.id+"`" })**  **•**  **${"`"+pearl}${pearlify(clan.funds)+"`"}${ (userID && clan.owner == userID) ? "**" : "" }`
