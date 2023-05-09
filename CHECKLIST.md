@@ -47,7 +47,7 @@ Commands Checklist
 - [ ] shop
 - [x] ~~shout~~
 - [x] ~~slots~~
-- [ ] steal
+- [x] ~~steal~~
 - [x] ~~unban~~
 - [ ] use
 - [x] ~~uslots~~
