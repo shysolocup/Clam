@@ -84,6 +84,7 @@ Economy Update Checklist
 - [ ] items can have roles attached if the person who creates it is an admin
 - [ ] server leaderboard for hands and clans (hopefully)
 - [ ] gold multiplies the earnings from work crime and steal by like x1.5
+- [ ] add separate buttons for leaderboard that changes between users and clans
 - [x] ~~actually add crime~~
 <br>
 
