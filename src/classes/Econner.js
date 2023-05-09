@@ -105,7 +105,7 @@ class Econner {
 	
 	async userLB(guildID=null) {
 		var hands = (Soup.from(require('../data/economy.json'))).entries;
-        let { psc } = require('../../index.js');
+        var { psc } = require('../../index.js');
 
         if (guildID) {
             let guild = await psc.fetchGuild(guildID);
@@ -113,18 +113,113 @@ class Econner {
 
             hands = hands.filter( (v) => { return members.includes(v[0]); });
         }
-		
-		return Object.fromEntries(hands.sort( (a, b) => { return b[1] - a[1] }));
+
+        var sorted = Soup.from(Object.fromEntries(hands.sort( (a, b) => { return b[1] - a[1] })));
+
+        var list = new Soup({
+			pages: 1,
+			total: 0,
+            raw: sorted,
+			content: new Soup([
+				[]
+			])
+		});
+
+        var page = 0;
+		var count = 0;
+
+        for (let i = 0; i < sorted.length; i++) {
+			var { pearl, pearlify } = require('../assets');
+			let [ id, bal ] = sorted.entries[i];
+            let rank = this.rank(sorted.indexOf(id)+1);
+
+            let user = await psc.fetchUser(id);
+            let name = Soup.from(user.username);
+            if (name.length > 15) {
+                name.scoop( (_, i) => { return i > 15; });
+                name.set(15, "...");
+            }
+            name = `[${name.join("")}](https://discordapp.com/users/${id})`;
+
+            try {
+                if (!list.content.get(page+1) && count >= 5) { page += 1; list.pages += 1; list.content.push( [] ); count = 0; }
+
+                list.content[page].push(
+                    `${rank}:**  **${name}**  **•**  **${"`"+pearl}${pearlify(bal)+"`"}`
+                );
+
+                list.total += 1;
+                count += 1;
+            }
+            catch(e) {}
+		}
+
+        return list.pour();
 	}
 	
 	
-	async clanLB(guildID=null) {
+	async clanLB(guildID=null, includeUnlisted=false) {
 		let clans = Soup.from((new Clanner()).every()).entries;
 
         if (guildID) clans = clans.filter( (v) => { return v[1].guild == guildID });
-		
-		return Object.fromEntries(clans.sort( (a, b) => { return b[1].funds - a[1].funds }));
+
+        var sorted = Soup.from(Object.fromEntries(clans.sort( (a, b) => { return b[1].funds - a[1].funds })));
+
+        var list = new Soup({
+			pages: 1,
+			total: 0,
+            raw: sorted,
+			content: new Soup([
+				[]
+			])
+		});
+
+        var page = 0;
+		var count = 0;
+
+        for (let i = 0; i < sorted.length; i++) {
+			var { pearl, pearlify } = require('../assets');
+			let [ id, clan ] = sorted.entries[i];
+            let rank = this.rank(sorted.indexOf(id)+1);
+
+
+            let name = Soup.from(clan.name);
+            if (name.length > 15) {
+                name.scoop( (_, i) => { return i > 15; });
+                name.set(15, "...");
+            }
+            name = name.join("");
+
+
+			if (clan.status != 3 || includeUnlisted) {
+				try {
+					if (!list.content.get(page+1) && count >= 5) { page += 1; list.pages += 1; list.content.push( [] ); count = 0; }
+
+					list.content[page].push(
+                        `${rank}:**  **${name} (${ "`"+clan.id+"`" })**  **•**  **${"`"+pearl}${pearlify(clan.funds)+"`"}`
+                    );
+
+					list.total += 1;
+					count += 1;
+				}
+				catch(e) {}
+			}
+		}
+
+        return list.pour();
 	}
+
+    rank(int) {
+        return `${int}${ (() => {
+            if (int > 3 && int < 21) return "th";
+            switch( int % 10) {
+                case 1: return "st"; break;
+                case 2: return "nd"; break;
+                case 3: return "rd"; break;
+                default: return "th"; break;
+            }
+        })() }`;
+    }
 	
 }
 
