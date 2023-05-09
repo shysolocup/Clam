@@ -73,6 +73,7 @@ Update Checklist
 - [ ] actually add steal for economy lol
 - [x] ~~update economy system to give less from working~~
 - [ ] update economy system to have a working shop that admins can add things to
+- [ ] get the bot on an actual server like heroku so that it runs all the time
 <br>
 
 Economy Update Checklist
