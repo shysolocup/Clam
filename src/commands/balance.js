@@ -21,21 +21,9 @@ async function data(ctx, cmd) {
 	let hand = `${pearl}${ (econner.has(user.id)) ? pearlify(Math.round(balance)) : 0 }`;
 	let rank = colorify( (econner.has(user.id)) ? pearlify(Math.round(balance)) : 0 )[1];
 
-	let leaderboard = Soup.from(await econner.userLB(ctx.guild));
-	let userRank = (leaderboard.has(user.id)) ? leaderboard.indexOf(user.id)+1 : "None";
+	let leaderboard = Soup.from( (await econner.userLB(ctx.guild)).raw );
+	let userRank = (leaderboard.has(user.id)) ? econner.rank(leaderboard.indexOf(user.id)+1) : "None";
 	let username = user.username.split("");username[0]=username[0].toUpperCase();username=username.join("");
-
-	if (typeof userRank == "number") {
-		userRank = `${userRank}${((int) => {
-			if (int > 3 && int < 21) return "th";
-			switch( int % 10) {
-				case 1: return "st"; break;
-				case 2: return "nd"; break;
-				case 3: return "rd"; break;
-				default: return "th"; break;
-			}
-		})(userRank)}`;
-	}
 	
 	/* embed stuff */
 	let embed = new psc.Embed({
