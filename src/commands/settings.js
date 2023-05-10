@@ -5,6 +5,13 @@ var { Clanner, Catch } = require('../classes');
 const { Soup } = require('stews');
 
 async function data(ctx, cmd) {
+    if ( Catch( cmd.onCooldown, { 
+		head: `Woah there!  :face_with_spiral_eyes:`,
+		text: `You can use this command again ${ cmd.cooldown.relative }`,
+		time: cmd.cooldown.time
+	}) ) return;
+
+
 	let clans = new Clanner();
 	let [id, setting] = cmd.args;
 	
@@ -54,7 +61,6 @@ async function data(ctx, cmd) {
         });
 
         if ( Catch( !settings.includes(setting.toLowerCase()), { text: "There is no setting with that name" }) ) return;
-
         let thing = settings.get(setting.toLowerCase());
 
         embed = new psc.Embed({
