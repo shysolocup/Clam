@@ -52,4 +52,4 @@ async function data(ctx, cmd) {
 }
 
 
-psc.command({ name: "op", cooldown: "2s"}, data);
+psc.command({ name: "op", cooldown: "3s"}, data);
