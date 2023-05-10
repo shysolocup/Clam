@@ -9,7 +9,15 @@ var { Catch } = require('../classes');
 
 async function data(ctx, cmd) {
     /* handling */
-    if ( Catch( !isDev(ctx.author.id), { post: false }) ) return;
+    if ( 
+		Catch( !isDev(ctx.author.id), { post: false }) ||
+
+		Catch( cmd.onCooldown, { 
+			head: `Woah there!  :face_with_spiral_eyes:`,
+			text: `You can use this command again ${ cmd.cooldown.relative }`,
+			time: cmd.cooldown.time
+		})
+	) return;
 
 
     /* attachment building */
