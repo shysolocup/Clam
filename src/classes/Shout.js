@@ -1,10 +1,11 @@
 const { Soup } = require('stews');
 
 class Shout {
-    constructor(content, author) {
+    constructor(content, author, timestamp) {
         return new Soup({
             content: content,
-            author: author
+            author: author,
+			timestamp: timestamp
         });
     }
 }
