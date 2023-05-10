@@ -101,6 +101,13 @@ class Econner {
         this.removeHand(amount, sender);
 	    this.addHand(amount, reciever);
     }
+
+
+    goldMult(userID, guildID) {
+        let clans = Soup.from((new Clanner()).in(guildID));
+        clans = clans.filter( (_, v) => { return v.members.includes(userID) });
+        return clans.some( (_, v) => { return v.gold });
+    }
 	
 	
 	async userLB(guildID=null, userID=null) {
