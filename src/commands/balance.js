@@ -7,6 +7,13 @@ async function data(ctx, cmd) {
 	let econner = new Econner();
 
 	
+	if ( Catch( cmd.onCooldown, { 
+		head: `Woah there!  :face_with_spiral_eyes:`,
+		text: `You can use this command again ${ cmd.cooldown.relative }`,
+		time: cmd.cooldown.time
+	}) ) return;
+
+	
 	let user = (cmd.args[0]) ? await psc.fetchUser(cmd.args[0]) : ctx.author;
 
 	
