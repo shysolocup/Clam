@@ -8,9 +8,10 @@ const { Soup, random } = require('stews');
 async function data(ctx, cmd) {
     var econner = new Econner();
 	
-	if ( Catch( cmd.onCooldown, {
+	if ( Catch( cmd.onCooldown, { 
 		head: `Woah there!  :face_with_spiral_eyes:`,
-		text: `You've been timed out from using this command for a bit.`
+		text: `You can use this command again ${ cmd.cooldown.relative }`,
+		time: cmd.cooldown.time
 	}) ) return;
 
 
@@ -52,7 +53,6 @@ async function data(ctx, cmd) {
 		    color: colors.fail
 	    });
     }
-    
 	else {
         embed = new psc.Embed({
 		    description: `${emojis.success}  **${random.choice(responses.steal.success).replace("$", "`"+`${pearl}${pearlify(amount)}`+"`")}** ${ (receiverBal+amount == caps.max) ? "(max amount reached)" : ""}`,
@@ -67,4 +67,4 @@ async function data(ctx, cmd) {
     (fail) ? econner.removeHand(amount, ctx.author.id) : econner.give(amount, user.id, ctx.author.id);
 }
 
-psc.command({ name: "steal", aliases: ["rob"], cooldown: "1m"}, data);
+psc.command({ name: "steal", aliases: ["rob"], cooldown: "5m"}, data);
