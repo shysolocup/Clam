@@ -8,10 +8,12 @@ async function data(ctx, cmd) {
 	const { Catch, Econner } = require('../classes');
 	let econner = new Econner();
 
+
 	/* handling */
 	if ( Catch( cmd.onCooldown, { 
 		head: `Woah there!  :face_with_spiral_eyes:`,
-		text: `You've been timed out from using this command for a bit.`
+		text: `You can use this command again ${ cmd.cooldown.relative }`,
+		time: cmd.cooldown.time
 	}) ) return;
 
 	
@@ -70,7 +72,6 @@ async function data(ctx, cmd) {
 			econner.addHand(amount, ctx.author.id);
 		}
 	}
-
 	else {
 		rawEmbed.footer = `YOU LOSE! Better luck next time  -${pearl}${pearlify(bet)}`;
 		rawEmbed.color = colors.fail;
@@ -85,7 +86,6 @@ async function data(ctx, cmd) {
 			econner.removeHand(bet, ctx.author.id);
 		}
 	}
-
 
 	let embed = new psc.Embed(rawEmbed);
 
