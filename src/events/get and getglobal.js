@@ -46,7 +46,7 @@ async function stuff(ctx) {
 		var members = (clan.members.join(">, <@") == []) ? "None" : `<@${clan.members.join(">, <@")}>`;
 		var ops = (clan.ops.join(">, <@") == []) ? "None" : `<@${clan.ops.join(">, <@")}>`;
 		var status = clans.status(clan.status);
-		var shout = `"${clan.shout.content}" - <@${clan.shout.author}>`;
+		var shout = `"${clan.shout.content}" - <@${clan.shout.author}> ${clan.shout.timestamp}`;
 	
 		var allies = (clan.allies.length == 0) ? "None" : clan.allies.map( (v) => { return `${clans.fetch(v).name} (${"`"+v+"`"})`; }).join("\n");
 		var enemies = (clan.enemies.length == 0) ? "None" : clan.enemies.map( (v) => { return `${clans.fetch(v).name} (${"`"+v+"`"})`; }).join("\n");
