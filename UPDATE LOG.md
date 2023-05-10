@@ -4,6 +4,7 @@
 - updated package discord+ps to have raw and relative values for cooldowns that let you see how long the cooldown has left
 - added some extra catches to make commands not break when spammed hopefully
 - increased cooldowns under 3s to 3s+
+- added default cooldown of 3s for commands that don't have any
 
 ## 05-09-23
 - added commands !crime and !steal
