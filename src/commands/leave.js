@@ -4,6 +4,13 @@ var { colors, emojis } = require('../assets');
 var { Clanner, Catch } = require('../classes');
 
 async function data(ctx, cmd) {
+	if ( Catch( cmd.onCooldown, { 
+		head: `Woah there!  :face_with_spiral_eyes:`,
+		text: `You can use this command again ${ cmd.cooldown.relative }`,
+		time: cmd.cooldown.time
+	}) ) return;
+
+
 	let clans = new Clanner();
 	let id = cmd.args[0];
 	
@@ -27,15 +34,17 @@ async function data(ctx, cmd) {
 
 	/* embed and death */
 	let embed = new psc.Embed({
-		color: colors.success,
 		title: "Leaving  🚪",
 		description: `${emojis.success} ${ "`"+clan.name+"`" } is sad to see you go :(`,
-		footer: `( id: ${id} )`
+		
+		footer: `( id: ${id} )`,
+		color: colors.success
 	});
 
 
     ctx.reply( {embeds: [embed] }).catch(e=>{});
 	clans.leave(id, ctx.author.id, ctx.guild.id);
 }
+
 
 psc.command("leave", data);
