@@ -1,3 +1,9 @@
+## 05-10-23
+- updated cooldown messages to have the time left in them as a unix timestamp
+- updated package discord+ps to have a catch for deleteAfter so it doesn't crash when a message is deleted before the bot can delete it
+- updated package discord+ps to have raw and relative values for cooldowns that let you see how long the cooldown has left
+- added some extra catches to make commands not break when spammed hopefully
+
 ## 05-09-23
 - added commands !crime and !steal
 - added assets crime responses and steal responses
