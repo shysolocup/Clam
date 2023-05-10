@@ -17,7 +17,8 @@ class ClanTemplate {
 
             shout: new Soup({
                 content: `You can use ${prefix}shout to change the shout.`,
-                author: "1050917862233100508"
+                author: "1050917862233100508",
+				timestamp: "<t:1663147320:R>"
             }),
             
             icon: (setIcon) ? setIcon.url : icon,
