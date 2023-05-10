@@ -27,7 +27,7 @@ async function data(ctx, cmd) {
 		var name = (clan.gold) ? `${clan.name}  ${emojis.gold}` : clan.name;
 		var ops = (clan.ops.join(">, <@") == []) ? "None" : `<@${clan.ops.join(">, <@")}>`;
 		var status = clans.status(clan.status);
-		var shout = `"${clan.shout.content}" - <@${clan.shout.author}>`;
+		var shout = `"${clan.shout.content}" - <@${clan.shout.author}> ${clan.shout.timestamp}`;
 		
 		var icon = Soup.from(clan.icon).replaceAll(" ", "_").join("");
 		var banner = Soup.from(clan.banner).replaceAll(" ", "_").join("");
