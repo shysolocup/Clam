@@ -25,6 +25,9 @@ async function data(ctx, cmd) {
 	if (bal >= 0) max += (random.int( 25, (bal+50) ));
     let amount = random.int( 25, max );
 
+	let goldMult = econner.goldMult(ctx.author.id, ctx.guild.id);
+	let multiplier = random.choice([ 50, 100, 150, 200, 250, 300, 350, 400, 450, 500 ]);
+	if (goldMult) amount += multiplier;
 
 	if ( Catch( bal >= caps.max, { text: "You can't hold anymore." })) return;
 	if (bal+amount >= caps.max) amount = caps.max-bal;
@@ -32,6 +35,9 @@ async function data(ctx, cmd) {
 	
 	const embed = new psc.Embed({
 		description: `**${random.choice(responses.work).replace("$", "`"+`${pearl}${pearlify(amount)}`+"`")}** ${ (bal+amount == caps.max) ? "(max amount reached)" : ""}`,
+		
+		author: (goldMult) ? { name: `+${pearl}${multiplier}`, icon: "https://cdn.discordapp.com/emojis/1052759240885940264.png"} : undefined,
+
 		footer: { text: `( Balance: ${pearl}${pearlify(bal+amount)} )`, icon: psc.author.avatar() },
 		color: colors.blurple
 	});
@@ -41,5 +47,4 @@ async function data(ctx, cmd) {
 	econner.addHand(amount, ctx.author.id);
 }
 
-
-psc.command({ name: "work", cooldown: "15s"}, data);
+psc.command({ name: "work", cooldown: "10s"}, data);
