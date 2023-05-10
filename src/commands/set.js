@@ -10,7 +10,8 @@ const { Soup } = require('stews');
 async function data(ctx, cmd) {
 	if ( Catch( cmd.onCooldown, { 
 		head: `Woah there!  :face_with_spiral_eyes:`,
-		text: `You've been timed out from using this command for a bit.`
+		text: `You can use this command again ${ cmd.cooldown.relative }`,
+		time: cmd.cooldown.time
 	}) ) return;
 	
 
@@ -344,7 +345,6 @@ async function data(ctx, cmd) {
 
 
     let embed = new psc.Embed(rawEmbed);
-
 	
 	let files = (rawEmbed.icon || rawEmbed.banner) ? [
 		!!rawEmbed.icon && rawEmbed.icon,
@@ -355,7 +355,7 @@ async function data(ctx, cmd) {
     let reply = await ctx.reply({
         embeds: [embed],
 		files: files
-    });
+    }).catch(e=>{});
 
 	
 	// auuuggghhhhh javascript moment PAIN GOD HELP I SPENT HOURS ON THIS hehehe
@@ -372,4 +372,4 @@ async function data(ctx, cmd) {
 	else if (rawEmbed.banner) clans.set(id, "banner", stuff.image.url, ctx.guild.id);
 }
 
-psc.command({ name: "set", aliases: ["edit"], cooldown: "1s" }, data);
+psc.command({ name: "set", aliases: ["edit"], cooldown: "3s" }, data);
