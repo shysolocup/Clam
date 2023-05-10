@@ -1,4 +1,4 @@
-/* :: Discord+PS :: Version 0.6.0 | 05/04/23 :: */
+/* :: Discord+PS :: Version 0.6.0 | 05/10/23 :: */
 
 /* :: Created by nutmeg using :: *//*
 	- Stews: https://github.com/nuttmegg/stews
@@ -96,14 +96,12 @@ class PSClient {
 
 		var raw = Math.abs( this.time.parse(time)*1000 + (Date.now()) );
 		var relative = this.time.set.relative(raw);
-		var embed = this.time.set.embed(raw);
 
 		this.globalCooldown.time = time
 		this.globalCooldown.timestamp = this.time.set.relative( Math.abs(this.time.parse(time)*1000 + (Date.now())) );
 		this.globalCooldown.active = true;
 		this.globalCooldown.raw = raw;
 		this.globalCooldown.relative = relative;
-		this.globalCooldown.embed = embed;
 	}
 	
 	deleteCooldown() {
@@ -124,7 +122,6 @@ class PSClient {
 
 		var raw = Math.abs( this.time.parse(info.cooldown)*1000 + (Date.now()) )
 		var relative = this.time.set.relative(raw);
-		var embed = this.time.set.embed(raw);
 		
 		if (info.cooldown && typeof info.cooldown == "number") { var time = info.cooldown; }
 		else if (info.cooldown && typeof info.cooldown == "string") { var time = this.time.parse(info.cooldown); }
@@ -145,7 +142,6 @@ class PSClient {
     			active: true,
     			time: time,
 				relative: relative,
-				embed: embed,
 				raw: raw,
     			
     			handle: function(user=null) {
