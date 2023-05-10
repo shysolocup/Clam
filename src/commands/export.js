@@ -12,7 +12,15 @@ const { Soup } = require('stews');
 async function data(ctx, cmd) {
     /* handling */
 	let disabled = !(psc.author.hasPermissions(["admin"]) || isDev(ctx.author.id));
-    if ( Catch( disabled, { post: false }) ) return;
+    if ( 
+		Catch( disabled, { post: false }) ||
+
+		Catch( cmd.onCooldown, { 
+			head: `Woah there!  :face_with_spiral_eyes:`,
+			text: `You can use this command again ${ cmd.cooldown.relative }`,
+			time: cmd.cooldown.time
+		})
+	) return;
 
 
     /* attachment building */
