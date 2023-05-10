@@ -15,10 +15,11 @@ async function data(ctx, cmd) {
 	if ( 
         Catch( disabled && cmd.args.length > 0, { post: false }) ||
 
-        Catch( cmd.onCooldown, { 
-		    head: `Woah there!  :face_with_spiral_eyes:`,
-		    text: `You've been timed out from using this command for a bit.`
-	    })
+        Catch( cmd.onCooldown, {
+			head: `Woah there!  :face_with_spiral_eyes:`,
+			text: `You can use this command again ${ cmd.cooldown.relative }`,
+			time: cmd.cooldown.time
+		})
         
     ) return;
     
@@ -58,7 +59,7 @@ async function data(ctx, cmd) {
         });
     }
 
-    ctx.reply({ embeds: [embed] });
+    ctx.reply({ embeds: [embed] }).catch(e=>{});
 }
 
 psc.command({ name: "gold", cooldown: "5s"}, data);
