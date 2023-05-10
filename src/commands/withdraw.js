@@ -15,10 +15,11 @@ async function data(ctx, cmd) {
 	
 
 	if ( 
-        Catch( cmd.onCooldown, {
-		    head: `Woah there!  :face_with_spiral_eyes:`,
-		    text: `You've been timed out from using this command for a bit.`
-	    }) ||
+    	Catch( cmd.onCooldown, { 
+			head: `Woah there!  :face_with_spiral_eyes:`,
+			text: `You can use this command again ${ cmd.cooldown.relative }`,
+			time: cmd.cooldown.time
+		}) ||
 
         Catch( !econner.has(ctx.author.id) || econner.fetchHand(ctx.author.id) <= 0, { text: "You don't have any pearls to withdraw." }) ||
 		Catch( !amount, { text: "Please put an amount to withdraw."}) ||
@@ -58,5 +59,6 @@ async function data(ctx, cmd) {
 	ctx.reply({ embeds: [embed] }).catch(e=>{});
 	econner.withdraw(amount, ctx.author.id, id, ctx.guild.id);
 }
+
 
 psc.command({ name: "withdraw", aliases: ["with"], cooldown: "5s"}, data);
