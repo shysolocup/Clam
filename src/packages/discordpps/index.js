@@ -1,4 +1,4 @@
-/* :: Discord+PS :: Version 0.6.0 | 05/10/23 :: */
+/* :: Discord+PS :: Version 0.6.0 | 05/04/23 :: */
 
 /* :: Created by nutmeg using :: *//*
 	- Stews: https://github.com/nuttmegg/stews
@@ -1085,7 +1085,7 @@ class PSClient {
 				var message = await ctx.reply(content, extras);
 			}
 			if (extras && extras.deleteAfter) {
-				setTimeout( () => { message.delete(); }, psc.time.parse(extras.deleteAfter)*1000);
+				setTimeout( () => { message.delete().catch(e=>{}); }, psc.time.parse(extras.deleteAfter)*1000);
 			}
 			return message;
 		}
@@ -1105,7 +1105,7 @@ class PSClient {
 				var message = await ctx.channel.send(content, extras);
 			}
 			if (extras && extras.deleteAfter) {
-				setTimeout( () => { message.delete(); }, psc.time.parse(extras.deleteAfter)*1000);
+				setTimeout( () => { message.delete().catch(e=>{}); }, psc.time.parse(extras.deleteAfter)*1000);
 			}
 			return message;
 		}
