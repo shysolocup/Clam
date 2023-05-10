@@ -83,7 +83,7 @@ Economy Update Checklist
 - [ ] !item set (id) (attr) (value)
 - [ ] items can have roles attached if the person who creates it is an admin
 - [x] ~~server leaderboard for hands and clans (hopefully)~~
-- [ ] gold multiplies the earnings from work crime and steal by like x1.5
+- [x] ~~gold multiplies the earnings from work crime and steal by like x1.5~~ (adds 50-500 to !work !crime and !steal and removes 50-500 pearls lost from failing !crime and !steal)
 - [x] ~~add separate buttons for leaderboard that changes between users and clans~~
 - [x] ~~actually add crime~~
 <br>
