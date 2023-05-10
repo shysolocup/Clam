@@ -9,7 +9,7 @@ async function data(ctx, cmd) {
 	
 	if ( Catch( cmd.onCooldown, { 
 		head: `Woah there!  :face_with_spiral_eyes:`,
-		text: `You've been timed out from using this command for a bit.`
+		text: `You've been timed out from using this command for a bit.`,
 	}) ) return;
 
 
@@ -46,7 +46,7 @@ async function data(ctx, cmd) {
 		description: `${emojis.success}  Set the clan shout:`,
 
         fields: [
-            { name:"Shout:", value: `"${content}" - <@${ctx.author.id}>` , inline: false},
+            { name:"Shout:", value: `"${content}" - <@${ctx.author.id}> ${psc.time.now.relative}` , inline: false},
             { name:"** **", value: "** **", inline: false}
         ],
 
@@ -56,7 +56,7 @@ async function data(ctx, cmd) {
 	
 
 	ctx.reply({ embeds: [embed] }).catch(e=>{});
-	clans.shout(clan.id, content, ctx.author.id, ctx.guild.id);
+	clans.shout(clan.id, content, ctx.author.id, psc.time.now.relative, ctx.guild.id);
 }
 
 psc.command({ name: "shout", cooldown: "2s"}, data);
