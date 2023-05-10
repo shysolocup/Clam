@@ -12,6 +12,12 @@ async function data(ctx, cmd) {
     
     /* handling */
     if (
+        Catch( cmd.onCooldown, { 
+			head: `Woah there!  :face_with_spiral_eyes:`,
+			text: `You can use this command again ${ cmd.cooldown.relative }`,
+			time: cmd.cooldown.time
+		}) ||
+
     	Catch( !id, { text: 'Please put a clan ID.' }) ||
         Catch( !clans.has(id, ctx.guild.id), { text: "There is no clan with that ID." })
     ) return;
@@ -41,7 +47,7 @@ async function data(ctx, cmd) {
     });
 
 
-	let a = await ctx.reply({ embeds: [embed], components: [row] });
+	let a = await ctx.reply({ embeds: [embed], components: [row] }).catch(e=>{});
 
     infostuffs.push(a.id, clan);
     setTimeout(() => infostuffs.delete(a.id), 21600000);
