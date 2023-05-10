@@ -75,8 +75,8 @@ class Clanner {
 	}
 
 
-	shout(id, content, author, guildID) {
-		let shout = new Shout(content, author);
+	shout(id, content, author, timestamp, guildID) {
+		let shout = new Shout(content, author, timestamp);
 		this.set(id, "shout", shout, guildID);
 	}
 
