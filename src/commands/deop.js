@@ -50,4 +50,4 @@ async function data(ctx, cmd) {
 	clans.deop(clan.id, user.id, ctx.guild.id);
 }
 
-psc.command({ name: "deop", cooldown: "2s"}, data);
+psc.command({ name: "deop", cooldown: "3s"}, data);
