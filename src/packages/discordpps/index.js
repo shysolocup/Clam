@@ -1,4 +1,4 @@
-/* :: Discord+PS :: Version 0.6.0 | 05/04/23 :: */
+/* :: Discord+PS :: Version 0.6.0 | 05/10/23 :: */
 
 /* :: Created by nutmeg using :: *//*
 	- Stews: https://github.com/nuttmegg/stews
