@@ -88,11 +88,22 @@ class PSClient {
 	};
 	
 	setCooldown(time) {
+		time = this.time.parse(time);
+
 		if (typeof time != "number") {
 			throw new CoolError("Global Cooldown", "Cooldown has to be an integer (seconds)");
 		}
-		this.globalCooldown.time = time;
+
+		var raw = Math.abs( this.time.parse(time)*1000 + (Date.now()) );
+		var relative = this.time.set.relative(raw);
+		var embed = this.time.set.embed(raw);
+
+		this.globalCooldown.time = time
+		this.globalCooldown.timestamp = this.time.set.relative( Math.abs(this.time.parse(time)*1000 + (Date.now())) );
 		this.globalCooldown.active = true;
+		this.globalCooldown.raw = raw;
+		this.globalCooldown.relative = relative;
+		this.globalCooldown.embed = embed;
 	}
 	
 	deleteCooldown() {
@@ -110,6 +121,10 @@ class PSClient {
 		}
 		
 		var [name, aliases] = [info.name, info.aliases];
+
+		var raw = Math.abs( this.time.parse(info.cooldown)*1000 + (Date.now()) )
+		var relative = this.time.set.relative(raw);
+		var embed = this.time.set.embed(raw);
 		
 		if (info.cooldown && typeof info.cooldown == "number") { var time = info.cooldown; }
 		else if (info.cooldown && typeof info.cooldown == "string") { var time = this.time.parse(info.cooldown); }
@@ -129,6 +144,9 @@ class PSClient {
     			data: new Set(),
     			active: true,
     			time: time,
+				relative: relative,
+				embed: embed,
+				raw: raw,
     			
     			handle: function(user=null) {
 					var [psc, client, ctx] = Holder;
@@ -218,14 +236,14 @@ class PSClient {
 			this.globalCooldown.handle();
     	}
 		else {
-			cooldown = null;
+			cooldown = {};
 			onCooldown = false;
 			cooldownType = null;
 		}
     	
     	cmd.onCooldown = (onCooldown) ? onCooldown : false;
 		cmd.cooldownType = (cooldownType) ? cooldownType : null;
-		cmd.cooldown = (cooldown) ? cooldown : null;
+		cmd.cooldown = (cooldown) ? cooldown : {};
     	
     	return command.data(ctx, cmd);
     }
