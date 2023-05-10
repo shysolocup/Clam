@@ -9,7 +9,8 @@ async function data(ctx, cmd) {
 	
 	if ( Catch( cmd.onCooldown, { 
 		head: `Woah there!  :face_with_spiral_eyes:`,
-		text: `You've been timed out from using this command for a bit.`
+		text: `You can use this command again ${ cmd.cooldown.relative }`,
+		time: cmd.cooldown.time
 	}) ) return;
 
 	
@@ -49,5 +50,6 @@ async function data(ctx, cmd) {
 	ctx.reply({ embeds: [embed] }).catch(e=>{});
 	clans.op(clan.id, user.id, ctx.guild.id);
 }
+
 
 psc.command({ name: "op", cooldown: "2s"}, data);
