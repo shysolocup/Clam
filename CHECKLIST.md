@@ -128,5 +128,5 @@ inventories.json
 
 Economy Games Checklist
 - [ ] that one card game from club penguin lol
-- [ ] uno but it's clam based and you can like press the buttons to pick the cards
+- [ ] uno but it's clam based and you can like press buttons on a ephemeral reply to pick the cards
 - [x] ~~ultimate slot machine that can 500x your bet if you win~~
