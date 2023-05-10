@@ -8,9 +8,10 @@ const { Soup, random } = require('stews');
 async function data(ctx, cmd) {
     var econner = new Econner();
 	
-	if ( Catch( cmd.onCooldown, {
+	if ( Catch( cmd.onCooldown, { 
 		head: `Woah there!  :face_with_spiral_eyes:`,
-		text: `You've been timed out from using this command for a bit.`
+		text: `You can use this command again ${ cmd.cooldown.relative }`,
+		time: cmd.cooldown.time
 	}) ) return;
 
     
@@ -39,5 +40,6 @@ async function data(ctx, cmd) {
 	ctx.reply({ embeds: [embed] }).catch(e=>{});
 	econner.addHand(amount, ctx.author.id);
 }
+
 
 psc.command({ name: "work", cooldown: "15s"}, data);
