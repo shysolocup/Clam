@@ -7,7 +7,7 @@ async function data(ctx, cmd) {
 	if ( Catch( cmd.onCooldown, { 
 		head: `Woah there!  :face_with_spiral_eyes:`,
 		text: `You can use this command again ${ cmd.cooldown.relative }`,
-		time: "5s"
+		time: cmd.cooldown.time
 	}) ) return;
 	
 
