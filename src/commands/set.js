@@ -95,11 +95,11 @@ async function data(ctx, cmd) {
 
     // shout
     else if (attr.toLowerCase() == "shout") {
-        clans.shout(id, value, ctx.author.id, ctx.guild.id);
+        clans.shout(id, value, ctx.author.id, psc.time.now.relative, ctx.guild.id);
         rawEmbed.description = `${emojis.success} Set clan shout to`;
         rawEmbed.fields = [
 			{ name:"** **", value: "** **", inline: false},
-            { name:"Shout:", value: `"${value}" - <@${ctx.author.id}>` , inline: false},
+            { name:"Shout:", value: `"${value}" - <@${ctx.author.id}> ${psc.time.now.relative}` , inline: false},
             { name:"** **", value: "** **", inline: false}
         ];
     }
