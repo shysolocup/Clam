@@ -1,6 +1,10 @@
 ## 05-09-23
 - added commands !crime and !steal
 - added assets crime responses and steal responses
+- added functionality to command !leaderboard
+- fixed a bug with cooldown responses where they wouldn't delete
+- added timestamps to shouts
+- updated command !create to show icons/banners added in the message
 
 ## 05-08-23
 - added commands !slots and !uslots
