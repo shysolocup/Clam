@@ -9,7 +9,8 @@ async function data(ctx, cmd) {
 	
 	if ( Catch( cmd.onCooldown, { 
 		head: `Woah there!  :face_with_spiral_eyes:`,
-		text: `You've been timed out from using this command for a bit.`,
+		text: `You can use this command again ${ cmd.cooldown.relative }`,
+		time: cmd.cooldown.time
 	}) ) return;
 
 
@@ -59,4 +60,5 @@ async function data(ctx, cmd) {
 	clans.shout(clan.id, content, ctx.author.id, psc.time.now.relative, ctx.guild.id);
 }
 
-psc.command({ name: "shout", cooldown: "2s"}, data);
+
+psc.command({ name: "shout", cooldown: "3s"}, data);
