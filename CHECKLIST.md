@@ -35,7 +35,7 @@ Commands Checklist
 - [ ] item
 - [x] ~~join~~
 - [x] ~~kick~~
-- [ ] leaderboard
+- [x] ~~leaderboard~~
 - [x] ~~leave~~
 - [x] ~~list~~
 - [x] ~~listall~~
@@ -82,9 +82,9 @@ Economy Update Checklist
 - [ ] !item set (attr) (id) (value)
 - [ ] !item set (id) (attr) (value)
 - [ ] items can have roles attached if the person who creates it is an admin
-- [ ] server leaderboard for hands and clans (hopefully)
+- [x] ~~server leaderboard for hands and clans (hopefully)~~
 - [ ] gold multiplies the earnings from work crime and steal by like x1.5
-- [ ] add separate buttons for leaderboard that changes between users and clans
+- [x] ~~add separate buttons for leaderboard that changes between users and clans~~
 - [x] ~~actually add crime~~
 <br>
 
