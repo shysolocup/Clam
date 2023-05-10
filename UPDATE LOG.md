@@ -3,6 +3,7 @@
 - updated package discord+ps to have a catch for deleteAfter so it doesn't crash when a message is deleted before the bot can delete it
 - updated package discord+ps to have raw and relative values for cooldowns that let you see how long the cooldown has left
 - added some extra catches to make commands not break when spammed hopefully
+- increased cooldowns under 3s to 3s+
 
 ## 05-09-23
 - added commands !crime and !steal
