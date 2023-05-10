@@ -52,4 +52,4 @@ async function data(ctx, cmd) {
 	clans.ban(clan.id, user.id, ctx.guild.id);
 }
 
-psc.command({ name: "ban", cooldown: "2s"}, data);
+psc.command({ name: "ban", cooldown: "3s"}, data);
