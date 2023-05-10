@@ -27,6 +27,11 @@ async function data(ctx, cmd) {
     
     let fail = random.choice([ true, true, true, false, false ]);
 
+	let goldMult = econner.goldMult(ctx.author.id, ctx.guild.id);
+	let multiplier = random.choice([ 50, 100, 150, 200, 250, 300, 350, 400, 450, 500 ]);
+	if (goldMult && fail) amount -= multiplier;
+    else if (goldMult && !fail) amount += multiplier;
+
 
 	if ( 
         Catch( !fail && bal >= caps.max, { text: "You can't hold anymore." }) ||
@@ -43,15 +48,20 @@ async function data(ctx, cmd) {
     if (fail) {
         embed = new psc.Embed({
 		    description: `${emojis.fail}  **${random.choice(responses.crime.fail).replace("$", "`"+`${pearl}${pearlify(amount)}`+"`")}** ${ (bal-amount == caps.max) ? "(minimum amount reached)" : ""}`,
+			
+			author: (goldMult) ? { name: `-${pearl}${multiplier} lost`, icon: "https://cdn.discordapp.com/emojis/1052759240885940264.png"} : undefined,
+
 		    footer: { text: `( Balance: ${pearl}${pearlify(bal-amount)} )`, icon: psc.author.avatar() },
 		    color: colors.fail
 	    });
     }
-    
 	else {
         embed = new psc.Embed({
 		    description: `${emojis.success}  **${random.choice(responses.crime.success).replace("$", "`"+`${pearl}${pearlify(amount)}`+"`")}** ${ (bal+amount == caps.max) ? "(max amount reached)" : ""}`,
-		    footer: { text: `( Balance: ${pearl}${pearlify(bal+amount)} )`, icon: psc.author.avatar() },
+		    
+			author: (goldMult) ? { name: `+${pearl}${multiplier}`, icon: "https://cdn.discordapp.com/emojis/1052759240885940264.png"} : undefined,
+
+			footer: { text: `( Balance: ${pearl}${pearlify(bal+amount)} )`, icon: psc.author.avatar() },
 		    color: colors.success
 	    });
     }
