@@ -5,6 +5,12 @@ const { Soup } = require('stews');
 
 
 async function data(ctx, cmd) {
+	if ( Catch( cmd.onCooldown, { 
+		head: `Woah there!  :face_with_spiral_eyes:`,
+		text: `You can use this command again ${ cmd.cooldown.relative }`,
+		time: cmd.cooldown.time
+	}) ) return;
+
 	let clans = new Clanner();
     let args = Soup.from(cmd.args);
 
@@ -121,7 +127,7 @@ async function data(ctx, cmd) {
 
 	let embed = new psc.Embed(rawEmbed);
 
-	ctx.reply({ embeds: [embed] });
+	ctx.reply({ embeds: [embed] }).catch(e=>{});
 }
 
 psc.command({ name: "allies", aliases: ["alliances"]}, data);
