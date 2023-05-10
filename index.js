@@ -43,7 +43,7 @@ console.log("===========================================\n");
 /* builds the commands */
 require('./src/commands/build');
 bot.setMaxListeners(psc.commandList.length);
-psc.setCooldown(1);
+psc.setCooldown(3);
 
 
 /* builds the events */
