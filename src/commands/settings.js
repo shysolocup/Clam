@@ -56,7 +56,7 @@ async function data(ctx, cmd) {
             funds: [ `${"`"+pearl}${pearlify(clan.funds)+"`"}`, "The clan's pearls earned from donations or from shop purchases that can be withdrawn by the owner of the clan." ],
             rank: [ "`"+colorify(clan.funds)[1]+"`", "The clan's rank depends on the funds and for users it increases the amount earned." ],
             color: [ "`"+color+"`"+`${(clan.color.toLowerCase() == "rank") ? " (rank)" : ""}`, `The clan's color that shows up on the clan's ${prefix}get embed page.` ],
-            gold: [ "`"+clan.gold+"`", `Given to specific clans using the ${prefix}gold command it gives people in the clan x1.5 more earnings from ${prefix}work, ${prefix}crime, and ${prefix}steal` ],
+            gold: [ "`"+clan.gold+"`", `Given to specific clans using the ${prefix}gold command it gives people in the clan 50-500 more earnings from ${prefix}work, ${prefix}crime, and ${prefix}steal` ],
             resize: [ "`"+clan.resize+"`", `True or false that decides if it should automatically resize images given from the ${prefix}set command` ]
         });
 
