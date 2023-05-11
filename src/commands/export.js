@@ -14,6 +14,7 @@ async function data(ctx, cmd) {
 	let disabled = !(psc.author.hasPermissions(["admin"]) || isDev(ctx.author.id));
     if ( 
 		Catch( disabled, { post: false }) ||
+	    	Catch( !(new Clanner()).all.has(ctx.guild.id), { text: "There are no clans in this server." }) ||
 
 		Catch( cmd.onCooldown, { 
 			head: `Woah there!  :face_with_spiral_eyes:`,
