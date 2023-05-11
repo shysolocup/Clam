@@ -1,7 +1,8 @@
 ## 05-11-23
+- added command !transfer
+- added command !import
 - updated README.md file
 - updated wiki pages
-- added command !transfer
 - added events transfer accept and transfer decline
 - updated asset steal responses
 
