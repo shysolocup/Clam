@@ -1,3 +1,8 @@
+## 05-11-23
+- updated README.md file
+- updated wiki pages
+- added command file transfer
+
 ## 05-10-23
 - updated cooldown messages to have the time left in them as a unix timestamp
 - updated package discord+ps to have a catch for deleteAfter so it doesn't crash when a message is deleted before the bot can delete it
