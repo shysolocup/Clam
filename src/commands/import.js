@@ -30,7 +30,7 @@ async function data(ctx, cmd) {
     var clans = Soup.from(require('../data/clans.json')); 
     var copy = clans.copy();
 
-    var changed = Soup.from(copy[ctx.guild.id]).length - Soup.from(clans[ctx.guild.id]).length;
+    if (clans.has(ctx.guild.id)) var changed = Soup.from(copy[ctx.guild.id]).length - Soup.from(clans[ctx.guild.id]).length;
 
 
     /* gets the JSON data from the link */
@@ -52,7 +52,7 @@ async function data(ctx, cmd) {
     let embed = new psc.Embed({
         description: `${emojis.success} Successfully overwritted all clans in ${"`"+ctx.guild.name+"`"}.`,
 
-        author: { name: `${ (changed >= 0) ? `+${change}` : change }`, icon: ctx.guild.iconURL() },
+        author: (clans.has(ctx.guild.id)) ? { name: `${ (changed >= 0) ? `+${changed}` : changed }`, icon: ctx.guild.iconURL() } : null,
 
         color: colors.success
     });
