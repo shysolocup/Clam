@@ -9,7 +9,7 @@
 <br><br>
     
 - 50+ commands
-- Full customization
+- Full clan customization
 - Economy systems
 - Open source
 
