@@ -21,8 +21,8 @@ async function data(ctx, cmd) {
 		}) ||
 
     	Catch( !id, { text: 'Please put a clan ID.' }) ||
-      Catch( !userID, { text: 'Please put a user.' }) ||
-      Catch( !user, { text: "Please put a valid user." }) ||
+        Catch( !userID, { text: 'Please put a user.' }) ||
+        Catch( !user, { text: "Please put a valid user." }) ||
         Catch( !clans.has(id, ctx.guild.id), { text: "There is no clan with that ID." })
     ) return;
 
@@ -30,7 +30,10 @@ async function data(ctx, cmd) {
 	var clan = clans.fetch(id);
 	
 	
-	if ( Catch( ctx.author.id != clan.owner, { post: false }) ) return;
+	if (
+        Catch( ctx.author.id != clan.owner, { post: false }) ||
+        Catch( !clan.members.includes(user.id), { text: "You can only transfer ownership to someone in the clan." })
+    ) return;
 	
     
     /* buttons n stuff */
