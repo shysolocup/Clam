@@ -19,10 +19,7 @@
         "discordpps": "latest",
         "stews": "latest",
         "@napi-rs/canvas": "latest",
-        "heroku": "latest"
-    },
-    "engines": {
-        "node": "latest"
+        "node-fetch": "latest"
     },
     "main": "index.js"
 }
