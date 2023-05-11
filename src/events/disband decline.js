@@ -33,7 +33,7 @@ async function data(ctx) {
 
         let embed = new psc.Embed({
             title: `Clan Disbanding  🗑️`,
-            description: `${emojis.fail} ${clan.name} lives for another day!`,
+            description: `${emojis.fail} ${"`"+clan.name+"`"} lives for another day!`,
 
             footer: `( id: ${clan.id} )`,
 
