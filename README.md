@@ -1,5 +1,5 @@
 ---
-# Clam (WIP) <img style="float: left" height=45 src="https://raw.githubusercontent.com/nuttmegg/Clam/main/src/assets/images/icon_transparent.png">
+# Clam v2.0 (WIP) <img style="float: left" height=45 src="https://raw.githubusercontent.com/nuttmegg/Clam/main/src/assets/images/icon_transparent.png">
   <a href="https://discord.com/users/500714808912642048"><img src="https://img.shields.io/badge/Created%20by-nutmeg%236868-blue?style=flat&color=FF523A&logo=discord&logoColor=white" alt="created by nutmeg#6868"></a>
   <a href="https://www.heroku.com/"><img src="https://img.shields.io/badge/Powered%20by%20Heroku-6567a5?style=flat&color=6567a5&logo=heroku&logoColor=white" alt="powered by heroku"></a>
   <a href="https://github.com/nuttmegg/Clam/wiki"><img src="https://img.shields.io/badge/Documentation-clam?color=purple&logo=gitbook&logoColor=white" alt="documentation" /></a>
