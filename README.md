@@ -19,6 +19,7 @@
 - <a href="https://npmjs.com/package/stews"><img src="https://custom-icon-badges.demolab.com/badge/Stews-v1.6.5-orange.svg?logo=stew&logoColor=white" alt="stews version"></a>
 - <a href="https://npmjs.com/package/discordpps"><img src="https://img.shields.io/badge/discord+ps-v0.6.0-blue?style=flat&color=blue&logo=discord&logoColor=white" alt="discord+ps version" /></a>
 - <a href="https://npmjs.com/package/discord.js"><img src="https://img.shields.io/badge/discord.js-v14.11.0-blue?style=flat&color=7289da&logo=discord&logoColor=white" alt="discord.js version" /></a>
+- <a href="https://npmjs.com/package/@napi-rs/canvas"><img src="https://custom-icon-badges.demolab.com/badge/skr%20canvas-v0.1.40-orange?style=flat&color=orange&logoColor=white&logo=napirs" alt="skr canvas version" /></a>
     
 <br>
 
