@@ -18,7 +18,8 @@
         "discord.js": "latest",
         "discordpps": "latest",
         "stews": "latest",
-        "@napi-rs/canvas": "latest"
+        "@napi-rs/canvas": "latest",
+        "heroku": "latest"
     },
     "main": "./index.js"
 }
