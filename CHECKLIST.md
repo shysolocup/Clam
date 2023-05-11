@@ -48,6 +48,7 @@ Commands Checklist
 - [x] ~~shout~~
 - [x] ~~slots~~
 - [x] ~~steal~~
+- [ ] transfer
 - [x] ~~unban~~
 - [ ] use
 - [x] ~~uslots~~
