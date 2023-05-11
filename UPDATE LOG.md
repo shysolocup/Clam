@@ -1,7 +1,9 @@
 ## 05-11-23
 - updated README.md file
 - updated wiki pages
-- added command file transfer
+- added command !transfer
+- added events transfer accept and transfer decline
+- updated asset steal responses
 
 ## 05-10-23
 - updated cooldown messages to have the time left in them as a unix timestamp
