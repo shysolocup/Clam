@@ -5,6 +5,7 @@
 - updated wiki pages
 - added events transfer accept and transfer decline
 - updated asset steal responses
+- started setting up heroku stuff
 
 ## 05-10-23
 - updated cooldown messages to have the time left in them as a unix timestamp
