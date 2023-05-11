@@ -30,7 +30,7 @@ async function data(ctx, cmd) {
     var clans = Soup.from(require('../data/clans.json')); 
     var copy = clans.copy();
 
-    var changed = copy.length - clans.length;
+    var changed = Soup.from(copy[ctx.guild.id]).length - Soup.from(clans[ctx.guild.id]).length;
 
 
     /* gets the JSON data from the link */
