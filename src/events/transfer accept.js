@@ -43,7 +43,7 @@ async function data(ctx) {
 
         ctx.update({ embeds: [embed], components: [row] }).catch(e=>{});
 
-        clans.transer(clan.id, user.id, ctx.guild.id);
+        clans.transfer(clan.id, user.id, ctx.guild.id);
     }
 }
 
