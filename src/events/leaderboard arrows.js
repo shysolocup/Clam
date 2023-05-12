@@ -33,7 +33,7 @@ async function data(ctx) {
 		
 		if (name == "bigLeft") page = 1;
 		else if (name == "left") page = (page-1 <= 0) ? lb.pages-1 : page-1;
-		else if (name == "right") page = (page+1 > lb.pages) ? 0 : page+1;
+		else if (name == "right") page = (page+1 > lb.pages) ? 1 : page+1;
 		else if (name == "bigRight") page = lb.pages;
 
 
