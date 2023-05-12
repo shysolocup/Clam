@@ -21,7 +21,7 @@ Commands Checklist
 - [x] ~~dump~~
 - [x] ~~enemies~~
 - [x] ~~export~~
-- [ ] force
+- [x] ~~force~~
 - [ ] funds
 - [x] ~~get~~
 - [x] ~~getglobal~~
@@ -62,7 +62,7 @@ Update Checklist
 - [x] ~~change set to be !set (attr) (clanID) (value)~~
 - [x] ~~add an unlisted tag for clans~~
 - [x] ~~add admin help page~~
-- [ ] add forceban forceunban and forcekick
+- [x] ~~add forceban forceunban and forcekick~~
 - [x] ~~add the funds commands in the commands list~~
 - [x] ~~add the new sections for the help command~~
 - [x] ~~add the help button that lets you get a command's info by name with the select menu stuff~~
