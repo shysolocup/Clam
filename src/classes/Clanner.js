@@ -1,5 +1,5 @@
 const { Shout } = require('./Shout.js');
-const { Paged } = require('./Pagedjs');
+const { Paged } = require('./Paged.js');
 const { Soup } = require('stews');
 
 class Clanner {
