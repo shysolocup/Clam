@@ -1,4 +1,4 @@
-const { Soup } = require('stews');
+const { Soup } = require('./stews');
 
 class Paged {
     constructor(per, object) {
@@ -26,11 +26,12 @@ class Paged {
 
                     paged.contents.push( (obj.isPair()) ? Soup.from(Object) : Soup.from(Array) ); 
                     
-                    count = 0; 
+                    count = 0;
                 }
 
 
-                paged.contents[page].push( ...(obj.isPair()) ? obj.entries[i] : obj[i] );
+                if (obj.isPair()) paged.contents[page].push( ...obj.entries[i] );
+                else paged.contents[page].push( obj[i] );
 
                 paged.total += 1;
                 count += 1;
@@ -40,6 +41,5 @@ class Paged {
         return paged;
     }
 }
-
 
 module.exports = { Paged };
