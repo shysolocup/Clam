@@ -9,7 +9,6 @@ async function data(ctx) {
 		const { Econner, Catch } = require('../classes');
         let econner = new Econner();
 
-
 		/* handling */
 		if ( Catch( !infostuffs.has(ctx.message.id), { text: "Command timed out.", poster: ctx.reply.bind(ctx) }) ) return;
 
@@ -32,10 +31,10 @@ async function data(ctx) {
 		/* page handling */
 		let name = buttonID.split("clamLB/")[1];
 		
-		if (name == "bigLeft") page = 0;
-		else if (name == "left") page = (page-1 < 0) ? lb.pages-1 : page-1;
-		else if (name == "right") page = (page+1 > lb.pages-1) ? 0 : page+1;
-		else if (name == "bigRight") page = lb.pages-1;
+		if (name == "bigLeft") page = 1;
+		else if (name == "left") page = (page-1 <= 0) ? lb.pages-1 : page-1;
+		else if (name == "right") page = (page+1 > lb.pages) ? 0 : page+1;
+		else if (name == "bigRight") page = lb.pages;
 
 
         let guild = ctx.guild.name.split("");
@@ -62,11 +61,11 @@ async function data(ctx) {
 
             title: (section == "user") ? "Users Leaderboard" : "Clans Leaderboard",
             description: `${ (section == "user") ? 
-                ((userLB.total <= 0) ? "None" : `${userLB.content[page].join("\n")}\n** **`) : 
-                ((clanLB.total <= 0) ? "None" : `${clanLB.content[page].join("\n")}\n** **`)
+                ((userLB.total <= 0) ? "None" : `${userLB.page(page).join("\n")}\n** **`) : 
+                ((clanLB.total <= 0) ? "None" : `${clanLB.page(page).join("\n")}\n** **`)
 			}\n** **`,
 
-            footer: `Page ${page+1}/${ (section == "user") ? userLB.pages : clanLB.pages }`,
+            footer: `Page ${page}/${ (section == "user") ? userLB.pages : clanLB.pages }`,
 
             thumbnail: ctx.guild.iconURL(),
             color: colors.clam
@@ -74,7 +73,6 @@ async function data(ctx) {
 
 
         ctx.update({ embeds: [embed], components: [row] }).catch(e=>{});
-
         infostuffs.set(ctx.message.id, [user, section, page]);
     }
 }
