@@ -1,4 +1,5 @@
 const { Shout } = require('./Shout.js');
+const { Paged } = require('./Pagedjs');
 const { Soup } = require('stews');
 
 class Clanner {
@@ -182,36 +183,23 @@ class Clanner {
 	listify(guildID, includeUnlisted=false) {
 		var clans = this.in(guildID);
 
-		var list = new Soup({
-			pages: 1,
-			total: 0,
-			fields: new Soup([
-				[]
-			])
-		});
-
-		var page = 0;
-		var count = 0;
-
+		var fixed = new Soup();
 		for (let i = 0; i < clans.length; i++) {
 			var { emojis } = require('../assets');
 			let data = clans[i];
 
 			if (data.status != 3 || includeUnlisted) {
 				try {
-					if (!list.fields.get(page+1) && count >= 3) { page += 1; list.pages += 1; list.fields.push( [] ); count = 0; }
-
-					list.fields[page].push({
+					fixed.push({
 						name: `• ${data.name} ${ (data.gold) ? emojis.gold : "" } ( id: ${data.id} )`,
 						value: `** ** Owned by <@${data.owner}>\n** ** Members: ${ "`"+data.members.length+"`" }\n** ** ${this.status(data.status)}`
 					});
-
-					list.total += 1;
-					count += 1;
 				}
 				catch(e) {}
 			}
 		}
+
+		let list = new Paged(3, fixed);
 
 		return list;
 	}
