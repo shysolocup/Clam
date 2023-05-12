@@ -49,7 +49,7 @@ async function data(ctx, cmd) {
 
 	let a = await ctx.reply({ embeds: [embed], components: [row] }).catch(e=>{});
 
-    infostuffs.push(a.id, clan);
+    infostuffs.push(a.id, [clan, ctx.author.id] );
     setTimeout(() => infostuffs.delete(a.id), 21600000);
 }
 
