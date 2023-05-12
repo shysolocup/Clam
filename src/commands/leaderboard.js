@@ -3,6 +3,9 @@ var { colors, infostuffs } = require('../assets');
 var { Soup } = require('stews');
 
 async function data(ctx, cmd) {
+	const { Econner, Catch } = require('../classes');
+	let econner = new Econner();
+
 	if ( Catch( cmd.onCooldown, { 
 		head: `Woah there!  :face_with_spiral_eyes:`,
 		text: `You can use this command again ${ cmd.cooldown.relative }`,
@@ -10,10 +13,7 @@ async function data(ctx, cmd) {
 	}) ) return;
 
 
-	const { Econner, Catch } = require('../classes');
-	let econner = new Econner();
-
-	let page = 0;
+	let page = 1;
 	let section = "user";
 
 
@@ -46,19 +46,17 @@ async function data(ctx, cmd) {
 
 		title: (section == "user") ? "Users Leaderboard" : "Clans Leaderboard",
 		description: `${ (section == "user") ? 
-            ((userLB.total <= 0) ? "None" : `${userLB.content[page].join("\n")}\n** **`) : 
-            ((clanLB.total <= 0) ? "None" : `${clanLB.content[page].join("\n")}\n** **`)
+            ((userLB.total <= 0) ? "None" : `${userLB.page(page).join("\n")}\n** **`) : 
+            ((clanLB.total <= 0) ? "None" : `${clanLB.page(page).join("\n")}\n** **`)
 		}\n** **`,
 
-		footer: `Page ${page+1}/${ (section == "user") ? userLB.pages : clanLB.pages }`,
+		footer: `Page ${page}/${ (section == "user") ? userLB.pages : clanLB.pages }`,
 
 		thumbnail: ctx.guild.iconURL(),
 		color: colors.clam
 	});
 
-
 	let a = await ctx.reply({ embeds: [embed], components: [row] }).catch(e=>{});
-
 
 	infostuffs.push(a.id, [ctx.author, section, page]);
 	setTimeout(() => infostuffs.delete(a.id), 21600000);
