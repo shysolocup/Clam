@@ -1,3 +1,6 @@
+## 05-12-23
+- added class Paged
+
 ## 05-11-23
 - added command !transfer
 - added command !import
