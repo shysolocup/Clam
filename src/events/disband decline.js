@@ -13,14 +13,14 @@ async function data(ctx) {
         if ( Catch( !infostuffs.has(ctx.message.id), { text: "Command timed out.", poster: ctx.reply.bind(ctx) }) ) return;
 
             
-        let clan = infostuffs.get(ctx.message.id);
+        let [ clan, user ] = infostuffs.get(ctx.message.id);
         var clans = new Clanner();
 		
         
         /* more handling */
         if (
             Catch( !clans.has(clan.id), { text: "Clan has been deleted or altered.", poster: ctx.reply.bind(ctx) }) ||
-            Catch( clan.owner != ctx.member.id, { text: "That's not for you. :angry:", poster: ctx.reply.bind(ctx) })
+            Catch( ctx.member.id != user.id, { text: "That's not for you. :angry:", poster: ctx.reply.bind(ctx) })
         ) return;
         
         
