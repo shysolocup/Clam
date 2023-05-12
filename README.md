@@ -5,7 +5,7 @@
   <a href="https://github.com/nuttmegg/Clam/wiki"><img src="https://img.shields.io/badge/Documentation-clam?color=purple&logo=gitbook&logoColor=white" alt="documentation" /></a>
   <a href="https://discord.com/api/oauth2/authorize?client_id=1050917862233100508&permissions=414733167680&scope=bot"><img src="https://img.shields.io/badge/Invite%20to%20server-7289da?style=flat&color=7289da&logo=discord&logoColor=white" alt="invite to server"></a>
   
-**A Discord bot letting you create and manage groups of people in a server with a fully customizable clan system, economy, minigames, and items that can give roles.**
+**A Discord bot letting you create and manage groups of people in a server with a fully customizable clan system, economy, minigames, and items with attached roles.**
 <br><br>
     
 - 50+ commands
