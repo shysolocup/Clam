@@ -1,4 +1,5 @@
 const { Clanner } = require('./Clanner.js');
+const { Paged } = require('./Paged.js');
 const { Soup } = require('stews');
 
 class Econner {
@@ -121,45 +122,28 @@ class Econner {
             hands = hands.filter( (v) => { return members.includes(v[0]); });
         }
 
+
         var sorted = Soup.from(Object.fromEntries(hands.sort( (a, b) => { return b[1] - a[1] })));
 
-        var list = new Soup({
-			pages: 1,
-			total: 0,
-            raw: sorted,
-			content: new Soup([
-				[]
-			])
-		});
 
-        var page = 0;
-		var count = 0;
-
+        var fixed = new Soup();
         for (let i = 0; i < sorted.length; i++) {
-			var { pearl, pearlify } = require('../assets');
+            var { pearl, pearlify } = require('../assets');
 			let [ id, bal ] = sorted.entries[i];
+
             let rank = this.rank(sorted.indexOf(id)+1);
 
             let user = await psc.fetchUser(id);
             let name = Soup.from(user.username);
             if (name.length > 15) {
-                name.scoop( (_, i) => { return i > 15; });
-                name.set(15, "...");
+                name.scoop( (_, i) => { return i > 15; }); name.set(15, "...");
             }
             name = `[${name.join("")}](https://discord.com/users/${id})`;
 
-            try {
-                if (!list.content.get(page+1) && count >= 10) { page += 1; list.pages += 1; list.content.push( [] ); count = 0; }
+            fixed.push( `${ (userID && user.id == userID) ? "**" : "" }${rank}:**  **${name}**  **•**  **${"`"+pearl}${pearlify(bal)+"`"}${ (userID && user.id == userID) ? "**" : "" }` );
+        }
 
-                list.content[page].push(
-                    `${ (userID && user.id == userID) ? "**" : "" }${rank}:**  **${name}**  **•**  **${"`"+pearl}${pearlify(bal)+"`"}${ (userID && user.id == userID) ? "**" : "" }`
-                );
-
-                list.total += 1;
-                count += 1;
-            }
-            catch(e) {}
-		}
+        var list = new Paged(10, fixed);
 
         return list.pour();
 	}
@@ -170,20 +154,11 @@ class Econner {
 
         if (guildID) clans = clans.filter( (v) => { return v[1].guild == guildID });
 
+        
         var sorted = Soup.from(Object.fromEntries(clans.sort( (a, b) => { return b[1].funds - a[1].funds })));
 
-        var list = new Soup({
-			pages: 1,
-			total: 0,
-            raw: sorted,
-			content: new Soup([
-				[]
-			])
-		});
 
-        var page = 0;
-		var count = 0;
-
+        var fixed = new Soup();
         for (let i = 0; i < sorted.length; i++) {
 			var { pearl, pearlify } = require('../assets');
 			let [ id, clan ] = sorted.entries[i];
@@ -197,18 +172,10 @@ class Econner {
             }
             name = name.join("");
 
-			try {
-				if (!list.content.get(page+1) && count >= 10) { page += 1; list.pages += 1; list.content.push( [] ); count = 0; }
-
-				list.content[page].push(
-					`${ (userID && clan.owner == userID) ? "**" : "" }${rank}:**  **${name} (${ "`"+clan.id+"`" })**  **•**  **${"`"+pearl}${pearlify(clan.funds)+"`"}${ (userID && clan.owner == userID) ? "**" : "" }`
-				);
-
-				list.total += 1;
-				count += 1;
-			}
-			catch(e) {}
+            fixed.push( `${ (userID && clan.owner == userID) ? "**" : "" }${rank}:**  **${name} (${ "`"+clan.id+"`" })**  **•**  **${"`"+pearl}${pearlify(clan.funds)+"`"}${ (userID && clan.owner == userID) ? "**" : "" }` );
 		}
+
+        var list = new Paged(10, fixed);
 
         return list.pour();
 	}
