@@ -16,7 +16,7 @@ async function data(ctx) {
 
 		/* stuff */
 		var [ user, section, page ] = infostuffs.get(ctx.message.id);
-        page = 0;
+        page = 1;
 
 
 		/* more handling */
@@ -55,11 +55,11 @@ async function data(ctx) {
 
             title: (section == "user") ? "Users Leaderboard" : "Clans Leaderboard",
             description: `${ (section == "user") ? 
-                ((userLB.total <= 0) ? "None" : `${userLB.content[page].join("\n")}\n** **`) : 
-                ((clanLB.total <= 0) ? "None" : `${clanLB.content[page].join("\n")}\n** **`)
+                ((userLB.total <= 0) ? "None" : `${userLB.page(page).join("\n")}\n** **`) : 
+                ((clanLB.total <= 0) ? "None" : `${clanLB.page(page).join("\n")}\n** **`)
 			}\n** **`,
 
-            footer: `Page ${page+1}/${ (section == "user") ? userLB.pages : clanLB.pages }`,
+            footer: `Page ${page}/${ (section == "user") ? userLB.pages : clanLB.pages }`,
 
             thumbnail: ctx.guild.iconURL(),
             color: colors.clam
