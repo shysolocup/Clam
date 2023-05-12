@@ -29,7 +29,7 @@ async function data(ctx, cmd) {
 		/* page handling */
 		if (name == "bigLeft") page = 1;
 		else if (name == "left") page = (page-1 <= 0) ? list.pages : page-1;
-		else if (name == "right") page = (page+1 > list.pages) ? 0 : page+1;
+		else if (name == "right") page = (page+1 > list.pages) ? 1 : page+1;
 		else if (name == "bigRight") page = list.pages;
 		
 		
