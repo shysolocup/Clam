@@ -16,7 +16,7 @@ async function data(ctx, cmd) {
 	var list = clans.listify(ctx.guild.id);
     var disabled = list.total <= 0;
 
-	var page = 0;
+	var page = 1;
 	
 	
 	/* buttons */
@@ -57,12 +57,12 @@ async function data(ctx, cmd) {
         title: `Clans in ${ctx.guild.name}`,
 		description: `There ${ (list.total == 1) ? "is" : "are" } ${list.total} ${ (list.total == 1) ? "clan" : "clans" } in this server`,
 
-		fields: list.fields[page],
+		fields: list.page(page),
 
 		color: colors.clam,
 
         thumbnail: ctx.guild.iconURL(),
-		footer: `Page ${page+1}/${list.pages}`
+		footer: `Page ${page}/${list.pages}`
     });
 
 	
