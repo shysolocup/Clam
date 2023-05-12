@@ -1,5 +1,8 @@
 ## 05-12-23
 - added class Paged
+- updated commands !list !listall and !leaderboard
+- updated classes Clanner and Econner
+- added command insides for easier storing of some larger commands like !force and !item
 
 ## 05-11-23
 - added command !transfer
