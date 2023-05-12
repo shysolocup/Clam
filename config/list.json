@@ -51,7 +51,7 @@
 		"Administrator": [
 			{ "name": "export", "args": [], "aliases": [], "desc": "Sends a JSON file with all clans in a server" },
 			{ "name": "import", "args": ["file"], "aliases": [], "desc": "Replaces all clans in a server with those from a JSON file" },
-			{ "name": "listall", "args": [], "aliases": [], "desc": "Gets a list of all clans including unlisted ones" },
+			{ "name": "listall", "args": [], "aliases": ["viewall"], "desc": "Gets a list of all clans including unlisted ones" },
 			{ "name": "force", "args": ["management/moderation command", "(Optional user/clanID/attr)", "(Optional clanID/content)", "(Optional value)"], "aliases": [], "desc": "Forcibly alters clan related things" },
 			{ "name": "funds", "args": ["give/take/set", "amount", "clanID"], "aliases": [], "desc": "Editor for clan funds" },
 			{ "name": "gold", "args": ["clanID", "(Optional true/false)"], "aliases": [], "desc": "Sets a clan's gold status (gold gives 50-500 more pearls if user is in the clan)" }
