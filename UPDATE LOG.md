@@ -3,6 +3,8 @@
 - updated commands !list !listall and !leaderboard
 - updated classes Clanner and Econner
 - added command insides for easier storing of some larger commands like !force and !item
+- added command !force
+- updated stuff.js to add a vary function that idk if I'll ever use but whatever
 
 ## 05-11-23
 - added command !transfer
