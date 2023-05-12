@@ -27,10 +27,10 @@ async function data(ctx, cmd) {
 
 
 		/* page handling */
-		if (name == "bigLeft") page = 0;
-		else if (name == "left") page = (page-1 < 0) ? list.pages-1 : page-1;
-		else if (name == "right") page = (page+1 > list.pages-1) ? 0 : page+1;
-		else if (name == "bigRight") page = list.pages-1;
+		if (name == "bigLeft") page = 1;
+		else if (name == "left") page = (page-1 <= 0) ? list.pages : page-1;
+		else if (name == "right") page = (page+1 > list.pages) ? 0 : page+1;
+		else if (name == "bigRight") page = list.pages;
 		
 		
 		/* buttons */
@@ -71,18 +71,20 @@ async function data(ctx, cmd) {
 			title: `Clans in ${ctx.guild.name}`,
 			description: `There ${ (list.total == 1) ? "is" : "are" } ${list.total} ${ (list.total == 1) ? "clan" : "clans" } in this server`,
 
-			fields: list.fields[page],
+			fields: list.page(page),
 
 			color: colors.clam,
 
 			thumbnail: ctx.guild.iconURL(),
-			footer: `Page ${page+1}/${list.pages}`
+			footer: `Page ${page}/${list.pages}`
 		});
+		
 		
 		ctx.update({ embeds: [embed], components: [row] } ).catch(e=>{});
 
 		infostuffs.set(ctx.message.id, [user, page]);
 	}
 }
+
 
 psc.buttonAction(data);
