@@ -1,4 +1,4 @@
-const { Soup } = require('./stews');
+const { Soup } = require('stews');
 
 class Paged {
     constructor(per, object) {
