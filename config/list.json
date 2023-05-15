@@ -42,10 +42,10 @@
 			{ "name": "inventory", "args": ["(Optional user)"], "aliases": ["inv"], "desc": "Sends someone's inventory" },
 			{ "name": "leaderboard", "args": [], "aliases": ["lb"], "desc": "Shows the top earnings for the server's clans and users" },
 			{ "name": "shop", "args": [], "aliases": ["store"], "desc": "Sends the shop page for the server" },
-			{ "name": "buy", "args": ["item", "(Optional amount)"], "aliases": [], "desc": "Buys an item for pearls" },
+			{ "name": "buy", "args": ["item", "(Optional clanID/amount)", "(Optional amount)"], "aliases": [], "desc": "Buys an item for pearls" },
 			{ "name": "sell", "args": ["item", "(Optional amount)"], "aliases": [], "desc": "Sells an item for pearls" },
 			{ "name": "use", "args": ["item"], "aliases": [], "desc": "Uses a bought item" },
-			{ "name": "item", "args": ["create/delete/set", "attr/clanID", "attr/name", "(Optional value)"], "aliases": [], "desc": "Editor for clan items" }
+			{ "name": "item", "args": ["create/delete/edit", "attr/clanID", "attr/name", "(Optional value)"], "aliases": [], "desc": "Editor for clan items" }
 		],
 		
 		"Administrator": [
