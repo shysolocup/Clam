@@ -11,7 +11,7 @@ class Inventory {
         
         inv.dump('./src/data/inventories.json', null, 4);
 
-        
+
         return this;
     }
 }
