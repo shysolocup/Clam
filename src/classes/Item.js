@@ -1,40 +1,114 @@
+const { Paged } = require('./Paged.js');
 const { Soup } = require('stews');
-const { ItemTemplate } = require('./ItemTemplate.js');
 
-class Item {
-    constructor(ctx, clanID, name=null) {
-        var items = Soup.from(require('../data/shops.json'));
+class Invenner {
+	get all() {
+		return Soup.from(require('../data/inventories.json'));
+	}
 
-        var contents = new ItemTemplate(ctx, clanID, name);
+	in(guildID) {
+		return Soup.from(require('../data/inventories.json')[guildID]);
+	}
 
-        if (!items.has(ctx.guild.id)) items.push(ctx.guild.id, new Soup(Object));
-        var parentGuild = Soup.from(items.get(ctx.guild.id));
-	    
-	    if (!parentGuild.has(clanID)) parentGuild.push(clanID, new Soup(Object));
-	    var parent = Soup.from(parentGuild.get(clanID));
+	every() {
+		let stuff = new Soup(Object);
 
-        if (!parent.has(contents.name)) parent.push(contents.name, contents),
-        
-        items.dump('./src/data/shops.json', null, 4);
+		let invs = Soup.from(require('../data/inventories.json'));
 
-        contents.forEach( (key, value) => {
-            this[key] = value;
-        });
+		invs.forEach( (guildID, guild) => {
+			Soup.from(guild).forEach( (k, v) => {
+				stuff.push(`${guildID}/${k}`, v);
+			});
+		});
+		
+		return stuff;
+	}
 
-        return new Proxy(this, ItemProxyHandler());
-    }
-}
+	fetch(id, guildID=null) {
+		let invs = Soup.from(require('../data/inventories.json'));
 
-function ItemProxyHandler() {
-    return {
-        get(target, prop) {
-            return target[prop];
-        },
-		set(target, prop, value) {
-			target[prop] = value;
-			return true;
+		var stuff;
+		if (guildID) {
+			let guild = Soup.from(invs.get(guildID));
+			guild.forEach( (userID, items) => {
+				if (userID == id) stuff = items;
+			});
 		}
-    }
+		else {
+			invs.forEach( (gID, gD) => {
+				Soup.from(gD).forEach( (userID, items) => {
+					if (userID == id) stuff = items;
+				});
+			});
+		}
+		
+		return Soup.from(stuff);
+	}
+
+
+	set(userID, value, guildID) {
+		var invs = Soup.from(require('../data/inventories.json'));
+
+		invs[guildID][userID] = value;
+		invs.dump('./src/data/inventories.json', null, 4);
+	}
+
+
+	delete(userID, guildID) {
+		var invs = Soup.from(require('../data/inventories.json'));
+
+		delete invs[guildID][userID];
+		invs.dump('./src/data/inventories.json', null, 4);
+	}
+
+	add(itemID, userID, guildID) {
+		var invs = Soup.from(require('../data/inventories.json'));
+
+		invs[guildID][userID].push(itemID);
+
+		invs.dump('./src/data/inventories.json', null, 4);
+	}
+
+	remove(itemID, userID, guildID) {
+		var invs = Soup.from(require('../data/inventories.json'));
+
+		var stuff = Soup.from(invs[guildID][userID]);
+		delete stuff[itemID];
+
+		invs[guildID][userID] = stuff.pour();
+
+		invs.dump('./src/data/inventories.json', null, 4);
+	}
+
+	give(itemID, sender, receiver, guildID) {
+		this.remove(itemID, sender, guildID);
+		this.add(itemID, receiver, guildID);
+	}
+
+	owns(itemID, userID, guildID) {
+		let inv = this.fetch(userID, guildID);
+		return inv.includes(itemID);
+	}
+	
+	has(id, guildID=null) {
+		return this.fetch(id, guildID).length > 0;
+	}
+	
+	count(guildID=null) {
+		var invs = Soup.from(require('../data/inventories.json'));
+		let stuff = (guildID) ? Soup.from(invs[guildID]) : invs.values;
+		stuff = stuff.map( (v) => {
+			return Object.keys(v);
+		}).flat();
+
+		return stuff.length;
+	}
+
+	list(id, guildID) {
+		var inv = this.fetch(id, guildID);
+		let list = new Paged(5, inv);
+		return list;
+	}
 }
 
-module.exports = { Item };
+module.exports = { Invenner };
