@@ -2,6 +2,9 @@
 - added classes Inventory and Invenner
 - added .gitignore
 - started working on the inventory system will probably take a bit
+- renamed items.json to shops.json
+- updated class Item
+- added class Shopper
 
 ## 05-12-23
 - added class Paged
