@@ -76,8 +76,10 @@ Update Checklist
 <br>
 
 Economy Update Checklist
-- [ ] !shop is like list but it shows all default items then clan items
+- [ ] !buy item clanID/amount (Optional amount)
 - [ ] !buy gives pearls if item is from a clan
+- [ ] shops have guild items created by admins and clans have items created by operators. guild items should have guild as null or whatever it is for json I forgot
+- [ ] !shop is like list but it shows all guild items then clan items
 - [ ] !item create (id) (name)
 - [ ] !item remove (id) (name)
 - [ ] !item set (attr) (id) (value)
@@ -89,29 +91,56 @@ Economy Update Checklist
 - [x] ~~actually add crime~~
 <br>
 
+shops.json
+```json
+{
+    "guildID": {
+        "clanID 1": ["itemID 1", "itemID 2"],
+        "clanID 2": ["itemID 3", "itemID 4"]
+    }
+}
+```
 items.json
 ```json
 {
     "guildID": {
-        "clanID": {
-            "item name": {
-                "name": "item name",
-                "description": "item description",
-                "creator": "creatorID",
-                "guild": "guildID",
-                "clan": "clanID",
-                "roles": {
-                    "add": [
-                        "roleID 1",
-                        "roleID 2"
-                    ],
-                    "remove": [
-                        "roleID 3",
-                        "roleID 4"
-                    ]
-                },
-                "price": 0
-            }
+        "itemID 1": {
+            "id": "itemID 1",
+            "name": "item name",
+            "description": "item description",
+            "creator": "creatorID",
+            "guild": "guildID",
+            "clan": null,
+            "roles": {
+                "add": [
+                    "roleID 1",
+                    "roleID 2"
+                ],
+                "remove": [
+                    "roleID 3",
+                    "roleID 4"
+                ]
+            },
+            "price": 0
+        },
+        "itemID 2": {
+            "id": "itemID 2",
+            "name": "item name",
+            "description": "item description",
+            "creator": "creatorID",
+            "guild": "guildID",
+            "clan": "clanID",
+            "roles": {
+                "add": [
+                    "roleID 1",
+                    "roleID 2"
+                ],
+                "remove": [
+                    "roleID 3",
+                    "roleID 4"
+                ]
+            },
+            "price": 0
         }
     }
 }
@@ -119,10 +148,10 @@ items.json
 inventories.json
 ```json
 {
-    "userID": [
-        "clanID/item name 1",
-        "clanID/item name 2"
-    ]
+    "guildID": {
+        "userID 1": ["itemID 1", "itemID 2"],
+        "userID 2": ["itemID 3", "itemID 4"]
+    }
 }
 ```
 <br>
