@@ -1,3 +1,8 @@
+## 05-15-23
+- added classes Inventory and Invenner
+- added .gitignore
+- started working on the inventory system will probably take a bit
+
 ## 05-12-23
 - added class Paged
 - updated commands !list !listall and !leaderboard
