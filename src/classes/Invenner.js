@@ -80,6 +80,11 @@ class Invenner {
 		invs.dump('./src/data/inventories.json', null, 4);
 	}
 
+	give(itemID, sender, receiver, guildID) {
+		this.remove(itemID, sender, guildID);
+		this.add(itemID, receiver, guildID);
+	}
+
 	owns(itemID, userID, guildID) {
 		let inv = this.fetch(userID, guildID);
 		return inv.includes(itemID);
@@ -105,5 +110,6 @@ class Invenner {
 		return list;
 	}
 }
+
 
 module.exports = { Invenner };
