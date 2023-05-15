@@ -19,7 +19,8 @@
 			{ "name": "transfer", "args": ["clanID", "user"], "aliases": [], "desc": "Deletes a clan" },
 			{ "name": "allies", "args": ["clanID", "add/remove", "clanIDs"], "aliases": ["alliances"], "desc": "Editor for a clan's allies" },
 			{ "name": "enemies", "args": ["clanID", "add/remove", "clanIDs"], "aliases": ["rivalries", "rivals"], "desc": "Editor for a clan's enemies" },
-			{ "name": "settings", "args": ["clanID", "(Optional setting)"], "aliases": [], "desc": "Gets a clan's settings" }
+			{ "name": "settings", "args": ["clanID", "(Optional setting)"], "aliases": [], "desc": "Gets a clan's settings" },
+			{ "name": "item", "args": ["create/delete/edit", "attr/clanID", "attr/name", "(Optional value)"], "aliases": [], "desc": "Editor for clan items" }
 		],
   
 		"Moderation": [
@@ -34,7 +35,7 @@
 			{ "name": "balance", "args": ["(Optional user)"], "aliases": ["bal"], "desc": "Sends someone's pearl balance" },
 			{ "name": "work", "args": [], "aliases": [], "desc": "Lets you gain pearls" },
 			{ "name": "deposit", "args": ["clanID", "amount"], "aliases": ["dep"], "desc": "Deposits pearls into a clan" },
-			{ "name": "withdraw", "args": ["clanID", "amount"], "aliases": [], "desc": "Removes pearls from a clan YOU OWN" },
+			{ "name": "withdraw", "args": ["clanID", "amount"], "aliases": ["with"], "desc": "Removes pearls from a clan YOU OWN" },
 			{ "name": "give", "args": ["user", "amount"], "aliases": ["donate", "don"], "desc": "Gives a user pearls" },
 			{ "name": "steal", "args": ["user"], "aliases": [], "desc": "Steals pearls from a user" },
 			{ "name": "slots", "args": ["bet"], "aliases": ["slot"], "desc": "A slot machine that can multiply your bet by up to 10x" },
@@ -44,8 +45,7 @@
 			{ "name": "shop", "args": [], "aliases": ["store"], "desc": "Sends the shop page for the server" },
 			{ "name": "buy", "args": ["item", "(Optional clanID/amount)", "(Optional amount)"], "aliases": [], "desc": "Buys an item for pearls" },
 			{ "name": "sell", "args": ["item", "(Optional amount)"], "aliases": [], "desc": "Sells an item for pearls" },
-			{ "name": "use", "args": ["item"], "aliases": [], "desc": "Uses a bought item" },
-			{ "name": "item", "args": ["create/delete/edit", "attr/clanID", "attr/name", "(Optional value)"], "aliases": [], "desc": "Editor for clan items" }
+			{ "name": "use", "args": ["item"], "aliases": [], "desc": "Uses a bought item" }
 		],
 		
 		"Administrator": [
