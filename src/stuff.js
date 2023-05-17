@@ -16,6 +16,7 @@ class ID {
 
 function vary(thing, obj) {
     var stuff = [];
+	
 	if (obj[thing]) {
         stuff.push( obj[thing] );
 	}
@@ -25,9 +26,12 @@ function vary(thing, obj) {
     else if (obj[typeof thing]) {
         stuff.push( obj[typeof thing] );
     }
-
+	else if (obj["default"]) {
+		stuff.push( obj["default"] );
+	}
+	
     stuff.push(thing);
-
+	
     return (stuff[0] instanceof Function) ? stuff[0].bind(stuff[1])() : stuff[0];
 }
 
