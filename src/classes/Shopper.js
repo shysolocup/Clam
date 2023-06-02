@@ -89,4 +89,4 @@ class Shopper {
 	}
 }
 
-module.exports = { Invenner };
+module.exports = { Shopper };
