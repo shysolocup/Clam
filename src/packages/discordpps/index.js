@@ -1,4 +1,4 @@
-/* :: Discord+PS :: Version 0.6.0 | 05/10/23 :: */
+/* :: Discord+PS :: Version 0.6.0 | 05/02/23 :: */
 
 /* :: Created by nutmeg using :: *//*
 	- Stews: https://github.com/nuttmegg/stews
@@ -119,9 +119,6 @@ class PSClient {
 		}
 		
 		var [name, aliases] = [info.name, info.aliases];
-
-		var raw = Math.abs( this.time.parse(info.cooldown)*1000 + (Date.now()) )
-		var relative = this.time.set.relative(raw);
 		
 		if (info.cooldown && typeof info.cooldown == "number") { var time = info.cooldown; }
 		else if (info.cooldown && typeof info.cooldown == "string") { var time = this.time.parse(info.cooldown); }
@@ -141,10 +138,21 @@ class PSClient {
     			data: new Set(),
     			active: true,
     			time: time,
-				relative: relative,
-				raw: raw,
+				
+				get relative() {
+					var [psc, client, ctx] = Holder;
+					let now = parseInt(psc.time.now.relative.split(":")[1]);
+					let raw = Math.abs( info.cooldown.time + parseInt(now) );
+					return `<t:${raw}:R>`;
+				},
+				
+				get raw() {
+					var [psc, client, ctx] = Holder;
+					let now = parseInt(psc.time.now.relative.split(":")[1]);
+					return Math.abs( info.cooldown.time + parseInt(now) );
+				},
     			
-    			handle: function(user=null) {
+    			handle(user=null) {
 					var [psc, client, ctx] = Holder;
 
 					user = (user) ? user : ctx.author;
@@ -156,7 +164,7 @@ class PSClient {
         			}
     			},
     			
-    			fetch: function(user=null) {
+    			fetch(user=null) {
 					var [psc, client, ctx] = Holder;
 					return (this.data.has( (user) ? user.id : ctx.author.id )) ? true : false;
     			}
@@ -1618,6 +1626,5 @@ class Button {
 		return obj;
 	}
 }
-
 
 module.exports = { PSClient, Embed, ActionRow, Row, Button, Selection, SelectMenu, Stew, Soup };
