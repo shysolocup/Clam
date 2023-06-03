@@ -2,7 +2,7 @@ const { AttachmentBuilder } = require('discord.js');
 const Canvas = require('@napi-rs/canvas');
 
 var { psc, bot } = require('../../index.js');
-var { colors, emojis } = require('../assets');
+var { colors, emojis, isDev, caps} = require('../assets');
 var { Clanner, Catch } = require('../classes');
 const { Soup } = require('stews');
 
@@ -111,7 +111,7 @@ async function data(ctx, cmd) {
         value = value.split(" ")[0];
 
         if (
-            Catch( !clan.ops.includes(ctx.author.id) && clan.owner != ctx.author.id, { text: "You have to have operator to ban users." }) ||
+            Catch( !psc.author.hasPermissions(["admin"]) && !isDev(ctx.author.id), { post: false }) ||
             Catch( clans.has(value, ctx.guild.id), { text: "This server already has a clan with that id." })
         ) return;
 
@@ -119,6 +119,20 @@ async function data(ctx, cmd) {
         rawEmbed.description = `${emojis.success} Set clan id to ${"`"+value+"`"}`;
         rawEmbed.footer = `( old id: ${id} )`;
         id = value;
+    }
+
+	// funds
+    else if (attr.toLowerCase() == "funds") {
+        var clan = clans.fetch(id);
+
+        if (
+            Catch( !psc.author.hasPermissions(["admin"]) && !isDev(ctx.author.id), { post: false }) ||
+            Catch( !(parseInt(value)+1), { text: "Value has to be a number."}) ||
+			Catch( parseInt(value) > caps.max || parseInt(value) < caps.min, { text: "Value passes the max/min caps."})
+        ) return;
+
+        clans.set(id, "funds", parseInt(value), ctx.guild.id);
+        rawEmbed.description = `${emojis.success} Set clan funds to ${"`"+value+"`"}`;
     }
 
     // color
@@ -371,5 +385,6 @@ async function data(ctx, cmd) {
 	else if (rawEmbed.icon) clans.set(id, "icon", stuff.image.url, ctx.guild.id);
 	else if (rawEmbed.banner) clans.set(id, "banner", stuff.image.url, ctx.guild.id);
 }
+
 
 psc.command({ name: "set", aliases: ["edit"], cooldown: "3s" }, data);
