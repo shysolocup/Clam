@@ -20,6 +20,7 @@ Commands Checklist
 - [x] ~~disband~~
 - [x] ~~dump~~
 - [x] ~~enemies~~
+- [x] ~~exec~~ 
 - [x] ~~export~~
 - [x] ~~flip~~ 
 - [x] ~~force~~
