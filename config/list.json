@@ -40,7 +40,7 @@
 			{ "name": "steal", "args": ["user"], "aliases": [], "desc": "Steals pearls from a user" },
 			{ "name": "slots", "args": ["bet"], "aliases": ["slot"], "desc": "A slot machine that can multiply your bet by up to 10x" },
 			{ "name": "uslots", "args": ["bet"], "aliases": ["uslot"], "desc": "The ultimate slot machine that can multiply your bet by up to x1000 but winning it is extremely rare" },
-			{ "name": "flip", "args": ["side", "bet"], "aliases": ["coinflip"], "desc": "Flips a coin and if you guess it right then it'll give you x2 what you bet." },
+			{ "name": "flip", "args": ["side", "bet"], "aliases": ["coinflip"], "desc": "Flips a coin and if you guess it right then it'll give you up to x5 what you bet." },
 			{ "name": "inventory", "args": ["(Optional user)"], "aliases": ["inv"], "desc": "Sends someone's inventory" },
 			{ "name": "leaderboard", "args": [], "aliases": ["lb"], "desc": "Shows the top earnings for the server's clans and users" },
 			{ "name": "shop", "args": [], "aliases": ["store"], "desc": "Sends the shop page for the server" },
