@@ -39,7 +39,6 @@ async function data(ctx, cmd) {
 	
 	/* mult and bet formatting */
 	let mult = random.choice([2, 3, 4, 5]);
-
 	if (bet.toLowerCase() == "all") bet = bal;
 	bet = parseInt(bet);
 
@@ -73,7 +72,6 @@ async function data(ctx, cmd) {
 			econner.addHand(amount, ctx.author.id);
 		}
 	}
-		
 	else {
 		rawEmbed.footer = `YOU LOSE! Better luck next time  -${pearl}${pearlify(bet)}`;
 		rawEmbed.color = colors.fail;
@@ -90,7 +88,6 @@ async function data(ctx, cmd) {
 	}
 
 	let embed = new psc.Embed(rawEmbed);
-
 	ctx.reply({ embeds: [embed] }).catch(e=>{});
 }
 
