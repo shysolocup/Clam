@@ -35,7 +35,7 @@ async function data(ctx, cmd) {
 
 	
 	/* mult and bet formatting */
-	let mult = random.choice([100, 200, 300, 400, 500, 1000]);
+	let mult = random.choice([100, 200, 300]);
 
 	if (bet.toLowerCase() == "all") bet = bal;
 	bet = parseInt(bet);
