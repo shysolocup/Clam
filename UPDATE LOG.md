@@ -1,3 +1,9 @@
+## 06-02-23
+- added command !flip
+- fixed a bug with disband
+- updated cooldowns to actually work correctly hopefully
+- added coin emojis to assets for command flip
+
 ## 05-15-23
 - added classes Inventory and Invenner
 - added .gitignore
