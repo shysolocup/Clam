@@ -3,6 +3,7 @@
 - fixed a bug with disband
 - updated cooldowns to actually work correctly hopefully
 - added coin emojis to assets for command flip
+- updated leaderboard sorting for Stews 1.6.6
 
 ## 05-15-23
 - added classes Inventory and Invenner
