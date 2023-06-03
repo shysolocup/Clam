@@ -34,8 +34,9 @@ async function data(ctx, cmd) {
 	) return;
 
 	
-	/* mult and bet formatting */
-	let mult = random.choice([100, 200, 300]);
+	/* gold amp mult and bet formatting */
+	let goldAmp = random.choice([50, 50, 50, 50, 100, 100, 100, 200, 200, 300]);
+	let mult = random.choice([2, 3, 4, 5]);
 
 	if (bet.toLowerCase() == "all") bet = bal;
 	bet = parseInt(bet);
@@ -47,7 +48,8 @@ async function data(ctx, cmd) {
 	) return;
 
 
-	let amount = bet+mult;
+	let amount = bet * mult;
+	amount += goldAmp;
 	
 	
 	/* embed stuff */
@@ -57,7 +59,7 @@ async function data(ctx, cmd) {
 
 
 	if (rand.toLowerCase() == side.toLowerCase()) {
-		rawEmbed.footer = `YOU WIN! Your bet was added +${mult}   +${pearl}${pearlify(amount)}`;
+		rawEmbed.footer = `YOU WIN! Your bet was added +${goldAmp}   +${pearl}${pearlify(amount)}`;
 		rawEmbed.color = colors.success;
 
 		if (bal+amount >= caps.max) {
@@ -69,8 +71,7 @@ async function data(ctx, cmd) {
 		else {
 			econner.addHand(amount, ctx.author.id);
 		}
-	}
-		
+	}	
 	else {
 		rawEmbed.footer = `YOU LOSE! Better luck next time  -${pearl}${pearlify(bet)}`;
 		rawEmbed.color = colors.fail;
@@ -90,6 +91,5 @@ async function data(ctx, cmd) {
 
 	ctx.reply({ embeds: [embed] }).catch(e=>{});
 }
-
 
 psc.command({ name: "flip", aliases: ["coinflip"], cooldown: "3s"}, data);
