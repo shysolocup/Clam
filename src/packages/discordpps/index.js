@@ -1,4 +1,4 @@
-/* :: Discord+PS :: Version 0.6.0 | 05/02/23 :: */
+/* :: Discord+PS :: Version 0.6.0 | 06/02/23 :: */
 
 /* :: Created by nutmeg using :: *//*
 	- Stews: https://github.com/nuttmegg/stews
@@ -100,8 +100,21 @@ class PSClient {
 		this.globalCooldown.time = time
 		this.globalCooldown.timestamp = this.time.set.relative( Math.abs(this.time.parse(time)*1000 + (Date.now())) );
 		this.globalCooldown.active = true;
-		this.globalCooldown.raw = raw;
-		this.globalCooldown.relative = relative;
+
+		Object.defineProperties(this.globalCooldown, {
+			relative: { get() {
+				var [psc, client, ctx] = Holder;
+				let now = parseInt(psc.time.now.relative.split(":")[1]);
+				let raw = Math.abs( time + parseInt(now) );
+				return `<t:${raw}:R>`;
+			}},
+			
+			raw: { get() {
+				var [psc, client, ctx] = Holder;
+				let now = parseInt(psc.time.now.relative.split(":")[1]);
+				return Math.abs( time + parseInt(now) );
+			}}
+		});
 	}
 	
 	deleteCooldown() {
@@ -1626,5 +1639,6 @@ class Button {
 		return obj;
 	}
 }
+
 
 module.exports = { PSClient, Embed, ActionRow, Row, Button, Selection, SelectMenu, Stew, Soup };
