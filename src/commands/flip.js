@@ -37,8 +37,7 @@ async function data(ctx, cmd) {
 	) return;
 
 	
-	/* gold amp mult and bet formatting */
-	let goldAmp = random.choice([50, 50, 50, 50, 100, 100, 100, 200, 200, 300]);
+	/* mult and bet formatting */
 	let mult = random.choice([2, 3, 4, 5]);
 
 	if (bet.toLowerCase() == "all") bet = bal;
@@ -52,7 +51,6 @@ async function data(ctx, cmd) {
 
 
 	let amount = bet * mult;
-	amount += goldAmp;
 	
 	
 	/* embed stuff */
@@ -62,7 +60,7 @@ async function data(ctx, cmd) {
 
 
 	if (rand.toLowerCase() == side.toLowerCase()) {
-		rawEmbed.footer = `YOU WIN! Your bet was added +${goldAmp}   +${pearl}${pearlify(amount)}`;
+		rawEmbed.footer = `YOU WIN! Your bet was multiplied by x${mult}   +${pearl}${pearlify(amount)}`;
 		rawEmbed.color = colors.success;
 
 		if (bal+amount >= caps.max) {
