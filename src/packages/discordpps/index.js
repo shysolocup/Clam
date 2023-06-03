@@ -1241,6 +1241,13 @@ class PSClient {
 			}
 		}
 		noSlowmode(channel=null) { return this.removeSlowmode(channel); }
+
+		async messages(channel=null, limit=100) {
+			var [psc, client, ctx] = Holder;
+			
+			if (!channel) return Soup.from(await ctx.channel.messages.fetch({ limit: limit }));
+			else return Soup.from(await channel.members.fetch({ limit: limit }));
+		}
 	}
 
 	/* users and permissions */
