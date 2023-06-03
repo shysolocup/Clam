@@ -2,7 +2,7 @@ const { AttachmentBuilder } = require('discord.js');
 const Canvas = require('@napi-rs/canvas');
 
 var { psc, bot } = require('../../index.js');
-var { colors, emojis, isDev, caps} = require('../assets');
+var { colors, emojis, isDev, caps, pearl } = require('../assets');
 var { Clanner, Catch } = require('../classes');
 const { Soup } = require('stews');
 
@@ -132,7 +132,7 @@ async function data(ctx, cmd) {
         ) return;
 
         clans.set(id, "funds", parseInt(value), ctx.guild.id);
-        rawEmbed.description = `${emojis.success} Set clan funds to ${"`"+value+"`"}`;
+        rawEmbed.description = `${emojis.success} Set clan funds to ${"`"+pearl+value+"`"}`;
     }
 
     // color
