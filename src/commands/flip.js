@@ -16,13 +16,16 @@ async function data(ctx, cmd) {
 		time: cmd.cooldown.time
 	}) ) return;
 
-	
-	let rand = random.choice(["Heads", "Tails"]);
-	
-	
+
 	/* handling */
 	let side = cmd.args[0];
 	let bet = formatify(cmd.args[1]);
+
+	if (!side.endsWith("s")) side += "s";
+
+	let rand = random.choice(["Heads", "Tails"]);
+
+	
 	if (econner.has(ctx.author.id)) var bal = econner.fetchHand(ctx.author.id);
 	if (
 		Catch( !side, { text: "Please put a side to bet on. (`heads` or `tails`)"} ) ||
@@ -71,7 +74,8 @@ async function data(ctx, cmd) {
 		else {
 			econner.addHand(amount, ctx.author.id);
 		}
-	}	
+	}
+		
 	else {
 		rawEmbed.footer = `YOU LOSE! Better luck next time  -${pearl}${pearlify(bet)}`;
 		rawEmbed.color = colors.fail;
@@ -91,5 +95,6 @@ async function data(ctx, cmd) {
 
 	ctx.reply({ embeds: [embed] }).catch(e=>{});
 }
+
 
 psc.command({ name: "flip", aliases: ["coinflip"], cooldown: "3s"}, data);
