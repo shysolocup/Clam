@@ -1,4 +1,4 @@
-/* :: Discord+PS :: Version 0.6.0 | 06/02/23 :: */
+/* :: Discord+PS :: Version 0.6.0 | 06/03/23 :: */
 
 /* :: Created by nutmeg using :: *//*
 	- Stews: https://github.com/nuttmegg/stews
@@ -668,6 +668,10 @@ class PSClient {
 	
 	fetchGuild(id) { if (!id) return null; let guild = this.client.guilds.fetch(id).catch(e=>{}); return (!guild) ? null : guild; }
 
+	fetchMessage(id, channel=null) { if (!id) return null; var [psc, client, ctx] = Holder; let message = (channel) ? channel.messages.fetch(id).catch(e=>{}) : ctx.channel.messages.fetch(id).catch(e=>{}); return (!message) ? null : message; }
+
+	fetchReply(message=null) { var [psc, client, ctx] = Holder; let msg = (message) ? message : ctx; let reply = (msg.reference) ? msg.channel.messages.fetch(msg.reference.messageId).catch(e=>{}) : null; return (!reply) ? null : reply; }
+	
 	parseEmoji(emoji) { 
 		if (!emoji) return null;
 		var emojiInfo = {};
