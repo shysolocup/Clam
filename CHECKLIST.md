@@ -21,6 +21,7 @@ Commands Checklist
 - [x] ~~dump~~
 - [x] ~~enemies~~
 - [x] ~~export~~
+- [x] ~~flip~~ 
 - [x] ~~force~~
 - [ ] funds
 - [x] ~~get~~
