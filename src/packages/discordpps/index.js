@@ -1,4 +1,4 @@
-/* :: Discord+PS :: Version 0.6.0 | 06/03/23 :: */
+/* :: Discord+PS :: Version 0.6.0 | 06/09/23 :: */
 
 /* :: Created by nutmeg using :: *//*
 	- Stews: https://github.com/nuttmegg/stews
@@ -8,6 +8,7 @@
 const { ActivityType } = require('discord.js');
 const voice = require('@discordjs/voice');
 const { Stew, Soup, random } = require('stews');
+var fs = require('fs');
 
 
 String.prototype.colorFormat = function() {
@@ -58,6 +59,14 @@ class PSClient {
     setClient(client) {
         this.client = client;
     }
+
+	path(path, ignore=["ignore.js"]) {
+		const files = fs.readdirSync(path).filter(file => (file.endsWith('.js') && !ignore.includes(file) ));
+
+		files.forEach( (file) => {
+			require(`${path}/${file}`);
+		});
+	}
     
     
     /* variables */
