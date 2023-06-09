@@ -60,12 +60,9 @@ class PSClient {
         this.client = client;
     }
 
-	path(path, ignore=["ignore.js"]) {
+	path(path, action=(file) => { require(`${path}/${file}`) }, ignore=["ignore.js"]) {
 		let files = fs.readdirSync(path).filter(file => (file.endsWith('.js') && !ignore.includes(file) ));
-
-		files.forEach( (file) => {
-			require(`${path}/${file}`);
-		});
+		files.forEach(action);
 	}
     
     
@@ -1659,6 +1656,5 @@ class Button {
 		return obj;
 	}
 }
-
 
 module.exports = { PSClient, Embed, ActionRow, Row, Button, Selection, SelectMenu, Stew, Soup };
