@@ -122,9 +122,8 @@ class Econner {
             hands = hands.filter( (v) => { return members.includes(v[0]); });
         }
 
-
-        var sorted = Soup.from(Object.fromEntries(hands.sort( (a, b) => { return b[1] - a[1] })));
-
+		let stuff = Soup.fromEntries(hands);
+		var sorted = stuff.sortBy(stuff.values, (a, b) => { return b - a });
 
         var fixed = new Soup();
         for (let i = 0; i < sorted.length; i++) {
@@ -158,8 +157,9 @@ class Econner {
 
         if (guildID) clans = clans.filter( (v) => { return v[1].guild == guildID });
 
-        
-        var sorted = Soup.from(Object.fromEntries(clans.sort( (a, b) => { return b[1].funds - a[1].funds })));
+        let stuff = Soup.fromEntries(clans);
+		let values = stuff.values.map( (v) => { return v.funds });
+		var sorted = stuff.sortBy(values, (a, b) => { return b - a });
 
 
         var fixed = new Soup();
