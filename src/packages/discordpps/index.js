@@ -61,7 +61,7 @@ class PSClient {
     }
 
 	path(path, ignore=["ignore.js"]) {
-		const files = fs.readdirSync(path).filter(file => (file.endsWith('.js') && !ignore.includes(file) ));
+		let files = fs.readdirSync(path).filter(file => (file.endsWith('.js') && !ignore.includes(file) ));
 
 		files.forEach( (file) => {
 			require(`${path}/${file}`);
