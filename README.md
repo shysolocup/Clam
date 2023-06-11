@@ -1,6 +1,6 @@
 ---
 # Clam v2.0 (WIP) <img style="float: left" height=45 src="https://raw.githubusercontent.com/nuttmegg/Clam/main/src/assets/images/icon_transparent.png">
-  <a href="https://discord.com/users/500714808912642048"><img src="https://img.shields.io/badge/Created_by-nutmeg_droid-blue?style=flat&color=FF523A&logo=discord&logoColor=white" alt="created by nutmeg_droid"></a>
+  <a href="https://discord.com/users/500714808912642048"><img src="https://img.shields.io/badge/Created_by-nutmeg─droid-blue?style=flat&color=FF523A&logo=discord&logoColor=white" alt="created by nutmeg_droid"></a>
   <a href="https://www.replit.com/"><img src="https://img.shields.io/badge/Powered_by_Replit-0F1726?style=flat&color=0F1726&logo=replit" alt="powered by heroku"></a>
   <a href="https://github.com/nuttmegg/Clam/wiki"><img src="https://img.shields.io/badge/Documentation-clam?color=purple&logo=gitbook&logoColor=white" alt="documentation" /></a>
   <a href="https://discord.com/api/oauth2/authorize?client_id=1050917862233100508&permissions=414733167680&scope=bot"><img src="https://img.shields.io/badge/Invite_to_server-7289da?style=flat&color=7289da&logo=discord&logoColor=white" alt="invite to server"></a>
