@@ -16,7 +16,7 @@
     },
     "dependencies": {
         "discord.js": "latest",
-        "discordpps": "latest",
+        "nuttmegg/psc": "latest",
         "stews": "latest",
         "@napi-rs/canvas": "latest",
         "node-fetch": "latest"
