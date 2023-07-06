@@ -17,7 +17,7 @@
     
 ### Created using:
   - <a href="https://npmjs.com/package/stews"><img height=27 src="https://custom-icon-badges.demolab.com/badge/Stews-v1.6.5-orange.svg?logo=stew&logoColor=white" alt="stews version"></a>
-  - <a href="https://npmjs.com/package/discordpps"><img height=21 src="https://img.shields.io/badge/discord+ps-v0.6.0-blue?style=flat&color=blue&logo=discord&logoColor=white" alt="discord+ps version" /></a>
+  - <a href="https://github.com/paigeroid/paiges-psc-kit"><img height=19 src="https://img.shields.io/badge/paige's_psc_kit-v1.0.0-blue?style=flat&color=blue&logo=discord&logoColor=white" alt="ppk version" /></a>
   - <a href="https://npmjs.com/package/discord.js"><img src="https://img.shields.io/badge/discord.js-v14.11.0-blue?style=flat&color=7289da&logo=discord&logoColor=white" alt="discord.js version" /></a>
   - <a href="https://npmjs.com/package/@napi-rs/canvas"><img src="https://custom-icon-badges.demolab.com/badge/skr_canvas-v0.1.40-orange?style=flat&color=orange&logoColor=white&logo=napirs" alt="skr canvas version" /></a>
     
