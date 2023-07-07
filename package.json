@@ -1,7 +1,7 @@
 {
     "name": "clam",
     "version": "2.0.0",
-    "author": "nutmeg",
+    "author": "paigeroid",
     "description": "A Discord bot letting you create and manage groups of people in a server",
     "repository": {
         "type": "git",
